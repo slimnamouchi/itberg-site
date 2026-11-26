@@ -32,10 +32,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def end_headers(self):
         path = self.path.split("?")[0]
+        # Comme Firebase : une règle plus bas dans firebase.json remplace un en-tête de même nom.
+        headers = {}
         for rule in RULES:
             if match(rule["source"], path):
                 for h in rule["headers"]:
-                    self.send_header(h["key"], h["value"])
+                    headers[h["key"].lower()] = (h["key"], h["value"])
+        for key, value in headers.values():
+            self.send_header(key, value)
         super().end_headers()
 
     def log_message(self, *a):
