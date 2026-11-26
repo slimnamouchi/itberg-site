@@ -88,7 +88,7 @@ glob_headers = {}
 # Exception documentée : les 3 pages Assistant font tourner un modèle d'IA dans le navigateur (WebLLM).
 # Elles ont exactement la CSP du site, plus WebAssembly ('wasm-unsafe-eval') et le téléchargement
 # du modèle depuis Hugging Face. Rien d'autre n'est accepté.
-ASSISTANT_SOURCE = "/@(assistant|en/assistant|ar/assistant)"
+ASSISTANT_SOURCE = "**/assistant*"
 ASSISTANT_EXTRA = {"script-src": ["'wasm-unsafe-eval'"], "connect-src": ["https://huggingface.co", "https://*.huggingface.co", "https://*.hf.co"]}
 assistant_rule = None
 for rule in cfg["hosting"].get("headers", []):

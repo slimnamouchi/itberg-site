@@ -56,7 +56,7 @@
         ]
       },
       {
-        "source": "/@(assistant|en/assistant|ar/assistant)",
+        "source": "**/assistant*",
         "headers": [
           {
             "key": "Content-Security-Policy",
