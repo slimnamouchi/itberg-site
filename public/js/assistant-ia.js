@@ -1,4 +1,4 @@
-/* ITBerg · IA locale de l'assistant (pages /assistant, /en/assistant, /ar/assistant seulement).
+/* ITBerg · IA générative locale, en démonstration (pages /demo-ia, /en/ai-search-demo, /ar/ai-search-demo seulement).
    Un petit modèle de langage (Qwen2.5 1,5B, WebLLM) tourne dans le navigateur, sur la carte graphique (WebGPU).
    - Il n'est téléchargé qu'à la demande du visiteur, après un message clair (≈ 1 Go, depuis Hugging Face),
      puis gardé dans le cache du navigateur. La question, elle, ne quitte jamais l'appareil.
