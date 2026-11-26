@@ -1,11 +1,6 @@
-/* ITBerg · Démo de recherche locale.
+/* ITBerg · Démo de recherche locale (version de démonstration, catalogue fictif).
    Tout se passe dans ce fichier, dans votre navigateur : aucune requête n'est envoyée,
    aucun modèle n'est téléchargé, rien n'est enregistré.
-   Principe (le même que dans EasyFind) :
-     1. normaliser le texte (minuscules, accents, variantes de l'alif, tâ marbouta…) ;
-     2. ramener français, arabe et arabizi à une « forme pivot » commune, faite des consonnes ;
-     3. relier les mots des trois écritures par un petit lexique ;
-     4. tolérer les fautes avec une distance d'édition.
    Compatible avec une CSP stricte et Trusted Types : aucune évaluation de texte ni écriture de HTML brut. */
 (function () {
   "use strict";
@@ -76,8 +71,6 @@
   function tokenize(s) {
     return normalize(s).split(/[^\p{L}\p{N}]+/u).filter(Boolean);
   }
-  // Arabe → consonnes latines. Les voyelles longues (ا و ي), la hamza, le ع et la tâ marbouta disparaissent,
-  // comme les voyelles de l'arabizi : c'est ce qui rend les deux écritures comparables.
   var AR_MAP = { "ب": "b", "پ": "b", "ت": "t", "ث": "t", "ط": "t", "ج": "j", "ح": "h", "ه": "h", "خ": "X", "د": "d", "ذ": "d", "ض": "d", "ظ": "d",
     "ر": "r", "ز": "z", "س": "s", "ص": "s", "ش": "C", "غ": "G", "ف": "f", "ڥ": "f", "ق": "k", "ڨ": "g", "ك": "k", "ل": "l", "م": "m", "ن": "n" };
   function pivotArabic(w) {
@@ -346,7 +339,7 @@
       script: { ar: "arabe", arabizi: "arabizi", latin: "latin", derja: "derja" },
       pivot: "pivot : ", stop: "mot de liaison ou d’intention, mis de côté", unknown: "absent du lexique : comparé directement aux titres",
       city: "lieu reconnu : ", intent: "intention : ", exact: function (l) { return "mot du lexique (" + l + ")"; },
-      same: function (w, l) { return "même forme pivot que « " + w + " » (" + l + ")"; }, start: function (w) { return "début de « " + w + " »"; },
+      same: function (w, l) { return "même mot que « " + w + " » (" + l + ")"; }, start: function (w) { return "début de « " + w + " »"; },
       near: function (w, d) { return "proche de « " + w + " », " + d + (d > 1 ? " lettres" : " lettre") + " d’écart"; },
       type: "Tapez une recherche, ou choisissez un exemple.", traceEmpty: "Le détail de l’analyse s’affiche ici, mot par mot.",
       found: "Trouvé grâce à : ", title: "mot du titre", garde: "service de garde",
@@ -358,7 +351,7 @@
       script: { ar: "Arabic", arabizi: "Arabizi", latin: "Latin", derja: "derja" },
       pivot: "pivot: ", stop: "filler or intent word, set aside", unknown: "not in the lexicon: compared directly with titles",
       city: "place recognised: ", intent: "intent: ", exact: function (l) { return "lexicon word (" + l + ")"; },
-      same: function (w, l) { return "same pivot form as “" + w + "” (" + l + ")"; }, start: function (w) { return "beginning of “" + w + "”"; },
+      same: function (w, l) { return "same word as “" + w + "” (" + l + ")"; }, start: function (w) { return "beginning of “" + w + "”"; },
       near: function (w, d) { return "close to “" + w + "”, " + d + (d > 1 ? " letters" : " letter") + " apart"; },
       type: "Type a search, or pick an example.", traceEmpty: "The step-by-step analysis shows up here, word by word.",
       found: "Matched on: ", title: "title word", garde: "out-of-hours service",
@@ -370,7 +363,7 @@
       script: { ar: "عربية", arabizi: "عربيزي", latin: "لاتينية", derja: "دارجة" },
       pivot: "المحور: ", stop: "كلمة ربط أو نيّة، وُضعت جانبًا", unknown: "غير موجودة في المعجم: قورنت مباشرة بالعناوين",
       city: "مكان معروف: ", intent: "النيّة: ", exact: function (l) { return "كلمة من المعجم (" + l + ")"; },
-      same: function (w, l) { return "نفس الشكل المحوري لـ«" + w + "» (" + l + ")"; }, start: function (w) { return "بداية «" + w + "»"; },
+      same: function (w, l) { return "الكلمة نفسها «" + w + "» (" + l + ")"; }, start: function (w) { return "بداية «" + w + "»"; },
       near: function (w, d) { return "قريبة من «" + w + "»، بفارق " + d + (d > 1 ? " حروف" : " حرف"); },
       type: "اكتب بحثًا، أو اختر مثالًا.", traceEmpty: "يظهر هنا تحليل الطلب، كلمة بكلمة.",
       found: "وُجد بفضل: ", title: "كلمة من العنوان", garde: "خدمة ليلية",
@@ -437,7 +430,6 @@
         var head = el("span", "trace-word");
         head.appendChild(el("b", null, s.token));
         head.appendChild(el("span", "trace-script", U.script[s.script] || s.script));
-        if (s.kind !== "stop" && s.key) head.appendChild(el("code", "trace-key", U.pivot + s.key));
         li.appendChild(head);
         li.appendChild(el("span", "trace-what", describe(s)));
         trace.appendChild(li);

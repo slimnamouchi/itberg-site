@@ -144,6 +144,17 @@ Si GitHub Actions n'est pas disponible :
 
 Règle d'honnêteté : pas de client, de chiffre ou de témoignage inventés. Si une information manque, écrivez `<mark class="todo">[À COMPLÉTER]</mark>`.
 
+## L'assistant du site
+
+Le bouton « Une question ? » en bas de chaque page ouvre l'assistant ITBerg (page d'explication : `/assistant`, `/en/assistant`, `/ar/assistant`).
+
+- Il ne sait que ce qui est écrit sur le site : `scripts/build_assistant_index.py` découpe les pages publiques en passages et écrit `public/assistant/fr.json`, `en.json` et `ar.json`. Les publications (aperçu et production) le relancent automatiquement ; lancez-le vous-même après avoir modifié un texte si vous voulez tester en local.
+- Il tourne dans le navigateur, sans modèle de langage ni serveur : la question n'est jamais envoyée, rien n'est enregistré.
+- Ses garde-fous et ses textes (FR/EN/AR) sont dans `js/main.js`, bloc « Assistant ITBerg » : refus du hors-sujet, des tentatives de changer ses règles et des demandes d'attaque, alerte si on lui écrit une donnée personnelle, « je ne sais pas » quand aucun passage n'est assez proche, et lien « Parler à un humain » toujours visible.
+- Pour qu'une question trouve la bonne réponse, le plus efficace est d'avoir sur le site une question de FAQ formulée comme vos clients la posent.
+- Pour masquer le bouton sur une page, ajoutez la classe `no-assistant` à son `<body>`.
+- **IA générative locale (démonstration)**, sur les 3 pages Démo IA seulement (`/demo-ia`, `/en/ai-search-demo`, `/ar/ai-search-demo`), l'assistant y est intégré : sous une réponse, un bouton fait reformuler les passages trouvés par un petit modèle (Qwen2.5 1,5B via WebLLM, `js/assistant-ia.js`). Le modèle (≈ 1 Go) est téléchargé depuis Hugging Face après accord du visiteur ; la bibliothèque (`js/vendor/`) et le module WebGPU (`assistant/modele/`) sont servis par itberg.tn. Ces pages ont une CSP à part (les pages Assistant gardent la CSP stricte) dans `firebase.json` (CSP du site + `'wasm-unsafe-eval'` + Hugging Face), contrôlée par `check_site.py` et `check_headers.py`. Pour changer de version de WebLLM, remplacez les deux fichiers ensemble.
+
 ## Les trois langues
 
 - Le français est la langue principale (adresses sans préfixe). L'anglais est sous `/en`, l'arabe sous `/ar` (`<html lang="ar" dir="rtl">`, la mise en page se retourne toute seule).
@@ -153,7 +164,7 @@ Règle d'honnêteté : pas de client, de chiffre ou de témoignage inventés. Si
 
 ## Bon à savoir
 
-- Statistiques de visite : GoatCounter, sans cookie, donc pas de bandeau cookies. Le compte est à créer (voir SEO.md). Le réglage se trouve à la fin de `js/main.js`.
+- Statistiques de visite : GoatCounter, sans cookie, donc pas de bandeau cookies. Le compte est à créer (voir SEO.md). Le réglage se trouve dans `js/main.js` (bloc « Mesure d'audience GoatCounter »).
 - Référencement et moteurs IA : toute la checklist est dans **SEO.md** (Search Console, Bing, IndexNow, liens entrants).
 - Une politique de sécurité stricte (CSP) est appliquée par `firebase.json` : n'ajoutez pas d'autre script externe (Google Analytics, polices Google…) sans la modifier, sinon il sera bloqué. C'est voulu. Seul GoatCounter est autorisé.
 - Les fichiers CSS/JS/images sont gardés en cache 24 h par les navigateurs : après une modification de `style.css`, un visiteur peut voir l'ancienne version pendant un jour au plus.

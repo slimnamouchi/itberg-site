@@ -595,3 +595,70 @@ pre.code code { background: none; padding: 0; font-size: inherit; color: inherit
 /* « clip » au lieu de « hidden » : coupe les débordements sans empêcher le dessin de rester collé à l'écran. */
 .hero { overflow: clip; }
 .demo-teaser { margin-block-start: 1.25rem; color: var(--muted); }
+
+/* ---------- Assistant ITBerg (js/main.js) : bouton flottant + panneau, ou intégré sur /assistant ---------- */
+.asst-launch { position: fixed; z-index: 70; inset-block-end: max(1rem, env(safe-area-inset-bottom, 0px)); inset-inline-end: max(1rem, env(safe-area-inset-right, 0px)); display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3.25rem; min-width: 3.25rem; padding: .6rem 1.15rem .6rem .95rem; border-radius: 999px; border: 0; background: linear-gradient(90deg, var(--glacier), var(--aurora)); color: var(--night); font: inherit; font-weight: 750; cursor: pointer; box-shadow: 0 10px 28px -8px rgba(2, 10, 20, .55), 0 0 0 1px color-mix(in srgb, var(--night) 25%, transparent); transition: transform .15s ease; }
+@media (max-width: 639px) { .asst-launch { padding: 0; } .asst-launch span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
+.asst-launch:hover { transform: translateY(-2px); }
+.asst-launch:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.asst-launch[hidden] { display: none; }
+.asst-icon { width: 1.4rem; height: 1.4rem; flex: none; }
+.asst-i-bubble { fill: none; stroke: var(--night); stroke-width: 1.8; stroke-linejoin: round; }
+.asst-i-tip { fill: var(--night); }
+.has-asst .site-footer { padding-block-end: 5.5rem; }
+
+.asst { display: flex; flex-direction: column; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.asst[hidden] { display: none; }
+.asst:not(.asst-inline) { position: fixed; z-index: 70; inset-inline: 0; inset-block-end: 0; height: min(85dvh, 40rem); border-radius: 20px 20px 0 0; box-shadow: 0 -10px 40px -10px rgba(2, 10, 20, .55); }
+@media (min-width: 640px) {
+  .asst:not(.asst-inline) { inset-inline: auto max(1rem, env(safe-area-inset-right, 0px)); inset-block-end: max(1rem, env(safe-area-inset-bottom, 0px)); width: 25rem; height: min(80dvh, 38rem); border-radius: var(--radius); box-shadow: 0 20px 50px -15px rgba(2, 10, 20, .6); }
+}
+.asst-inline { min-height: 32rem; max-height: 44rem; box-shadow: 0 20px 50px -25px rgba(2, 10, 20, .45); }
+.asst-head { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; padding: .9rem 1rem .8rem; background: linear-gradient(180deg, var(--night), var(--night-2)); color: var(--on-night); }
+.asst-title { margin: 0; font-weight: 800; font-size: 1.05rem; color: var(--on-night); }
+.asst-sub { margin: .15rem 0 0; font-size: .85rem; color: var(--on-night-muted); line-height: 1.4; }
+.asst-close { flex: none; width: 2.75rem; height: 2.75rem; margin: -.4rem; border: 0; border-radius: 999px; background: transparent; color: var(--on-night); font-size: 1.7rem; line-height: 1; cursor: pointer; }
+.asst-close:hover { background: color-mix(in srgb, var(--on-night) 12%, transparent); }
+.asst-close:focus-visible { outline: 3px solid var(--glacier); outline-offset: -3px; }
+.asst-log { position: relative; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; padding: 1rem; display: flex; flex-direction: column; gap: .75rem; background: var(--band-1); }
+.asst-msg { max-width: 92%; padding: .7rem .9rem; border-radius: 14px; font-size: .95rem; line-height: 1.5; overflow-wrap: anywhere; }
+.asst-msg p { margin: 0; }
+.asst-msg > * + * { margin-block-start: .55rem; }
+.asst-user { align-self: flex-end; background: var(--accent); color: var(--accent-fg); border-end-end-radius: 4px; }
+.asst-bot { align-self: flex-start; background: var(--card); border: 1px solid var(--line); border-end-start-radius: 4px; }
+.asst-bot a { color: var(--accent); font-weight: 650; }
+.asst-wait { color: var(--muted); font-style: italic; }
+.asst-from { font-size: .85rem; color: var(--muted); }
+.asst-from strong { color: var(--fg); }
+.asst-quote { margin-inline: 0; padding: .5rem .8rem; border-inline-start: 3px solid var(--accent); background: var(--band-2); border-radius: 0 8px 8px 0; }
+[dir="rtl"] .asst-quote { border-radius: 8px 0 0 8px; }
+.asst-note { font-size: .82rem; color: var(--muted); }
+.asst-src a { font-size: .9rem; }
+.asst-also p { font-size: .85rem; color: var(--muted); }
+.asst-also ul { margin: .2rem 0 0; padding-inline-start: 1.1rem; font-size: .9rem; }
+.asst-chips { margin: .4rem 0 0; }
+.asst-chips .chip { font-size: .85rem; min-height: 2.75rem; }
+.asst-cta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
+.asst-under { font-size: .82rem; color: var(--muted); border-block-start: 1px dashed var(--line); padding-block-start: .45rem; }
+.asst-under summary { cursor: pointer; font-weight: 650; color: var(--accent); min-height: 1.5rem; }
+.asst-under dl { display: grid; gap: .3rem; margin: .45rem 0 0; }
+.asst-under dt { font-weight: 650; color: var(--fg); }
+.asst-under dd { margin: 0; overflow-wrap: anywhere; }
+.asst-form { display: flex; gap: .5rem; padding: .75rem; border-block-start: 1px solid var(--line); background: var(--bg); }
+.asst-form input { flex: 1 1 auto; min-width: 0; min-height: 2.9rem; padding: .5rem .9rem; font: inherit; font-size: 1rem; color: var(--fg); background: var(--card); border: 2px solid var(--line); border-radius: 12px; }
+.asst-form input:focus-visible { border-color: var(--accent); outline-offset: 1px; }
+.asst-send { min-height: 2.9rem; padding-inline: 1.1rem; }
+.asst-foot { margin: 0; padding: 0 .9rem .7rem; font-size: .85rem; color: var(--muted); background: var(--bg); }
+.asst-foot a { color: var(--accent); font-weight: 650; }
+.asst-human { white-space: nowrap; }
+@media print { .asst, .asst-launch { display: none !important; } }
+/* IA locale (pages Assistant, js/assistant-ia.js) */
+.asst-ia { display: grid; gap: .45rem; padding-block-start: .5rem; border-block-start: 1px dashed var(--line); }
+.asst-ia-btn { justify-self: start; }
+.asst-ia-note, .asst-ia-label { font-size: .85rem; color: var(--muted); }
+.asst-ia-status { font-size: .85rem; color: var(--muted); font-style: italic; }
+.asst-ia-progress { width: 100%; height: .5rem; accent-color: var(--accent); }
+.asst-ia-text { padding: .5rem .8rem; border-inline-start: 3px solid var(--mark-star); background: var(--band-2); border-radius: 0 8px 8px 0; white-space: pre-wrap; }
+.asst-ia-stop { justify-self: start; }
+.asst-ia-srctitle { font-size: .85rem; font-weight: 650; }
+.asst-ia-sources { margin: 0; padding-inline-start: 1.4rem; font-size: .88rem; }

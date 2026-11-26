@@ -14,12 +14,12 @@ const { execFileSync } = require("child_process");
 const PORT = 8080;
 const PUB = path.join(__dirname, "public");
 
-// Une page par modèle et par langue, et toutes les démos.
+// Une page par modèle et par langue, toutes les démos et l'assistant.
 const PAGES_CLES = [
   "/", "/solutions", "/ia", "/contact", "/blog", "/blog/ia-souveraine-agents-guides",
-  "/securite-du-site", "/demo-ia", "/piege-agent",
-  "/en", "/en/solutions", "/en/contact", "/en/ai-search-demo", "/en/trap-the-agent",
-  "/ar", "/ar/solutions", "/ar/report-a-vulnerability", "/ar/ai-search-demo", "/ar/trap-the-agent",
+  "/securite-du-site", "/demo-ia", "/piege-agent", "/assistant",
+  "/en", "/en/solutions", "/en/contact", "/en/ai-search-demo", "/en/trap-the-agent", "/en/assistant",
+  "/ar", "/ar/solutions", "/ar/report-a-vulnerability", "/ar/ai-search-demo", "/ar/trap-the-agent", "/ar/assistant",
 ];
 
 function toutesLesPages() {
