@@ -85,11 +85,20 @@ for f in sorted(glob.glob(os.path.join(PUB, "**", "*.js"), recursive=True)):
 # En-têtes de sécurité de firebase.json : la politique ne doit jamais s'affaiblir.
 cfg = json.load(open(os.path.join(PUB, "..", "firebase.json"), encoding="utf-8"))
 glob_headers = {}
+# Exception documentée : les 3 pages Assistant font tourner un modèle d'IA dans le navigateur (WebLLM).
+# Elles ont exactement la CSP du site, plus WebAssembly ('wasm-unsafe-eval') et le téléchargement
+# du modèle depuis Hugging Face. Rien d'autre n'est accepté.
+ASSISTANT_SOURCE = "**/assistant*"
+ASSISTANT_EXTRA = {"script-src": ["'wasm-unsafe-eval'"], "connect-src": ["https://huggingface.co", "https://*.huggingface.co", "https://*.hf.co"]}
+assistant_rule = None
 for rule in cfg["hosting"].get("headers", []):
     if rule["source"] == "**":
         glob_headers = {h["key"].lower(): h["value"] for h in rule["headers"]}
     elif any(h["key"].lower() == "content-security-policy" for h in rule["headers"]):
-        problems.append(f"firebase.json : CSP redéfinie pour {rule['source']} ; documentez l'exception dans scripts/check_site.py")
+        if rule["source"] == ASSISTANT_SOURCE:
+            assistant_rule = rule
+        else:
+            problems.append(f"firebase.json : CSP redéfinie pour {rule['source']} ; documentez l'exception dans scripts/check_site.py")
 required = {
     "strict-transport-security": r"max-age=(\d+)",
     "x-content-type-options": r"^nosniff$",
@@ -123,6 +132,20 @@ for directive, values in csp.items():
     for v in values:
         if v in ("'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'", "*", "data:", "blob:", "http:", "https:") or v.startswith("http://"):
             problems.append(f"firebase.json : {v} interdit dans {directive}")
+
+if assistant_rule:
+    a_csp = {}
+    for part in next(h["value"] for h in assistant_rule["headers"] if h["key"].lower() == "content-security-policy").split(";"):
+        words = part.split()
+        if words:
+            a_csp[words[0]] = words[1:]
+    want = {k: v + ASSISTANT_EXTRA.get(k, []) for k, v in csp.items()}
+    if a_csp != want:
+        problems.append("firebase.json : la CSP des pages Assistant doit être celle du site plus seulement 'wasm-unsafe-eval' et Hugging Face")
+    if len(assistant_rule["headers"]) != 1:
+        problems.append("firebase.json : la règle des pages Assistant ne doit redéfinir que la CSP")
+    if cfg["hosting"]["headers"].index(assistant_rule) < [r["source"] for r in cfg["hosting"]["headers"]].index("**"):
+        problems.append("firebase.json : la règle des pages Assistant doit venir après la règle « ** »")
 
 # security.txt (RFC 9116) : la date « Expires » doit rester dans le futur.
 import datetime

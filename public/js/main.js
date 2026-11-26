@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gOk: "injection : non · données personnelles : non · hors sujet : non",
       names: { fr: "français", en: "anglais", ar: "arabe" },
       otherLang: { en: "Réponse tirée des pages en anglais.", ar: "Réponse tirée des pages en arabe.", fr: "" },
-      mailSubject: "Question depuis l’assistant du site", mailAsk: "Envoyer ma question à l’équipe",
+      mailSubject: "Question depuis l’assistant du site", iaLink: "Faire rédiger une réponse par l’IA locale →", mailAsk: "Envoyer ma question à l’équipe",
       notFound: "Je n’ai pas trouvé de réponse fiable à cette question sur le site, et je préfère ne pas inventer. Reformulez avec d’autres mots, ou posez-la directement à l’équipe :",
       offTopic: "Je réponds seulement aux questions sur ITBerg : IA souveraine et agents, applications mobiles, sécurité, et la façon dont nous travaillons. Pour le reste, je ne suis pas la bonne source.",
       noGen: "Je ne rédige pas de texte et je n’invente rien : je retrouve des réponses dans les pages de ce site. Posez-moi une question sur nos services, ou confiez votre demande à l’équipe.",
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gOk: "injection: no · personal data: no · off topic: no",
       names: { fr: "French", en: "English", ar: "Arabic" },
       otherLang: { fr: "Answer taken from the French pages.", ar: "Answer taken from the Arabic pages.", en: "" },
-      mailSubject: "Question from the site assistant", mailAsk: "Send my question to the team",
+      mailSubject: "Question from the site assistant", iaLink: "Have the local AI write an answer →", mailAsk: "Send my question to the team",
       notFound: "I could not find a reliable answer to this question on the site, and I would rather not make one up. Try other words, or ask the team directly:",
       offTopic: "I only answer questions about ITBerg: sovereign AI and agents, mobile apps, security, and how we work. For anything else, I am not the right source.",
       noGen: "I don’t write text and I don’t make things up: I find answers in the pages of this site. Ask me about our services, or send your request to the team.",
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gOk: "حقن أوامر: لا · بيانات شخصية: لا · خارج الموضوع: لا",
       names: { fr: "الفرنسية", en: "الإنجليزية", ar: "العربية" },
       otherLang: { fr: "الإجابة مأخوذة من الصفحات الفرنسية.", en: "الإجابة مأخوذة من الصفحات الإنجليزية.", ar: "" },
-      mailSubject: "سؤال من مساعد الموقع", mailAsk: "إرسال سؤالي إلى الفريق",
+      mailSubject: "سؤال من مساعد الموقع", iaLink: "اطلب من الذكاء الاصطناعي المحلّي صياغة إجابة ←", mailAsk: "إرسال سؤالي إلى الفريق",
       notFound: "لم أجد إجابة موثوقة عن هذا السؤال في الموقع، وأفضّل ألّا أختلق واحدة. أعد الصياغة بكلمات أخرى، أو اطرح سؤالك على الفريق مباشرة:",
       offTopic: "أجيب فقط عن الأسئلة المتعلّقة بـ ITBerg: الذكاء الاصطناعي السيادي والوكلاء، تطبيقات الهاتف، الأمن، وطريقة عملنا. لغير ذلك، لست المصدر المناسب.",
       noGen: "لا أكتب نصوصًا ولا أختلق شيئًا: أبحث عن الإجابات في صفحات هذا الموقع. اسألني عن خدماتنا، أو أرسل طلبك إلى الفريق.",
@@ -573,6 +573,18 @@ document.addEventListener("DOMContentLoaded", function () {
           pa.appendChild(ul);
           m.appendChild(pa);
         }
+        // IA locale (pages Assistant seulement, js/assistant-ia.js) : on lui passe les passages retenus.
+        var passages = [top].concat(r.hits.slice(1, 6).filter(function (h) { return h.cov >= 0.4 && h.rank >= top.rank * 0.5; }).slice(0, 2))
+          .map(function (h) { return { u: h.d.u, t: h.d.t, h: h.d.h, x: h.d.x }; });
+        if (inline) {
+          var slot = el("div", "asst-ia-slot");
+          m.appendChild(slot);
+          document.dispatchEvent(new CustomEvent("itberg:answer", { detail: { q: q, lang: lang, passages: passages, slot: slot } }));
+        } else {
+          var pia = el("p", "asst-ia-link");
+          pia.appendChild(link(PATHS[PAGE_LANG].about + "#q=" + encodeURIComponent(q), T.iaLink));
+          m.appendChild(pia);
+        }
         trace(m, [[T.tLang, T.names[lang]], [T.tKeys, r.keys.join(", ")], [T.tGuard, T.gOk], [T.tSearch, String(idx.n)], [T.tBest, top.score.toFixed(1) + " (" + Math.round(top.cov * 100) + " %)"], [T.tNet, String(netCount() - before)]]);
         scroll();
       }).catch(function () {
@@ -599,6 +611,13 @@ document.addEventListener("DOMContentLoaded", function () {
       while (host.firstChild) host.removeChild(host.firstChild);
       host.appendChild(a.root);
       a.start();
+      // Question transmise par le panneau d'une autre page, dans le fragment (#q=…) : jamais envoyé au serveur.
+      if (location.hash.indexOf("#q=") === 0) {
+        var hq = "";
+        try { hq = decodeURIComponent(location.hash.slice(3)); } catch (e) {}
+        history.replaceState(null, "", location.pathname);
+        if (hq) setTimeout(function () { a.ask(hq); }, 0);
+      }
       return;
     }
     if (document.body.classList.contains("no-assistant")) return;
