@@ -73,6 +73,7 @@ Par défaut, la publication tourne sur les machines de GitHub. Elles sont **grat
   - Si le runner est rattaché à une **organisation** GitHub, transférez le dépôt dans cette organisation (Settings → General → Danger Zone → Transfer).
   - Si le runner est sur un compte personnel, il ne sert qu'à un seul dépôt. Il faut alors en installer un pour `itberg-site` : Settings → Actions → Runners → New self-hosted runner, à lancer dans un nouveau dossier sur la machine, puis `./svc.sh install` et `./svc.sh start`.
   - Ensuite, créez la variable `RUNNER_LABELS` (Settings → Secrets and variables → Actions → onglet **Variables**) avec la valeur `["self-hosted","macOS"]`. La machine doit avoir `python3`, et être allumée quand une publication part.
+  - ⚠️ **Jamais de runner à vous sur un dépôt public** : n'importe qui peut ouvrir une pull request, et GitHub déconseille ce cas car du code inconnu pourrait tourner sur votre Mac. Si le dépôt est public, laissez `RUNNER_LABELS` vide.
 
 **2. Renseigner le projet Firebase**
 Fait : `.firebaserc` contient l'identifiant du projet Firebase, `itberg-site`. Changez-le seulement si vous changez de projet.
@@ -90,6 +91,8 @@ Fait : `.firebaserc` contient l'identifiant du projet Firebase, `itberg-site`. C
 
 **4. Protéger la branche `main` (conseillé)**
 Dans le dépôt, ouvrez **Settings → Branches → Add branch ruleset**. Ciblez `main` et cochez **Require a pull request before merging** et **Require status checks to pass**, avec le contrôle « Aperçu de la pull request ». Ainsi, rien ne part en ligne sans aperçu ni vérification.
+
+Tant que le dépôt est public, activez aussi dans **Settings → Code security** : **Secret scanning** et **Push protection** (GitHub bloque un envoi qui contient une clé), et **Dependabot alerts**. Dans **Settings → Actions → General**, gardez « Workflow permissions » sur **Read repository contents** et choisissez « Require approval for all outside collaborators ».
 
 **5. Première publication**
 Dans l'onglet **Actions** du dépôt, choisissez **Publication en production → Run workflow**. Après environ une minute, le site est en ligne.

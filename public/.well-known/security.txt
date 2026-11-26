@@ -1,0 +1,5 @@
+# Signaler une faille de sécurité sur itberg.tn (RFC 9116)
+Contact: mailto:contact@itberg.tn
+Expires: 2027-11-26T00:00:00Z
+Preferred-Languages: fr, en, ar
+Canonical: https://itberg.tn/.well-known/security.txt

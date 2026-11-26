@@ -1,0 +1,11 @@
+# Propose une pull request quand une action GitHub utilisée par les workflows
+# publie une nouvelle version (les actions sont épinglées par empreinte SHA).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
