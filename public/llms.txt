@@ -21,6 +21,31 @@ Points clés :
 - [Nos applications](https://itberg.tn/applis): El9offa (comparateur de prix des courses en Tunisie) et EasyFind (recherche multilingue)
 - [Contact](https://itberg.tn/contact): contact@itberg.tn, Tunisie
 
+## Études de cas
+
+- [El9offa](https://itberg.tn/applis/el9offa): comparateur de prix des courses en Tunisie ; problème, solution, technique (Kotlin Multiplatform, hors connexion, prix datés et sourcés)
+- [EasyFind](https://itberg.tn/applis/easyfind): recherche en français, arabe et arabe tunisien ; technique et méthode de développement avec un agent IA
+
+## Pages par sujet
+
+- [Développement d'application mobile en Tunisie](https://itberg.tn/developpement-application-mobile-tunisie)
+- [Développement d'agents IA avec LangGraph](https://itberg.tn/agent-ia-langgraph)
+- [Audit de sécurité d'application mobile (OWASP MASVS)](https://itberg.tn/audit-securite-application-mobile)
+- [IA souveraine en Tunisie](https://itberg.tn/ia-souveraine)
+- [Assistant IA sur vos documents (RAG)](https://itberg.tn/assistant-ia-documents-rag)
+
+## Blog
+
+- [Blog ITBerg](https://itberg.tn/blog) ([flux RSS](https://itberg.tn/feed.xml))
+- [Agent IA avec LangGraph : garder un humain aux commandes](https://itberg.tn/blog/agent-ia-langgraph-validation-humaine)
+- [Audit de sécurité d'une application mobile : ce que couvre l'OWASP MASVS](https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs)
+- [Recherche en arabe tunisien : comprendre la derja écrite en lettres latines](https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi)
+
+## Autres langues
+
+- [English](https://itberg.tn/en): ITBerg in English (sovereign AI and agents, mobile apps, mobile security)
+- [العربية](https://itberg.tn/ar): ITBerg بالعربية
+
 ## Liens
 
 - [LinkedIn](https://www.linkedin.com/company/itberg/)

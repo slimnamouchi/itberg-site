@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Audit de sécurité d’une application mobile : ce que couvre l’OWASP MASVS · ITBerg</title>
+<meta name="description" content="MASVS, MASTG, MobSF, test d’intrusion : ce que vérifie un audit de sécurité d’application Android ou iOS, comment il se déroule et ce que vous recevez.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs">
+<link rel="alternate" type="application/rss+xml" title="Blog ITBerg (RSS)" href="https://itberg.tn/feed.xml">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:title" content="Audit de sécurité d’une application mobile : ce que couvre l’OWASP MASVS · ITBerg">
+<meta property="og:description" content="MASVS, MASTG, MobSF, test d’intrusion : ce que vérifie un audit de sécurité d’application Android ou iOS, comment il se déroule et ce que vous recevez.">
+<meta property="og:url" content="https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-11-26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Audit de sécurité d’une application mobile : ce que couvre l’OWASP MASVS","description":"MASVS, MASTG, MobSF, test d’intrusion : ce que vérifie un audit de sécurité d’application Android ou iOS, comment il se déroule et ce que vous recevez.","datePublished":"2026-11-26","dateModified":"2026-11-26","inLanguage":"fr","mainEntityOfPage":{"@type":"WebPage","@id":"https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs"},"url":"https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs","image":"https://itberg.tn/img/og.png","author":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","url":"https://itberg.tn/"},"publisher":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","logo":{"@type":"ImageObject","url":"https://itberg.tn/img/logo-512.png"}},"articleSection":"Sécurité mobile","keywords":["OWASP MASVS","MASTG","MobSF","audit sécurité mobile","pentest Android"],"isPartOf":{"@type":"Blog","@id":"https://itberg.tn/blog#blog"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://itberg.tn/blog"},{"@type":"ListItem","position":3,"name":"Audit de sécurité d’une application mobile : ce que couvre l’OWASP MASVS","item":"https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs"}]}
+</script>
+</head>
+<body class="page-post">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis">Applications</a></li><li><a href="/blog" aria-current="page">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<article class="post">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/blog">Blog</a></li><li aria-current="page">Audit de sécurité d’une application mobile : ce que couvre l’OWASP MASVS</li></ol></nav>
+    <p class="eyebrow">Sécurité mobile · OWASP</p>
+    <h1>Audit de sécurité d’une application mobile : ce que couvre l’OWASP MASVS</h1>
+    <p class="lead">Votre application manipule des comptes, des paiements ou des données personnelles ? Voici, sans jargon inutile, ce que vérifie un audit de sécurité mobile sérieux et comment le lire.</p>
+    <p class="post-meta">Publié le <time datetime="2026-11-26">26 novembre 2026</time> · par l’équipe ITBerg</p>
+  </div>
+</section>
+<div class="band band-1">
+  <div class="wrap"><div class="prose post-body">
+<h2>MASVS, MASTG, MobSF : qui fait quoi</h2>
+<p>Trois noms reviennent dans tout audit de sécurité mobile. Ils sont complémentaires :</p>
+<ul class="ticks"><li><strong>OWASP MASVS</strong> (Mobile Application Security Verification Standard) : la liste de ce qu’une application doit garantir. C’est le « quoi ».</li><li><strong>OWASP MASTG</strong> (Mobile Application Security Testing Guide) : la façon de le vérifier, test par test, sur Android et iOS. C’est le « comment ».</li><li><strong>MobSF</strong> (Mobile Security Framework) : un outil open source qui analyse automatiquement un APK, un AAB ou un IPA. C’est un accélérateur, pas un verdict.</li></ul>
+<p>Ce sont des référentiels et des outils publics. Un prestataire qui s’en sert ne « certifie » pas votre application : il vérifie, preuves à l’appui, et vous dit ce qu’il faut corriger.</p>
+
+<h2>Les domaines vérifiés</h2>
+<p>Le MASVS regroupe les exigences en grands domaines. Les voici, traduits en questions simples :</p>
+<ul class="checks checks-grid">
+<li><span class="check-code">STORAGE</span><span><strong>Stockage :</strong> un jeton, un mot de passe ou une donnée personnelle reste-t-il lisible sur le téléphone, dans les journaux ou les sauvegardes ?</span></li>
+<li><span class="check-code">CRYPTO</span><span><strong>Cryptographie :</strong> les algorithmes sont-ils à jour, les clés sont-elles dans le Keystore ou le Keychain plutôt que dans le code ?</span></li>
+<li><span class="check-code">AUTH</span><span><strong>Authentification :</strong> la session expire-t-elle, la biométrie protège-t-elle vraiment quelque chose côté serveur ?</span></li>
+<li><span class="check-code">NETWORK</span><span><strong>Réseau :</strong> tout passe-t-il en HTTPS avec des certificats vérifiés ?</span></li>
+<li><span class="check-code">PLATFORM</span><span><strong>Plateforme :</strong> composants exportés, liens profonds, WebView : qu’est-ce qu’une autre application peut déclencher ?</span></li>
+<li><span class="check-code">CODE</span><span><strong>Code :</strong> les bibliothèques sont-elles à jour, les entrées sont-elles contrôlées ?</span></li>
+<li><span class="check-code">RESILIENCE</span><span><strong>Résilience :</strong> l’application résiste-t-elle à la modification et à l’analyse, quand c’est nécessaire ?</span></li>
+<li><span class="check-code">PRIVACY</span><span><strong>Vie privée :</strong> la collecte est-elle limitée au nécessaire et expliquée à l’utilisateur ?</span></li>
+</ul>
+<p>Toutes les applications n’ont pas besoin du même niveau. Une application vitrine se contente des contrôles de base (souvent appelés <strong>L1</strong>). Une application de santé ou de finance vise un niveau renforcé (<strong>L2</strong>). La résistance à la rétro-ingénierie (<strong>R</strong>) se justifie surtout quand l’application protège un modèle économique ou un contenu payant.</p>
+
+<h2>Le déroulé d’un audit</h2>
+<ol class="steps">
+<li><h3>Cadrage et autorisation écrite</h3><p>Périmètre, niveau visé, comptes de test, environnement. On ne teste jamais une application sans l’accord écrit de son propriétaire.</p></li>
+<li><h3>Analyse automatisée</h3><p>MobSF et outils complémentaires sur le fichier de l’application : permissions, secrets laissés dans le code, configuration réseau, bibliothèques vulnérables.</p></li>
+<li><h3>Tri manuel</h3><p>Chaque alerte est vérifiée à la main. Un scanner produit beaucoup de faux positifs, et manque ce qui dépend de la logique métier.</p></li>
+<li><h3>Tests manuels et intrusion</h3><p>Interception du trafic, rejeu de requêtes vers l’API, tentative d’accès aux données d’un autre utilisateur, contournements côté client.</p></li>
+<li><h3>Rapport et contre-audit</h3><p>Chaque faille avec sa gravité, sa preuve, son impact et la correction recommandée, puis une vérification des corrections.</p></li>
+</ol>
+
+<h2>Ce que l’on oublie souvent : le backend</h2>
+<p>Une application n’est sûre que si son serveur l’est aussi. Beaucoup de problèmes ne se voient pas dans l’APK : des règles Firebase trop ouvertes, une API qui renvoie les données d’un autre compte si l’on change un identifiant, une clé d’API sans restriction. Un audit sérieux suit les requêtes jusqu’au serveur et s’appuie aussi sur le Top 10 OWASP des API.</p>
+
+<h2>Et si l’application contient de l’IA ?</h2>
+<p>Un assistant ou un agent intégré à l’application ouvre de nouvelles portes : injection de prompt, fuite d’instructions ou de documents, actions excessives. Nous les testons en nous appuyant sur le Top 10 OWASP pour les applications LLM. Voir notre article sur les <a href="/blog/agent-ia-langgraph-validation-humaine">agents IA sous contrôle</a>.</p>
+
+<h2>Comment lire un rapport d’audit</h2>
+<ul class="ticks"><li>Commencez par la synthèse : elle doit être compréhensible sans connaître le MASVS.</li><li>Traitez d’abord les failles critiques et élevées, celles qui exposent des données ou des comptes.</li><li>Pour chaque correction, demandez un contre-test : une faille n’est fermée que quand on a vérifié qu’elle l’est.</li><li>Ajoutez des analyses automatiques à votre intégration continue pour que la même faille ne revienne pas.</li></ul>
+<p>Pour un audit de votre application : notre page <a href="/audit-securite-application-mobile">audit de sécurité d’application mobile</a>.</p>
+  </div></div>
+</div>
+</article>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Un projet en tête ?</h2>
+      <p>Écrivez-nous en quelques lignes. Lynda ou Slim vous répond personnellement.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>

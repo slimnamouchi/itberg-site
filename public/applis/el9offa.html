@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Étude de cas El9offa : comparateur de prix des courses · ITBerg</title>
+<meta name="description" content="Étude de cas El9offa : comparer les prix des courses en Tunisie. Le problème, la solution, et la technique Kotlin Multiplatform et Firebase.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/applis/el9offa">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/applis/el9offa">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/applis/el9offa">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:title" content="Étude de cas El9offa : comparateur de prix des courses · ITBerg">
+<meta property="og:description" content="Étude de cas El9offa : comparer les prix des courses en Tunisie. Le problème, la solution, et la technique Kotlin Multiplatform et Firebase.">
+<meta property="og:url" content="https://itberg.tn/applis/el9offa">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"El9offa : comparer les prix des courses en Tunisie","description":"Étude de cas El9offa : comparer les prix des courses en Tunisie. Le problème, la solution, et la technique Kotlin Multiplatform et Firebase.","inLanguage":"fr","datePublished":"2026-11-26","dateModified":"2026-11-26","url":"https://itberg.tn/applis/el9offa","image":"https://itberg.tn/img/og.png","author":{"@id":"https://itberg.tn/#organisation"},"publisher":{"@id":"https://itberg.tn/#organisation"},"about":{"@type":"SoftwareApplication","name":"El9offa","applicationCategory":"ShoppingApplication","operatingSystem":"Android","url":"https://el9offa.tn","inLanguage":["fr","ar"],"author":{"@id":"https://itberg.tn/#organisation"}}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Nos applications","item":"https://itberg.tn/applis"},{"@type":"ListItem","position":3,"name":"Étude de cas El9offa","item":"https://itberg.tn/applis/el9offa"}]}
+</script>
+</head>
+<body class="page-case">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis" aria-current="page">Applications</a></li><li><a href="/blog">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/applis">Nos applications</a></li><li aria-current="page">Étude de cas El9offa</li></ol></nav>
+    <p class="eyebrow">Étude de cas · Application mobile</p>
+    <h1>El9offa : comparer les prix des courses en Tunisie</h1>
+    <p class="lead">Comment nous construisons une application qui aide les familles à trouver le panier le moins cher, avec des prix datés, sourcés et vérifiés.</p>
+  </div>
+</section>
+<section class="band band-1 band-tight" aria-label="En bref">
+  <div class="wrap"><dl class="facts facts-card"><div><dt>Application</dt><dd>El9offa (« le couffin »)</dd></div><div><dt>Pour qui</dt><dd>Les familles qui font leurs courses en Tunisie</dd></div><div><dt>Plateformes</dt><dd>Android d’abord, iOS ensuite avec le même code</dd></div><div><dt>Langues</dt><dd>Français et arabe (de droite à gauche)</dd></div><div><dt>Statut</dt><dd>En développement, bientôt sur Google Play</dd></div><div><dt>Site</dt><dd><a href="https://el9offa.tn" rel="noopener">el9offa.tn</a></dd></div></dl></div>
+</section>
+<section class="band band-1" aria-labelledby="probleme">
+  <div class="wrap">
+    <p class="eyebrow depth-label">Le problème</p>
+    <h2 id="probleme">Le même panier ne coûte pas le même prix partout</h2>
+    <div class="cols-2">
+      <div><p>En Tunisie, les prix des produits du quotidien varient d’une enseigne à l’autre, et d’une semaine à l’autre. Pour une famille, comparer à la main est impossible : il faudrait passer dans chaque magasin ou relever des dizaines d’étiquettes.</p><p>Les rares comparaisons existantes sont souvent datées, sans indiquer d’où vient le prix ni quand il a été relevé.</p></div>
+      <div class="block"><h3>Ce que voulait l’utilisateur</h3><ul class="ticks"><li>savoir où sa liste de courses revient le moins cher ;</li><li>faire confiance au prix affiché ;</li><li>s’en servir dans le magasin, même avec une mauvaise connexion.</li></ul></div>
+    </div>
+  </div>
+</section><section class="band band-2" aria-labelledby="solution">
+  <div class="wrap">
+    <p class="eyebrow depth-label">La solution</p>
+    <h2 id="solution">Comparer, préparer sa liste, trouver le meilleur panier</h2>
+    <div class="cols-3">
+      <div class="block"><h3>Recherche et fiche comparée</h3><p>On cherche un produit en français, en arabe ou en derja, et on voit son prix dans cinq enseignes, chacun avec sa date et sa source.</p></div>
+      <div class="block"><h3>Liste et panier optimisé</h3><p>La liste de courses est calculée pour trouver le panier le moins cher, dans un seul magasin ou en combinant deux.</p></div>
+      <div class="block"><h3>Bons plans, alertes, signalements</h3><p>Les promotions repérées, une alerte quand un produit suivi baisse, et la possibilité de signaler un prix faux.</p></div>
+    </div>
+    <p class="note">Un contenu sponsorisé est toujours marqué comme tel et ne modifie jamais le calcul du panier.</p>
+  </div>
+</section><section class="band band-3" aria-labelledby="confiance">
+  <div class="wrap">
+    <p class="eyebrow depth-label">La confiance</p>
+    <h2 id="confiance">Aucun prix sans date ni source</h2>
+    <ul class="checks checks-grid">
+      <li><span class="check-code">SOURCE</span><span><strong>Traçabilité :</strong> chaque prix porte son magasin, sa source et sa date de relevé.</span></li>
+      <li><span class="check-code">QUARANTAINE</span><span><strong>Contrôle :</strong> un prix qui varie de plus de 40 % en un jour, ou sort de la fourchette habituelle du rayon, est mis de côté au lieu d’être publié.</span></li>
+      <li><span class="check-code">RÉGLEMENTÉ</span><span><strong>Honnêteté :</strong> les prix réglementés ou subventionnés (sucre, huile, lait…) sont signalés comme tels, jamais présentés comme des promotions.</span></li>
+      <li><span class="check-code">RESPECT</span><span><strong>Collecte respectueuse :</strong> conditions d’utilisation et fichiers robots.txt des sites respectés, sans contournement ; relevé manuel et signalements quand c’est nécessaire.</span></li>
+    </ul>
+  </div>
+</section><section class="band band-4" aria-labelledby="technique">
+  <div class="wrap">
+    <p class="eyebrow depth-label">La technique</p>
+    <h2 id="technique">Sous la surface</h2>
+    <div class="cols-2">
+      <div class="block"><h3>Application</h3><ul class="ticks"><li>Kotlin Multiplatform et Compose Multiplatform : Android d’abord, iOS avec l’essentiel du code partagé.</li><li>Architecture en couches, avec un domaine métier en Kotlin pur, sans dépendance à Android ni à Firebase.</li><li>Hors connexion d’abord : l’écran lit une base locale (Room), la synchronisation la met à jour.</li><li>Recherche et calcul du panier entièrement sur le téléphone, avec un index plein texte SQLite et des synonymes en derja.</li><li>Prix stockés en millimes entiers, jamais en nombres à virgule, pour éviter les erreurs d’arrondi.</li></ul></div>
+      <div class="block"><h3>Données et services</h3><ul class="ticks"><li>Un fichier des prix du jour par enseigne, compact et versionné, servi par Firebase Hosting : l’application télécharge seulement ce qui a changé.</li><li>La collecte et l’historique des prix vivent dans un système séparé ; l’application ne s’y connecte jamais.</li><li>Firebase Authentication, Firestore pour les listes et alertes, Cloud Functions pour les alertes quotidiennes, notifications FCM.</li><li>Interrupteurs à distance (Remote Config) sur chaque fonction coûteuse ou sensible, avec un comportement sûr par défaut.</li></ul></div>
+    </div>
+  </div>
+</section><section class="band band-1" aria-labelledby="qualite">
+  <div class="wrap">
+    <p class="eyebrow depth-label">Qualité et sécurité</p>
+    <h2 id="qualite">Testé avant chaque fusion</h2>
+    <div class="cols-2">
+      <div><ul class="ticks"><li>Intégration continue obligatoire : ktlint, detekt, Android lint, tests unitaires (couverture visée de 80 % du domaine), tests de la base locale.</li><li>Captures d’écran automatiques en français et en arabe, en thème clair et sombre, pour repérer toute régression visuelle.</li><li>Chaque bug corrigé commence par un test qui le reproduit.</li><li>Test sur un téléphone Android d’entrée de gamme avant de déclarer une fonction terminée.</li></ul></div>
+      <div><ul class="ticks"><li>Aucun secret dans l’application ; un compte de service par usage.</li><li>Règles Firestore testées sur émulateur : chacun ne lit et n’écrit que ses propres données.</li><li>App Check et Play Integrity, signalements limités par jour, photos réduites et sans position GPS.</li><li>Textes en français et en arabe dès le premier jour, interface de droite à gauche pour l’arabe.</li></ul></div>
+    </div>
+  </div>
+</section><section class="band band-2" aria-labelledby="resultats">
+  <div class="wrap">
+    <p class="eyebrow depth-label">Où en est le projet</p>
+    <h2 id="resultats">Bientôt sur Google Play</h2>
+    <p class="section-lead">El9offa est en développement et arrivera bientôt sur Google Play, puis sur iOS. Tant qu’elle n’est pas publiée, nous ne citons aucun chiffre d’usage : nous publierons ici des résultats mesurés après le lancement.</p>
+    <p class="note">Pour en savoir plus sur notre façon de construire : <a href="/android">développement mobile</a>, <a href="/blog/recherche-arabe-tunisien-derja-arabizi">recherche en arabe tunisien</a>.</p>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Une application comme celle-ci ?</h2>
+      <p>Nous pouvons construire la vôtre avec la même méthode et la même exigence.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>

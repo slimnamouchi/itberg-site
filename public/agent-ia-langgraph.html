@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Développement d’agents IA avec LangGraph et LangChain · ITBerg</title>
+<meta name="description" content="Agents IA sur mesure avec LangGraph et LangChain : étapes explicites, validation humaine, outils limités, évaluation et traçabilité. Société tunisienne.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/agent-ia-langgraph">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/agent-ia-langgraph">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/agent-ia-langgraph">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:title" content="Développement d’agents IA avec LangGraph et LangChain · ITBerg">
+<meta property="og:description" content="Agents IA sur mesure avec LangGraph et LangChain : étapes explicites, validation humaine, outils limités, évaluation et traçabilité. Société tunisienne.">
+<meta property="og:url" content="https://itberg.tn/agent-ia-langgraph">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Développement d’agents IA avec LangGraph","description":"Conception d’agents IA sur mesure avec LangGraph et LangChain : orchestration, validation humaine, garde-fous, évaluation.","serviceType":"Développement d’intelligence artificielle","url":"https://itberg.tn/agent-ia-langgraph","provider":{"@id":"https://itberg.tn/#organisation"},"areaServed":{"@type":"Country","name":"Tunisie"},"inLanguage":"fr"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu’est-ce que LangGraph ?","acceptedAnswer":{"@type":"Answer","text":"LangGraph est une bibliothèque open source de l’écosystème LangChain qui décrit un agent IA comme un graphe : un état partagé, des étapes et des transitions explicites. On sait toujours où en est l’agent et ce qu’il a le droit de faire."}},{"@type":"Question","name":"Quelle différence entre LangChain et LangGraph ?","acceptedAnswer":{"@type":"Answer","text":"LangChain fournit les briques (modèles, outils, recherche dans des documents). LangGraph sert à orchestrer ces briques dans un processus en plusieurs étapes, avec boucles, reprises et pauses. Nous utilisons souvent les deux ensemble."}},{"@type":"Question","name":"Comment l’agent attend-il une validation humaine ?","acceptedAnswer":{"@type":"Answer","text":"LangGraph peut interrompre le graphe à une étape précise, sauvegarder son état, puis reprendre au même endroit quand une personne a validé. Les actions sensibles (envoyer, payer, supprimer) attendent toujours cet accord."}},{"@type":"Question","name":"Mes données quittent-elles mon infrastructure ?","acceptedAnswer":{"@type":"Answer","text":"Pas si vous ne le souhaitez pas. L’agent peut s’appuyer sur des modèles ouverts hébergés chez vous ou chez l’hébergeur de votre choix, en Tunisie si nécessaire."}},{"@type":"Question","name":"Par quoi commencer ?","acceptedAnswer":{"@type":"Answer","text":"Par un processus court et répétitif, où une erreur est rattrapable. Nous construisons un prototype mesuré sur vos vrais cas, et nous décidons ensemble de la suite au vu des résultats."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Développement d’agents IA avec LangGraph","item":"https://itberg.tn/agent-ia-langgraph"}]}
+</script>
+</head>
+<body class="page-landing">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia" aria-current="page">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis">Applications</a></li><li><a href="/blog">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Développement d’agents IA avec LangGraph</li></ol></nav><p class="eyebrow">IA agentique · LangGraph</p>
+    <h1>Développement d’agents IA avec LangGraph</h1>
+    <p class="lead">Nous concevons des agents IA qui exécutent de vrais processus métier, étape par étape, avec un humain qui valide ce qui compte. LangGraph nous permet d’écrire le chemin, au lieu de l’espérer.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="quoi">
+  <div class="wrap">
+    <h2 id="quoi">Ce que nous construisons avec LangGraph</h2>
+    <div class="cols-3">
+      <div class="block"><h3>Agents de traitement</h3><p>Lire une demande, chercher l’information, préparer une réponse ou une action, et la soumettre à votre équipe.</p></div>
+      <div class="block"><h3>Assistants sur vos documents</h3><p>Recherche dans vos documents (RAG) avec citation des sources, intégrée dans un agent qui sait quand il ne sait pas.</p></div>
+      <div class="block"><h3>Agents connectés à vos outils</h3><p>Vos API, bases de données et logiciels métier, avec des droits limités au strict nécessaire.</p></div>
+    </div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="harnais">
+  <div class="wrap">
+    <h2 id="harnais">Le harnais autour de l’agent</h2>
+    <ul class="checks checks-grid">
+      <li><span class="check-code">GRAPHE</span><span><strong>Étapes explicites :</strong> nœuds, arêtes et conditions écrits dans le code, relus et testés.</span></li>
+      <li><span class="check-code">INTERRUPT</span><span><strong>Validation humaine :</strong> le graphe s’arrête avant chaque action sensible et reprend après accord.</span></li>
+      <li><span class="check-code">OUTILS</span><span><strong>Droits minimaux :</strong> l’agent n’accède qu’aux outils et données autorisés.</span></li>
+      <li><span class="check-code">ÉVALUATION</span><span><strong>Mesure :</strong> un jeu de cas de référence, dont une partie gelée, avant chaque mise en ligne.</span></li>
+      <li><span class="check-code">TRACES</span><span><strong>Traçabilité :</strong> chaque étape journalisée, rejouable et explicable.</span></li>
+      <li><span class="check-code">SÉCURITÉ</span><span><strong>Tests d’attaque :</strong> injection de prompt et fuite de données testées selon le Top 10 OWASP pour les LLM.</span></li>
+    </ul>
+    <p class="note">Le détail technique, avec un exemple de code : <a href="/blog/agent-ia-langgraph-validation-humaine">Agent IA avec LangGraph : garder un humain aux commandes</a>.</p>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="deroule">
+  <div class="wrap">
+    <h2 id="deroule">Le déroulé d’un projet d’agent</h2>
+    <ol class="steps">
+      <li><h3>Choisir le processus</h3><p>Une tâche répétitive, ses étapes, ses règles et ses points de décision.</p></li>
+      <li><h3>Prototype mesuré</h3><p>Un premier graphe testé sur vos vrais cas, avec un chiffre de départ et un objectif.</p></li>
+      <li><h3>Mise en production</h3><p>Stockage durable des états, supervision, maîtrise des coûts et des temps de réponse.</p></li>
+      <li><h3>Amélioration continue</h3><p>Évaluation régulière, nouvelles étapes, et retrait prudent de validations quand les mesures le permettent.</p></li>
+    </ol>
+    <p class="note">Voir aussi : <a href="/ia">IA souveraine et agents</a>, <a href="/conseil">conseil en IA</a>, <a href="/ia-souveraine">IA souveraine</a>.</p>
+  </div>
+</section>
+<section class="band band-1" id="faq" aria-labelledby="faq-titre">
+  <div class="wrap faq-wrap">
+    <h2 id="faq-titre">Questions fréquentes</h2>
+    <div class="faq"><details class="faq-item"><summary><h3>Qu’est-ce que LangGraph ?</h3></summary><p>LangGraph est une bibliothèque open source de l’écosystème LangChain qui décrit un agent IA comme un graphe : un état partagé, des étapes et des transitions explicites. On sait toujours où en est l’agent et ce qu’il a le droit de faire.</p></details><details class="faq-item"><summary><h3>Quelle différence entre LangChain et LangGraph ?</h3></summary><p>LangChain fournit les briques (modèles, outils, recherche dans des documents). LangGraph sert à orchestrer ces briques dans un processus en plusieurs étapes, avec boucles, reprises et pauses. Nous utilisons souvent les deux ensemble.</p></details><details class="faq-item"><summary><h3>Comment l’agent attend-il une validation humaine ?</h3></summary><p>LangGraph peut interrompre le graphe à une étape précise, sauvegarder son état, puis reprendre au même endroit quand une personne a validé. Les actions sensibles (envoyer, payer, supprimer) attendent toujours cet accord.</p></details><details class="faq-item"><summary><h3>Mes données quittent-elles mon infrastructure ?</h3></summary><p>Pas si vous ne le souhaitez pas. L’agent peut s’appuyer sur des modèles ouverts hébergés chez vous ou chez l’hébergeur de votre choix, en Tunisie si nécessaire.</p></details><details class="faq-item"><summary><h3>Par quoi commencer ?</h3></summary><p>Par un processus court et répétitif, où une erreur est rattrapable. Nous construisons un prototype mesuré sur vos vrais cas, et nous décidons ensemble de la suite au vu des résultats.</p></details></div>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Un processus à confier à un agent ?</h2>
+      <p>Décrivez-nous la tâche. Nous vous dirons franchement si un agent peut aider, et comment le garder sous contrôle.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>

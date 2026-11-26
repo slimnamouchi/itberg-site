@@ -13,8 +13,15 @@ def exists(path):
     p = os.path.join(PUB, path.lstrip("/"))
     return os.path.exists(p) or os.path.exists(p + ".html")
 
-for f in sorted(glob.glob(os.path.join(PUB, "*.html"))):
-    name = os.path.basename(f)
+def url_to_file(url):
+    """https://itberg.tn/en/ai -> public/en/ai.html (None si l'adresse n'est pas sur le site)."""
+    if not url.startswith("https://itberg.tn/"):
+        return None
+    path = url[len("https://itberg.tn/"):]
+    return os.path.join(PUB, path + ".html" if path else "index.html")
+
+for f in sorted(glob.glob(os.path.join(PUB, "**", "*.html"), recursive=True)):
+    name = os.path.relpath(f, PUB)
     s = open(f, encoding="utf-8").read()
     title = re.search(r"<title>(.*?)</title>", s, re.S)
     desc = re.search(r'<meta name="description" content="(.*?)"', s)
@@ -26,6 +33,21 @@ for f in sorted(glob.glob(os.path.join(PUB, "*.html"))):
         problems.append(f"{name} : description trop longue ({len(desc.group(1))} caractères, 160 max)")
     if len(re.findall(r"<h1[\s>]", s)) != 1:
         problems.append(f"{name} : il faut exactement un <h1>")
+    # Langues : <html lang>, sens d'écriture, et hreflang réciproques (chaque version pointe vers les autres).
+    lang = re.search(r'<html lang="([a-z]{2})" dir="(ltr|rtl)"', s)
+    if not lang:
+        problems.append(f"{name} : <html lang=... dir=...> manquant")
+    elif (lang.group(1) == "ar") != (lang.group(2) == "rtl"):
+        problems.append(f"{name} : l'arabe doit être en dir=rtl, les autres langues en ltr")
+    canon = re.search(r'<link rel="canonical" href="([^"]+)">', s)
+    for hl, href in re.findall(r'<link rel="alternate" hreflang="([a-z-]+)" href="([^"]+)">', s):
+        target = url_to_file(href)
+        if target is None or not os.path.exists(target):
+            problems.append(f"{name} : hreflang {hl} vers une page absente ({href})")
+        elif canon and hl != "x-default" and href != canon.group(1):
+            back = open(target, encoding="utf-8").read()
+            if f'hreflang="{lang.group(1) if lang else ""}" href="{canon.group(1)}"' not in back:
+                problems.append(f"{name} : la version {hl} ({href}) ne renvoie pas vers cette page")
     for href in re.findall(r'(?:href|src)="(/[^"]*)"', s):
         if not exists(href):
             problems.append(f"{name} : lien cassé {href}")

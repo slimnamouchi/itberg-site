@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function setOpen(open) {
       nav.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", String(open));
-      if (label) label.textContent = open ? "Fermer" : "Menu";
+      if (label) label.textContent = open ? (toggle.getAttribute("data-label-close") || "Fermer") : (toggle.getAttribute("data-label-open") || "Menu");
     }
     toggle.addEventListener("click", function () {
       setOpen(toggle.getAttribute("aria-expanded") !== "true");
