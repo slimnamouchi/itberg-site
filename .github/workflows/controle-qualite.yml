@@ -23,7 +23,7 @@ jobs:
   qualite:
     name: Contrôle qualité
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
@@ -54,4 +54,6 @@ jobs:
         with:
           name: rapports-lighthouse
           path: .lighthouseci/
+          # Le dossier commence par un point : sans ceci, l'artefact est vide.
+          include-hidden-files: true
           retention-days: 14

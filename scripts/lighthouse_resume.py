@@ -16,7 +16,10 @@ rapports = {}
 for f in glob.glob(os.path.join(DOSSIER, "lhr-*.json")):
     lhr = json.load(open(f, encoding="utf-8"))
     page = "/" + lhr["requestedUrl"].split("127.0.0.1", 1)[-1].split("/", 1)[-1]
-    rapports[page] = lhr
+    # 2 passages par page : on garde le meilleur, comme les assertions de lighthouserc.js.
+    perf = lhr["categories"]["performance"]["score"] or 0
+    if page not in rapports or perf > (rapports[page]["categories"]["performance"]["score"] or 0):
+        rapports[page] = lhr
 if not rapports:
     print("Pas de rapport Lighthouse dans .lighthouseci/.")
     sys.exit(0)

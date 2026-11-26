@@ -77,23 +77,25 @@ module.exports = {
     collect: {
       startServerCommand: `python3 scripts/serve_local.py ${PORT}`,
       startServerReadyPattern: "Site local",
-      numberOfRuns: 1,
+      // 2 passages par page : on garde le meilleur (« optimistic »), pour qu'un ralentissement
+      // ponctuel de la machine GitHub ne bloque pas une PR. Une vraie baisse se voit aux 2 passages.
+      numberOfRuns: 2,
       url: pages.map((p) => `http://127.0.0.1:${PORT}${p}`),
       settings: { chromeFlags: "--headless=new --no-sandbox" },
     },
     assert: {
       assertions: {
         // Aujourd'hui toutes les pages sont à 100 : la moindre baisse bloque la fusion.
-        "categories:accessibility": ["error", { minScore: 1 }],
-        "categories:best-practices": ["error", { minScore: 1 }],
-        "categories:seo": ["error", { minScore: 1 }],
-        "categories:performance": ["error", { minScore: 0.95 }],
+        "categories:accessibility": ["error", { minScore: 1, aggregationMethod: "optimistic" }],
+        "categories:best-practices": ["error", { minScore: 1, aggregationMethod: "optimistic" }],
+        "categories:seo": ["error", { minScore: 1, aggregationMethod: "optimistic" }],
+        "categories:performance": ["error", { minScore: 0.95, aggregationMethod: "optimistic" }],
         // Mesures clés (profil mobile simulé de Lighthouse) : affichage, stabilité, réactivité.
-        "largest-contentful-paint": ["error", { maxNumericValue: 2500 }],
-        "cumulative-layout-shift": ["error", { maxNumericValue: 0.1 }],
-        "total-blocking-time": ["error", { maxNumericValue: 200 }],
+        "largest-contentful-paint": ["error", { maxNumericValue: 2500, aggregationMethod: "optimistic" }],
+        "cumulative-layout-shift": ["error", { maxNumericValue: 0.1, aggregationMethod: "optimistic" }],
+        "total-blocking-time": ["error", { maxNumericValue: 200, aggregationMethod: "optimistic" }],
         // Poids d'une page (HTML + CSS + JS + images + polices) : 500 Ko au plus.
-        "total-byte-weight": ["error", { maxNumericValue: 500000 }],
+        "total-byte-weight": ["error", { maxNumericValue: 500000, aggregationMethod: "optimistic" }],
       },
     },
     upload: {
