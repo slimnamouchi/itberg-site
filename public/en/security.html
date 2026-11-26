@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mobile and AI security: MASVS audit, MobSF, pentest · ITBerg</title>
+<meta name="description" content="Security audits for Android and iOS apps and AI solutions: OWASP MASVS, MASTG, MobSF, penetration testing, prompt injection, red teaming.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/en/security">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/securite">
+<link rel="alternate" hreflang="en" href="https://itberg.tn/en/security">
+<link rel="alternate" hreflang="ar" href="https://itberg.tn/ar/security">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/securite">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_TN">
+<meta property="og:locale:alternate" content="ar_TN">
+<meta property="og:title" content="Mobile and AI security: MASVS audit, MobSF, pentest · ITBerg">
+<meta property="og:description" content="Security audits for Android and iOS apps and AI solutions: OWASP MASVS, MASTG, MobSF, penetration testing, prompt injection, red teaming.">
+<meta property="og:url" content="https://itberg.tn/en/security">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ITBerg logo: an iceberg shaped like a compass needle, with the tagline “AI on the surface. Mastery in depth.”">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Mobile app and AI security","description":"OWASP MASVS audit, MASTG testing, MobSF analysis, mobile penetration testing, LLM security and red teaming.","serviceType":"Security audit","url":"https://itberg.tn/en/security","provider":{"@id":"https://itberg.tn/#organisation"},"areaServed":"TN","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://itberg.tn/en"},{"@type":"ListItem","position":2,"name":"Mobile app security","item":"https://itberg.tn/en/security"}]}
+</script>
+</head>
+<body class="page-securite">
+<a class="skip" href="#contenu">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/en" aria-label="ITBerg, home"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Close"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Main navigation"><ul><li><a href="/en/solutions">Solutions</a></li><li><a href="/en/ai">AI &amp; agents</a></li><li><a href="/en/mobile-development">Mobile</a></li><li><a href="/en/security" aria-current="page">Security</a></li><li><a href="/en/apps">Apps</a></li><li><a class="nav-cta" href="/en/contact">Contact us</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Site language"><ul><li><a href="/securite" hreflang="fr" lang="fr"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en/security" hreflang="en" lang="en" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar/security" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <p class="eyebrow">Mobile app security</p>
+    <h1>What an attacker would see, we see first</h1>
+    <p class="lead">We audit Android and iOS apps against OWASP’s public standards, with automated tools and manual testing. You get an understandable report and concrete fixes.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="prestations">
+  <div class="wrap">
+    <h2 id="prestations">Our services</h2>
+    <div class="cols-2"><div class="block"><h3>OWASP MASVS audit</h3><p>Verification of your app against the <strong>MASVS</strong> (Mobile Application Security Verification Standard), OWASP’s mobile security standard. We choose the right level with you: <strong>L1</strong> (baseline security), <strong>L2</strong> (sensitive data: health, finance…) and, if needed, <strong>R</strong> (resistance to reverse engineering).</p></div><div class="block"><h3>Testing per the OWASP MASTG</h3><p>Checks follow the <strong>MASTG</strong> (Mobile Application Security Testing Guide): each item is tested in a reproducible, documented way, with evidence.</p></div><div class="block"><h3>MobSF analysis</h3><p>Static and dynamic analysis of your APK, AAB or IPA with <strong>MobSF</strong> (Mobile Security Framework): permissions, secrets left in the code, network configuration, vulnerable libraries. Each finding is then verified by hand to rule out false positives.</p></div><div class="block"><h3>Mobile penetration testing</h3><p>We put ourselves in an attacker’s shoes: traffic interception, certificate pinning bypass, local storage, authentication, API calls, reverse engineering.</p></div><div class="block"><h3>Firebase backend security</h3><p>Review of Firestore and Storage rules, App Check, keys and access, server functions: an app is only as secure as its backend.</p></div><div class="block"><h3>Security in your development pipeline</h3><p>Automated scans on every release in continuous integration, and security-focused code review.</p></div></div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="couverture">
+  <div class="wrap">
+    <h2 id="couverture">What we check</h2>
+    <p class="section-lead">The main MASVS areas, explained simply.</p>
+    <ul class="checks checks-grid"><li><span class="check-code">STORAGE</span><span><strong>Storage:</strong> no sensitive data readable on the phone.</span></li><li><span class="check-code">CRYPTO</span><span><strong>Cryptography:</strong> up-to-date algorithms and well-protected keys.</span></li><li><span class="check-code">AUTH</span><span><strong>Authentication:</strong> sessions, tokens and biometrics handled correctly.</span></li><li><span class="check-code">NETWORK</span><span><strong>Network:</strong> encrypted communications and verified certificates.</span></li><li><span class="check-code">PLATFORM</span><span><strong>Platform:</strong> permissions, deep links and WebViews under control.</span></li><li><span class="check-code">CODE</span><span><strong>Code:</strong> up-to-date dependencies, validated inputs.</span></li><li><span class="check-code">RESILIENCE</span><span><strong>Resilience:</strong> protection against tampering and analysis of the app.</span></li><li><span class="check-code">PRIVACY</span><span><strong>Privacy:</strong> data collection limited to what is needed, and transparent.</span></li></ul>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="deroule-audit">
+  <div class="wrap">
+    <h2 id="deroule-audit">How an audit works</h2>
+    <ol class="steps"><li><h3>Scoping and authorisation</h3><p>Scope, target MASVS level, test environments. We only work with the written authorisation of the app owner.</p></li><li><h3>Automated analysis</h3><p>MobSF and complementary tools on the app files.</p></li><li><h3>Manual testing</h3><p>MASTG checks and penetration testing on risky areas.</p></li><li><h3>Report</h3><p>Each vulnerability ranked by severity, with evidence, impact and recommended fix. A summary readable by management.</p></li><li><h3>Debrief and re-test</h3><p>We present the results to your teams, then verify that the fixes work.</p></li></ol>
+    <p class="note">MASVS, MASTG and MobSF are public, open standards and tools. We use them as a working method: ITBerg is not a certification body and does not issue labels.</p>
+  </div>
+</section>
+<section class="band band-4" aria-labelledby="secu-ia">
+  <div class="wrap">
+    <h2 id="secu-ia">AI and agent security</h2>
+    <p class="section-lead">An AI assistant or agent opens new doors to attackers. We test them first, based on the OWASP Top 10 for LLM applications.</p>
+    <ul class="checks checks-grid"><li><span class="check-code">INJECTION</span><span><strong>Prompt injection:</strong> booby-trapped text, in a message or a document, that hijacks the AI’s instructions.</span></li><li><span class="check-code">LEAK</span><span><strong>Information disclosure:</strong> the AI reveals internal data, documents or its instructions.</span></li><li><span class="check-code">AGENCY</span><span><strong>Excessive agency:</strong> an agent that can do more than necessary (send, pay, delete).</span></li><li><span class="check-code">RED TEAM</span><span><strong>Red teaming:</strong> we try to derail your AI like a malicious user, then strengthen the guardrails.</span></li></ul>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Get your app audited</h2>
+      <p>Send us the app’s name and what worries you. We will propose a suitable scope.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/en" aria-label="ITBerg, home"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">AI on the surface. Mastery in depth.</p>
+      <p class="footer-small">Tunisian company · Sovereign AI and agents, mobile apps, mobile security.</p>
+    </div>
+    <nav aria-label="Site pages">
+      <h2 class="footer-title">Expertise</h2>
+      <ul class="footer-links"><li><a href="/en/solutions">All our solutions</a></li><li><a href="/en/ai">Sovereign AI and agents</a></li><li><a href="/en/ai-consulting">AI consulting</a></li><li><a href="/en/mobile-development">Mobile development</a></li><li><a href="/en/security">Mobile app security</a></li><li><a href="/en/apps">Our apps</a></li></ul>
+    </nav>
+    <nav aria-label="Resources">
+      <h2 class="footer-title">Resources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog (in French)</a></li><li><a href="/applis/el9offa">El9offa case study (in French)</a></li><li><a href="/applis/easyfind">EasyFind case study (in French)</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisia</li><li><a href="/mentions-legales">Legal notice and privacy (in French)</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>No cookies. Anonymous audience measurement, no advertising, no data resale.</p>
+  </div>
+</footer>
+</body>
+</html>

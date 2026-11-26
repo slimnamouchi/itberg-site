@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Étude de cas EasyFind : recherche en arabe tunisien · ITBerg</title>
+<meta name="description" content="Étude de cas EasyFind : une recherche qui comprend le français, l’arabe et l’arabe tunisien. Le problème, la solution, la technique et la méthode.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/applis/easyfind">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/applis/easyfind">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/applis/easyfind">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:title" content="Étude de cas EasyFind : recherche en arabe tunisien · ITBerg">
+<meta property="og:description" content="Étude de cas EasyFind : une recherche qui comprend le français, l’arabe et l’arabe tunisien. Le problème, la solution, la technique et la méthode.">
+<meta property="og:url" content="https://itberg.tn/applis/easyfind">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"EasyFind : une recherche qui comprend le tunisien","description":"Étude de cas EasyFind : une recherche qui comprend le français, l’arabe et l’arabe tunisien. Le problème, la solution, la technique et la méthode.","inLanguage":"fr","datePublished":"2026-11-26","dateModified":"2026-11-26","url":"https://itberg.tn/applis/easyfind","image":"https://itberg.tn/img/og.png","author":{"@id":"https://itberg.tn/#organisation"},"publisher":{"@id":"https://itberg.tn/#organisation"},"about":{"@type":"SoftwareApplication","name":"EasyFind","applicationCategory":"SearchApplication","operatingSystem":"Android, Web","url":"https://easyfind.tn","inLanguage":["fr","ar"],"author":{"@id":"https://itberg.tn/#organisation"}}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Nos applications","item":"https://itberg.tn/applis"},{"@type":"ListItem","position":3,"name":"Étude de cas EasyFind","item":"https://itberg.tn/applis/easyfind"}]}
+</script>
+</head>
+<body class="page-case">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis" aria-current="page">Applications</a></li><li><a href="/blog">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/applis">Nos applications</a></li><li aria-current="page">Étude de cas EasyFind</li></ol></nav>
+    <p class="eyebrow">Étude de cas · Recherche multilingue</p>
+    <h1>EasyFind : une recherche qui comprend le tunisien</h1>
+    <p class="lead">Comment nous avons construit une recherche qui comprend le français, l’arabe et la derja écrite en lettres latines, et ce que ce projet nous a appris.</p>
+  </div>
+</section>
+<section class="band band-1 band-tight" aria-label="En bref">
+  <div class="wrap"><dl class="facts facts-card"><div><dt>Application</dt><dd>EasyFind</dd></div><div><dt>Ce qu’on y cherche</dt><dd><mark class="todo">[À COMPLÉTER]</mark></dd></div><div><dt>Langues comprises</dt><dd>Français, arabe, arabe tunisien en lettres latines</dd></div><div><dt>Plateformes</dt><dd>Android et web, avec un code partagé</dd></div><div><dt>Statut</dt><dd>Site en ligne</dd></div><div><dt>Site</dt><dd><a href="https://easyfind.tn" rel="noopener">easyfind.tn</a></dd></div></dl></div>
+</section>
+<section class="band band-1" aria-labelledby="probleme">
+  <div class="wrap">
+    <p class="eyebrow depth-label">Le problème</p>
+    <h2 id="probleme">Une recherche qui ne comprend qu’une seule langue</h2>
+    <div class="cols-2">
+      <div><p>En Tunisie, on écrit comme on parle : en français, en arabe, ou en derja tapée en lettres latines avec des chiffres (« nlawej 3la », « 9adech »). Les moteurs de recherche classiques ne comprennent qu’une de ces écritures, et ne trouvent rien quand l’orthographe varie.</p></div>
+      <div class="block"><h3>Ce qu’il fallait résoudre</h3><ul class="ticks"><li>comprendre trois écritures pour une même demande ;</li><li>tolérer les fautes et les variantes, sans orthographe officielle ;</li><li>répondre vite, y compris sur un téléphone d’entrée de gamme.</li></ul></div>
+    </div>
+  </div>
+</section><section class="band band-2" aria-labelledby="solution">
+  <div class="wrap">
+    <p class="eyebrow depth-label">La solution</p>
+    <h2 id="solution">Une recherche qui parle comme ses utilisateurs</h2>
+    <div class="cols-3">
+      <div class="block"><h3>Normalisation et translittération</h3><p>Le texte est ramené à une forme commune, et l’arabizi est relié à l’alphabet arabe, avec des règles adaptées au tunisien.</p></div>
+      <div class="block"><h3>Synonymes derja, arabe, français</h3><p>Un lexique relie les mots des trois écritures, et s’enrichit à partir des recherches qui n’ont rien donné.</p></div>
+      <div class="block"><h3>L’IA, mesurée</h3><p>Chaque brique d’IA n’est intégrée qu’après une mesure avant/après sur un jeu de test, dont une partie gelée ne sert jamais à régler le moteur.</p></div>
+    </div>
+    <p class="note">Usage précis de l’application et public visé : <mark class="todo">[À COMPLÉTER]</mark></p>
+  </div>
+</section><section class="band band-3" aria-labelledby="technique">
+  <div class="wrap">
+    <p class="eyebrow depth-label">La technique</p>
+    <h2 id="technique">Sous la surface</h2>
+    <div class="cols-2">
+      <div class="block"><h3>Application</h3><ul class="ticks"><li>Kotlin Multiplatform et Compose Multiplatform : une application Android et une version web qui partagent le code métier.</li><li>Domaine métier en Kotlin pur, erreurs typées plutôt qu’exceptions, dates et formats unifiés.</li><li>Textes en français et en arabe (de droite à gauche) dès le départ.</li><li>Un journal technique unique, sans donnée personnelle, coupé en production et activable depuis un écran de diagnostic caché.</li></ul></div>
+      <div class="block"><h3>Backend Firebase</h3><ul class="ticks"><li>Deux environnements séparés, développement et production ; rien n’arrive en production sans accord explicite.</li><li>Règles Firestore et Storage testées sur émulateur à chaque modification.</li><li>App Check et clé d’API restreinte à l’application.</li><li>Interrupteurs à chaud pour couper une fonction coûteuse ou sensible, avec un comportement sûr si le réglage manque.</li><li>Connexion Google d’abord ; vérification par téléphone sur des canaux ordonnés et plafonnés, pour garder la facture SMS sous contrôle.</li></ul></div>
+    </div>
+  </div>
+</section><section class="band band-4" aria-labelledby="methode">
+  <div class="wrap">
+    <p class="eyebrow depth-label">La méthode</p>
+    <h2 id="methode">Construit avec un agent IA de code, sous contrôle</h2>
+    <p class="section-lead">EasyFind est aussi notre terrain d’expérience du développement assisté par IA. Le chiffre qui le résume : <strong>42 pull requests et 61 décisions d’architecture documentées en cinq semaines</strong>.</p>
+    <ol class="steps">
+      <li><h3>Un plan écrit, découpé en petits lots</h3><p>Chaque lot correspond à une fonction du backlog, avec ses maquettes validées avant tout code d’écran.</p></li>
+      <li><h3>Une pull request par lot</h3><p>Petite, avec ses tests et ses journaux. L’intégration continue est le juge : rien n’est fusionné sans qu’elle soit verte.</p></li>
+      <li><h3>Chaque décision écrite</h3><p>Une décision d’architecture (ADR) est rédigée dans le même commit que le code : contexte, options, choix, conséquences.</p></li>
+      <li><h3>Un humain aux commandes</h3><p>L’agent avance seul sur ce qui est réversible ; les choix qui engagent le projet passent par une carte de décision au fondateur.</p></li>
+    </ol>
+  </div>
+</section><section class="band band-1" aria-labelledby="lecons">
+  <div class="wrap">
+    <p class="eyebrow depth-label">Ce que nous en retenons</p>
+    <h2 id="lecons">Les leçons que nous appliquons ailleurs</h2>
+    <ul class="ticks">
+      <li>Surveiller le coût de l’intégration continue dès le premier jour.</li>
+      <li>Garder des pull requests petites, même quand on est pressé.</li>
+      <li>Geler un jeu de mesure indépendant dès la première mesure d’IA.</li>
+      <li>Journaliser chaque refus de règle et chaque erreur interceptée : les erreurs silencieuses sont les plus chères.</li>
+    </ul>
+    <p class="note">Ces leçons nourrissent notre offre : <a href="/ia">IA souveraine et agents</a>, <a href="/android">développement mobile</a>, et notre article sur la <a href="/blog/recherche-arabe-tunisien-derja-arabizi">recherche en arabe tunisien</a>.</p>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Une application comme celle-ci ?</h2>
+      <p>Nous pouvons construire la vôtre avec la même méthode et la même exigence.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>

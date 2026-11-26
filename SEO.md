@@ -2,16 +2,19 @@
 
 Ce qui est **déjà fait dans le site** :
 
-- Un titre et une description uniques par page, de moins de 160 caractères. Une URL canonique, une balise `hreflang` prête pour l'anglais et l'arabe, et des balises robots qui autorisent les grands aperçus.
+- Un titre et une description uniques par page, de moins de 160 caractères. Une URL canonique, des balises `hreflang` qui relient les versions française, anglaise et arabe, et des balises robots qui autorisent les grands aperçus.
 - Les balises Open Graph et Twitter sont en place, avec une image de partage de 1200×630.
 - Données structurées (schema.org) :
   - `Organization` et `WebSite` sur l'accueil (avec le lien LinkedIn en `sameAs`) ;
   - `FAQPage` pour les 9 questions de l'accueil ;
-  - `Service` sur les pages IA, Conseil, Mobile et Sécurité ;
+  - `Service` sur les pages IA, Conseil, Mobile et Sécurité, et sur les pages ciblées (avec leur `FAQPage`) ;
+  - `Blog` sur /blog, `BlogPosting` sur chaque article, `Article` sur les études de cas ;
   - `BreadcrumbList` sur toutes les pages intérieures.
 - `robots.txt` ouvre tout le site et autorise explicitement les robots des moteurs IA : GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended, etc.
 - `llms.txt` donne aux assistants IA un résumé fiable d'ITBerg et la liste des pages.
-- Le `sitemap.xml` couvre les 9 pages, avec `hreflang`.
+- Le `sitemap.xml` couvre les 36 pages (24 pages principales en trois langues, le blog, les études de cas, les pages ciblées), avec `hreflang`.
+- Un flux RSS (`/feed.xml`) annonce les articles du blog. Vous pouvez l'envoyer comme sitemap supplémentaire dans Search Console et Bing.
+- Des pages ciblées répondent chacune à une recherche précise : « développement application mobile Tunisie », « agent IA LangGraph », « audit sécurité application mobile », « IA souveraine », « assistant IA documents RAG ».
 - La clé IndexNow (Bing, Yandex, Seznam…) est prête : le fichier `public/<clé>.txt` est en place, et la clé est dans `.indexnow-key`.
 - Le site est rapide et sans dépendance lourde. Il est accessible et sécurisé, avec HTTPS et une politique de sécurité (CSP) stricte.
 - Les statistiques de visite passent par GoatCounter : sans cookie, donc sans bandeau de consentement. Elles respectent Do Not Track et Global Privacy Control. Elles ne comptent que les visites sur itberg.tn, pas celles de l'aperçu ni d'un test en local.

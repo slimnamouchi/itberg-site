@@ -18,6 +18,14 @@ itberg-site/
 │   ├── securite.html    /securite Sécurité des applications mobiles
 │   ├── applis.html      /applis   Nos applications
 │   ├── contact.html     /contact  Contact
+│   ├── blog.html        /blog     liste des articles ; blog/*.html = les articles
+│   ├── feed.xml         flux RSS du blog
+│   ├── applis/          études de cas : el9offa.html, easyfind.html
+│   ├── developpement-application-mobile-tunisie.html, agent-ia-langgraph.html,
+│   │   audit-securite-application-mobile.html, ia-souveraine.html,
+│   │   assistant-ia-documents-rag.html   pages ciblées sur une recherche Google
+│   ├── en.html, en/     version anglaise (/en, /en/solutions, /en/ai…)
+│   ├── ar.html, ar/     version arabe, de droite à gauche (/ar, /ar/solutions…)
 │   ├── mentions-legales.html
 │   ├── 404.html         page « introuvable »
 │   ├── css/style.css    toutes les couleurs et la mise en page
@@ -33,14 +41,15 @@ itberg-site/
 2. Cherchez la phrase avec Ctrl+F, remplacez-la entre les balises, enregistrez.
    Exemple : `<h1>Écrivez-nous</h1>` → `<h1>Contactez-nous</h1>`.
 3. Le titre affiché dans Google est dans `<title>…</title>` et la description dans `<meta name="description" content="…">`, en haut de chaque fichier.
-4. Le menu et le pied de page sont répétés dans chaque page : si vous les changez, faites-le dans les 10 fichiers `.html` (Ctrl+Maj+H dans VS Code remplace dans tous les fichiers à la fois).
+4. Le menu et le pied de page sont répétés dans chaque page : si vous les changez, faites-le dans tous les fichiers `.html`, y compris ceux des dossiers `blog/`, `applis/`, `en/` et `ar/` (Ctrl+Maj+H dans VS Code remplace dans tous les fichiers à la fois). Le menu anglais et le menu arabe ont leurs propres libellés.
+6. Si vous modifiez une page qui existe en trois langues (accueil, solutions, IA, conseil, mobile, sécurité, applications, contact), pensez à reporter la modification dans `en/` et `ar/`.
 5. Couleurs : en haut de `css/style.css`, bloc `:root` (mode clair) puis le bloc mode sombre juste en dessous.
 
 **Les repères `[À COMPLÉTER]`** (en jaune sur le site) sont dans `contact.html` et `mentions-legales.html` : adresse, téléphone (facultatif), forme juridique, identifiant RNE, matricule fiscal, noms de famille des fondateurs, directeur de la publication, bureau d'enregistrement du domaine. Remplacez toute la balise `<mark class="todo">[À COMPLÉTER]</mark>` par l'information. Si vous ne voulez pas afficher le téléphone, supprimez la ligne entière.
 
 Pensez à mettre à jour la date `<lastmod>` dans `sitemap.xml` après une grosse modification.
 
-**Lien LinkedIn** : présent dans le pied de page (10 fichiers), la page `contact.html` et les données structurées en haut de `index.html` (bloc `application/ld+json`, utile à Google). Si l'adresse change, remplacez-la partout avec Ctrl+Maj+H.
+**Lien LinkedIn** : présent dans le pied de page (toutes les pages), la page `contact.html` et les données structurées en haut de `index.html` (bloc `application/ld+json`, utile à Google). Si l'adresse change, remplacez-la partout avec Ctrl+Maj+H.
 
 ## Voir le site sur votre ordinateur avant de publier
 
@@ -119,12 +128,23 @@ Si GitHub Actions n'est pas disponible :
 3. Attendez la propagation (de quelques minutes à 24 h). Firebase crée le certificat HTTPS tout seul.
 4. Déclarez ensuite le site dans Google Search Console et envoyez `https://itberg.tn/sitemap.xml`.
 
-## Ajouter l'anglais et l'arabe plus tard
+## Publier un article de blog
 
-- Créez `public/en/` et `public/ar/` avec une copie des pages traduites (adresses : `/en/android`, `/ar/android`…).
-- Dans les pages arabes, mettez `<html lang="ar" dir="rtl">`. La feuille de style utilise déjà des propriétés « logiques » : la mise en page se retourne toute seule de droite à gauche.
-- Dans chaque page, dé-commentez les lignes `hreflang` prévues en haut et ajoutez les adresses des traductions dans `sitemap.xml`.
-- Ajoutez un lien « FR · EN · عربي » dans le menu.
+1. Copiez un article existant de `public/blog/` sous un nouveau nom court, sans accent ni espace : `public/blog/mon-sujet.html` donnera l'adresse `/blog/mon-sujet`.
+2. Dans le nouveau fichier, changez : `<title>`, `<meta name="description">` (160 caractères au plus), les adresses `canonical`, `hreflang` et `og:url`, le fil d'Ariane, le titre `<h1>`, l'introduction, la date (`<time datetime="2026-12-15">` et `article:published_time`), puis le texte de l'article.
+3. Mettez à jour le bloc `application/ld+json` de type `BlogPosting` en haut du fichier : `headline`, `description`, `datePublished`, `dateModified`, `url`, `keywords`.
+4. Ajoutez une carte pour l'article dans `blog.html` (bloc `post-card`, le plus récent en premier) et dans le bloc `Blog` de ses données structurées.
+5. Ajoutez un `<item>` dans `feed.xml` (flux RSS) et une ligne `<url>` dans `sitemap.xml`.
+6. Lancez `python3 scripts/check_site.py` : il signale un lien cassé, une description trop longue ou un titre manquant.
+
+Règle d'honnêteté : pas de client, de chiffre ou de témoignage inventés. Si une information manque, écrivez `<mark class="todo">[À COMPLÉTER]</mark>`.
+
+## Les trois langues
+
+- Le français est la langue principale (adresses sans préfixe). L'anglais est sous `/en`, l'arabe sous `/ar` (`<html lang="ar" dir="rtl">`, la mise en page se retourne toute seule).
+- Les 8 pages principales existent dans les trois langues. Chacune annonce ses traductions par des balises `hreflang` en haut du fichier, et le sélecteur FR · EN · ع du menu mène à la même page dans l'autre langue. `scripts/check_site.py` vérifie que chaque traduction renvoie bien vers les autres.
+- Le blog, les études de cas, les pages ciblées et les mentions légales sont en français seulement : le sélecteur y mène à l'accueil anglais ou arabe.
+- Les textes arabes ont été rédigés en arabe standard : faites-les relire par un arabophone avant de communiquer dessus.
 
 ## Bon à savoir
 
