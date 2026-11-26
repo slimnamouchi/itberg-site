@@ -80,7 +80,7 @@ Le runner apparaît en vert, « Idle », dans Settings → Actions → Runners.
 > Autre solution gratuite : rendre le dépôt **public**. Les minutes GitHub Actions sont alors gratuites et illimitées, mais tout le monde peut lire le code du site (il ne contient aucun secret). Dans ce cas, remettez `runs-on: ubuntu-latest` dans les deux fichiers de `.github/workflows/`.
 
 **2. Renseigner le projet Firebase**
-Dans `.firebaserc`, remplacez `REMPLACER-PAR-ID-DU-PROJET-FIREBASE` par l'identifiant de votre projet Firebase (visible dans la console Firebase → ⚙ Paramètres du projet).
+Fait : `.firebaserc` contient l'identifiant du projet Firebase, `itberg-site`. Changez-le seulement si vous changez de projet.
 
 **3. Créer la clé qui autorise GitHub à publier (compte de service)**
 1. Ouvrez https://console.cloud.google.com/iam-admin/serviceaccounts et choisissez **votre projet Firebase** en haut de la page.
