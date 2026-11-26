@@ -128,6 +128,8 @@ Si GitHub Actions n'est pas disponible :
 
 ## Relier itberg.tn (une seule fois)
 
+> Le guide complet, clic par clic (OVH, Firebase, CAA, SPF/DKIM/DMARC, DNSSEC, clé de publication, Search Console et Bing), est dans **GUIDE-DOMAINE.md**.
+
 1. Console Firebase → Hosting → **Ajouter un domaine personnalisé** → `itberg.tn`, puis recommencez avec `www.itberg.tn` (redirection vers itberg.tn).
 2. Firebase affiche des enregistrements DNS (un TXT de vérification, puis des enregistrements A). Ajoutez-les dans l'espace client de votre bureau d'enregistrement `.tn`.
 3. Attendez la propagation (de quelques minutes à 24 h). Firebase crée le certificat HTTPS tout seul.
