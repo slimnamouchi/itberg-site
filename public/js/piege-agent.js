@@ -2,7 +2,7 @@
    Agent SIMULÉ, entièrement dans votre navigateur : pas de modèle de langage, pas de réseau.
    Les réponses suivent des règles écrites pour montrer, en petit, pourquoi un seul filtre ne suffit pas
    et ce qu'apporte un harnais complet (moindre privilège, contrôle de sortie, validation humaine).
-   Compatible CSP stricte et Trusted Types : pas d'eval, pas d'innerHTML. */
+   Compatible CSP stricte et Trusted Types : aucun code évalué, aucun HTML injecté (textContent et createElement seulement). */
 (function () {
   "use strict";
 

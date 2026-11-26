@@ -6,7 +6,7 @@
      2. ramener français, arabe et arabizi à une « forme pivot » commune, faite des consonnes ;
      3. relier les mots des trois écritures par un petit lexique ;
      4. tolérer les fautes avec une distance d'édition.
-   Compatible avec une CSP stricte et Trusted Types : pas d'eval, pas d'innerHTML. */
+   Compatible avec une CSP stricte et Trusted Types : aucun code évalué, aucun HTML injecté (textContent et createElement seulement). */
 (function () {
   "use strict";
 
