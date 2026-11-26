@@ -31,6 +31,7 @@ Points clés :
 ## Démonstrations interactives
 
 - [Démo de recherche locale](https://itberg.tn/demo-ia): recherche qui comprend le français, l'arabe et la derja en lettres latines, exécutée entièrement dans le navigateur
+- [Assistant ITBerg](https://itberg.tn/assistant): assistant du site qui répond uniquement avec les pages publiques, cite ses sources, refuse le hors-sujet et propose un humain ; exécuté dans le navigateur, sans modèle de langage, aucune question envoyée ([English](https://itberg.tn/en/assistant), [العربية](https://itberg.tn/ar/assistant))
 - [Piégez l'agent](https://itberg.tn/piege-agent): mini-jeu sur l'injection de prompt et les garde-fous d'un agent IA (agent simulé)
 - [Local search demo (English)](https://itberg.tn/en/ai-search-demo) · [Trap the agent (English)](https://itberg.tn/en/trap-the-agent) · [عرض البحث المحلّي](https://itberg.tn/ar/ai-search-demo) · [أوقِع الوكيل في الفخّ](https://itberg.tn/ar/trap-the-agent)
 
