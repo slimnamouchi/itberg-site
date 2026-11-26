@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier · ITBerg</title>
+<meta name="description" content="Kotlin Multiplatform et Firebase : ce que l’on partage entre Android et iOS, comment brancher Firebase, les pièges à éviter et quand ne pas choisir KMP.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios">
+<link rel="alternate" type="application/rss+xml" title="Blog ITBerg (RSS)" href="https://itberg.tn/feed.xml">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:title" content="Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier · ITBerg">
+<meta property="og:description" content="Kotlin Multiplatform et Firebase : ce que l’on partage entre Android et iOS, comment brancher Firebase, les pièges à éviter et quand ne pas choisir KMP.">
+<meta property="og:url" content="https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-11-26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier","description":"Kotlin Multiplatform et Firebase : ce que l’on partage entre Android et iOS, comment brancher Firebase, les pièges à éviter et quand ne pas choisir KMP.","datePublished":"2026-11-26","dateModified":"2026-11-26","inLanguage":"fr","mainEntityOfPage":{"@type":"WebPage","@id":"https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios"},"url":"https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios","image":"https://itberg.tn/img/og.png","author":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","url":"https://itberg.tn/"},"publisher":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","logo":{"@type":"ImageObject","url":"https://itberg.tn/img/logo-512.png"}},"articleSection":"Développement mobile","keywords":["Kotlin Multiplatform","KMP","Compose Multiplatform","Firebase","Android","iOS","application mobile Tunisie"],"isPartOf":{"@type":"Blog","@id":"https://itberg.tn/blog#blog"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://itberg.tn/blog"},{"@type":"ListItem","position":3,"name":"Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier","item":"https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios"}]}
+</script>
+</head>
+<body class="page-post">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis">Applications</a></li><li><a href="/blog" aria-current="page">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<article class="post">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/blog">Blog</a></li><li aria-current="page">Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier</li></ol></nav>
+    <p class="eyebrow">Développement mobile · Kotlin Multiplatform</p>
+    <h1>Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier</h1>
+    <p class="lead">Faut-il vraiment écrire deux applications, une pour Android et une pour iOS ? Avec Kotlin Multiplatform, on partage le code qui compte (les règles métier, les données, parfois les écrans) et on garde le natif là où il est utile. Voici comment nous l’associons à Firebase, et les pièges que nous avons appris à éviter.</p>
+    <p class="post-meta">Publié le <time datetime="2026-11-26">26 novembre 2026</time> · par l’équipe ITBerg</p>
+  </div>
+</section>
+<div class="band band-1">
+  <div class="wrap"><div class="prose post-body">
+<h2>Le principe : partager ce qui ne dépend pas de l’écran</h2>
+<p>Une application mobile, c’est en réalité plusieurs couches. Il y a ce que l’utilisateur voit (les écrans), ce que l’application sait faire (les règles métier : calculer un panier, valider un formulaire, décider quoi afficher hors connexion), et ce qui la relie au monde (le réseau, la base locale, les services comme Firebase). Écrire deux applications natives séparées, c’est écrire tout cela deux fois, puis corriger chaque bug deux fois.</p>
+<p><strong>Kotlin Multiplatform</strong> (KMP), la technologie de JetBrains, permet d’écrire une seule fois le code qui ne dépend pas de la plateforme, en Kotlin, et de le compiler pour Android (comme d’habitude) et pour iOS (en code natif). Elle est déclarée stable depuis fin 2023. <strong>Compose Multiplatform</strong> va plus loin et permet aussi de partager les écrans ; sa version iOS est stable depuis 2025.</p>
+<p>Ce n’est pas du « tout ou rien ». On peut partager seulement le métier et garder des écrans natifs (Jetpack Compose sur Android, SwiftUI sur iOS), ou tout partager. C’est l’une des grandes différences avec des solutions comme Flutter ou React Native, qui imposent leur propre façon de dessiner l’interface.</p>
+
+<h2>Ce que nous partageons, et ce que nous gardons par plateforme</h2>
+<p>Sur nos propres applications, <a href="/applis/el9offa">El9offa</a> et <a href="/applis/easyfind">EasyFind</a>, la règle est la même :</p>
+<ul class="ticks">
+<li><strong>Toujours partagé : le domaine métier</strong>, en Kotlin pur, sans aucune dépendance à Android, à iOS ni à Firebase. C’est là que vivent les règles importantes, et c’est la partie la plus facile à tester.</li>
+<li><strong>Partagé le plus souvent : les données</strong>. Réseau (Ktor), sérialisation (kotlinx.serialization), dates (kotlinx-datetime) et base locale : la bibliothèque Room de Google fonctionne désormais aussi en Kotlin Multiplatform, tout comme SQLDelight.</li>
+<li><strong>Partagé selon le projet : les écrans</strong>, avec Compose Multiplatform. Très rentable pour une petite équipe ; moins pertinent si l’application doit coller au millimètre aux conventions visuelles d’iOS.</li>
+<li><strong>Gardé par plateforme</strong> : ce qui touche au système (notifications, paiement intégré, widgets, certaines autorisations), via le mécanisme <code>expect</code>/<code>actual</code> ou une simple interface implémentée de chaque côté.</li>
+</ul>
+
+<h2>Brancher Firebase dans une application multiplateforme</h2>
+<p>Firebase est très pratique pour une application mobile : connexion des utilisateurs (Authentication), base de données synchronisée (Firestore), fonctions côté serveur (Cloud Functions), notifications (FCM), réglages à distance (Remote Config), hébergement de fichiers statiques (Hosting). Ses kits de développement officiels sont pensés pour chaque plateforme. Pour les utiliser depuis du code Kotlin partagé, il y a deux approches :</p>
+<h3>1. Une bibliothèque Kotlin Multiplatform pour Firebase</h3>
+<p>La bibliothèque open source de GitLive enveloppe les SDK officiels Android et iOS derrière une seule API Kotlin. On écrit l’accès à Firestore ou à l’authentification une seule fois. C’est rapide, mais on dépend d’un projet communautaire pour suivre les évolutions de Firebase. Au moment de démarrer, vérifiez aussi où en est le support officiel de Google : il évolue.</p>
+<h3>2. Firebase derrière une interface, implémentée par plateforme</h3>
+<p>Le code partagé ne parle qu’à une interface à vous (« enregistrer une liste », « récupérer l’utilisateur connecté »). Chaque plateforme l’implémente avec le SDK officiel. Un peu plus de code, mais le domaine ne sait même pas que Firebase existe : on peut le tester sans réseau, et changer de backend plus tard sans toucher aux règles métier.</p>
+<p>Nous combinons souvent les deux : une bibliothèque multiplateforme pour aller vite, mais toujours <strong>derrière une interface</strong>, pour que le domaine reste indépendant.</p>
+
+<h2>Les pièges que nous voyons le plus souvent</h2>
+<ul class="ticks">
+<li><strong>Oublier le hors-connexion.</strong> En Tunisie comme ailleurs, la connexion n’est pas toujours bonne. L’écran doit lire une base locale, et la synchronisation la mettre à jour, plutôt que d’attendre le réseau à chaque affichage.</li>
+<li><strong>Laisser le domaine dépendre de Firebase.</strong> Si les règles métier manipulent directement des documents Firestore, tout devient difficile à tester et impossible à migrer.</li>
+<li><strong>Négliger les règles de sécurité.</strong> Avec Firebase, l’application parle directement à la base : ce sont les règles Firestore et Storage qui empêchent un utilisateur de lire les données d’un autre. Elles se testent sur l’émulateur, à chaque modification, comme du code.</li>
+<li><strong>Un seul environnement.</strong> Un projet Firebase de développement et un de production, séparés. Rien n’arrive en production sans un accord explicite.</li>
+<li><strong>Oublier le coût.</strong> Lectures Firestore, SMS de vérification, fonctions planifiées : chaque fonction coûteuse mérite un interrupteur à distance (Remote Config) et un comportement sûr par défaut.</li>
+<li><strong>Sous-estimer iOS.</strong> Compiler pour iOS demande un Mac avec Xcode, un compte développeur Apple, et un peu de temps pour la publication sur l’App Store. À prévoir dans le planning dès le début.</li>
+</ul>
+
+<h2>Quand ne pas choisir Kotlin Multiplatform</h2>
+<p>KMP n’est pas toujours la bonne réponse :</p>
+<ul class="ticks">
+<li>si l’application est surtout de l’affichage, avec très peu de logique, une seule base de code d’interface (ou même un site web bien fait) peut suffire ;</li>
+<li>si votre équipe est déjà experte en Flutter ou en Swift et n’a pas de Kotlin, le coût de la transition peut dépasser le gain ;</li>
+<li>si vous ne visez qu’Android pour longtemps, une application Android classique reste plus simple. La bonne nouvelle : une architecture propre, avec un domaine en Kotlin pur, se migre ensuite vers KMP sans tout réécrire.</li>
+</ul>
+
+<h2>Par où commencer</h2>
+<ol class="steps">
+<li><h3>Écrire le domaine d’abord</h3><p>Les règles métier en Kotlin pur, avec leurs tests unitaires, avant le moindre écran ou appel réseau.</p></li>
+<li><h3>Choisir le niveau de partage</h3><p>Métier seul, métier et données, ou aussi les écrans : on décide selon l’équipe et l’exigence visuelle sur iOS.</p></li>
+<li><h3>Poser Firebase derrière des interfaces</h3><p>Deux projets (développement et production), des règles de sécurité testées sur émulateur, des interrupteurs à distance.</p></li>
+<li><h3>Automatiser les contrôles</h3><p>Une intégration continue qui vérifie le style (ktlint, detekt), lance les tests et compile Android et iOS à chaque pull request.</p></li>
+</ol>
+<p>Pour aller plus loin : notre page <a href="/developpement-application-mobile-tunisie">développement d’application mobile en Tunisie</a>, notre offre de <a href="/android">développement mobile Android et iOS</a>, et l’<a href="/audit-securite-application-mobile">audit de sécurité d’application mobile</a> pour vérifier une appli avant sa publication.</p>
+  </div></div>
+</div>
+</article>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Un projet en tête ?</h2>
+      <p>Écrivez-nous en quelques lignes. Lynda ou Slim vous répond personnellement.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li><li><a href="/securite-du-site">Sécurité de ce site</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>

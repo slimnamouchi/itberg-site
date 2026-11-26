@@ -6,12 +6,20 @@
     <atom:link href="https://itberg.tn/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Articles d’ITBerg sur les agents IA, l’IA souveraine, le développement mobile Android et iOS et la sécurité des applications mobiles.</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 26 Nov 2026 16:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 19:00:00 +0000</lastBuildDate>
     <image>
       <url>https://itberg.tn/img/logo-512.png</url>
       <title>Blog ITBerg</title>
       <link>https://itberg.tn/blog</link>
     </image>
+    <item>
+      <title>Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier</title>
+      <link>https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios</link>
+      <guid isPermaLink="true">https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios</guid>
+      <pubDate>Thu, 26 Nov 2026 19:00:00 +0000</pubDate>
+      <category>Développement mobile</category>
+      <description>Kotlin Multiplatform et Firebase : ce que l’on partage entre Android et iOS, comment brancher Firebase, les pièges à éviter et quand ne pas choisir KMP.</description>
+    </item>
     <item>
       <title>IA souveraine et agents guidés : garder la main sur ses données et ses décisions</title>
       <link>https://itberg.tn/blog/ia-souveraine-agents-guides</link>
