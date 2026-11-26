@@ -28,6 +28,11 @@ Points clés :
 - [El9offa](https://itberg.tn/applis/el9offa): comparateur de prix des courses en Tunisie ; problème, solution, technique (Kotlin Multiplatform, hors connexion, prix datés et sourcés)
 - [EasyFind](https://itberg.tn/applis/easyfind): recherche en français, arabe et arabe tunisien ; technique et méthode de développement avec un agent IA
 
+## Démonstrations interactives
+
+- [Démo de recherche locale](https://itberg.tn/demo-ia): recherche qui comprend le français, l'arabe et la derja en lettres latines, exécutée entièrement dans le navigateur
+- [Piégez l'agent](https://itberg.tn/piege-agent): mini-jeu sur l'injection de prompt et les garde-fous d'un agent IA (agent simulé)
+
 ## Pages par sujet
 
 - [Développement d'application mobile en Tunisie](https://itberg.tn/developpement-application-mobile-tunisie)
