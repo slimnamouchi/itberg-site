@@ -41,6 +41,10 @@ Points clés :
 - [Audit de sécurité d'application mobile (OWASP MASVS)](https://itberg.tn/audit-securite-application-mobile)
 - [IA souveraine en Tunisie](https://itberg.tn/ia-souveraine)
 - [Assistant IA sur vos documents (RAG)](https://itberg.tn/assistant-ia-documents-rag)
+- [Développement Kotlin Multiplatform](https://itberg.tn/developpement-kotlin-multiplatform) · [Kotlin Multiplatform development](https://itberg.tn/en/kotlin-multiplatform-development) · [تطوير Kotlin Multiplatform](https://itberg.tn/ar/kotlin-multiplatform-development)
+- [Audit de sécurité de l’IA](https://itberg.tn/audit-securite-ia-llm) · [LLM security audit](https://itberg.tn/en/llm-security-audit) · [تدقيق أمن الذكاء الاصطناعي](https://itberg.tn/ar/llm-security-audit)
+- [Chatbot en arabe tunisien](https://itberg.tn/chatbot-arabe-tunisien) · [Tunisian Arabic chatbot](https://itberg.tn/en/tunisian-arabic-chatbot) · [روبوت محادثة بالدارجة التونسية](https://itberg.tn/ar/tunisian-arabic-chatbot)
+- [Gouvernance de l’IA et AI Act](https://itberg.tn/gouvernance-ia-ai-act) · [AI governance and EU AI Act](https://itberg.tn/en/ai-governance-eu-ai-act) · [حوكمة الذكاء الاصطناعي وقانون AI Act](https://itberg.tn/ar/ai-governance-eu-ai-act)
 
 ## Blog
 
