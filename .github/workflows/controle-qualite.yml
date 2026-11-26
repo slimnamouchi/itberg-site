@@ -1,5 +1,7 @@
 # Sur chaque pull request (y compris depuis un fork) et sur main :
 # vérifie le site et mesure accessibilité, bonnes pratiques, SEO et performance avec Lighthouse.
+# Pull request : pages clés FR/EN/AR (démos incluses) + pages modifiées. Main : tout le site.
+# Les seuils bloquants sont dans lighthouserc.js ; le tableau des scores s'affiche dans « Summary ».
 # Pour bloquer la fusion si ce contrôle échoue : Settings → Rules → Rulesets, règle
 # « Require status checks to pass » avec le contrôle « Contrôle qualité ». Voir NOTICE.md.
 name: Contrôle qualité
@@ -8,6 +10,7 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -20,11 +23,13 @@ jobs:
   qualite:
     name: Contrôle qualité
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           persist-credentials: false
+          # 2 commits : la fusion de la PR et la branche cible, pour savoir quelles pages ont changé.
+          fetch-depth: 2
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 22
@@ -37,12 +42,20 @@ jobs:
           python3 scripts/serve_local.py 8081 &
           sleep 2
           python3 scripts/check_headers.py http://127.0.0.1:8081
-      - name: Lighthouse (accessibilité, bonnes pratiques, SEO = 100 ; performance ≥ 80)
-        run: npx --yes @lhci/cli@0.15.1 autorun
+      - name: Lighthouse (accessibilité, bonnes pratiques, SEO = 100 ; performance ≥ 95)
+        env:
+          # Hors pull request (main, lancement manuel) : toutes les pages du site.
+          LHCI_TOUTES: ${{ github.event_name != 'pull_request' && '1' || '' }}
+        run: npx --yes @lhci/cli@0.15.1 autorun --config=lighthouserc.js
+      - name: Tableau des scores Lighthouse
+        if: always()
+        run: python3 scripts/lighthouse_resume.py
       - name: Garder les rapports Lighthouse
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: rapports-lighthouse
           path: .lighthouseci/
+          # Le dossier commence par un point : sans ceci, l'artefact est vide.
+          include-hidden-files: true
           retention-days: 14
