@@ -19,10 +19,10 @@ jobs:
     # par exemple ["self-hosted","macOS"]. Voir NOTICE.md.
     runs-on: ${{ fromJSON(vars.RUNNER_LABELS || '"ubuntu-latest"') }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
       - name: Vérifier le site
         run: python3 scripts/check_site.py
       - name: Publier l'aperçu sur Firebase
