@@ -48,10 +48,19 @@ document.addEventListener("DOMContentLoaded", function () {
   function optedOut() { try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
   var dnt = navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.globalPrivacyControl === true;
   var prod = /(^|\.)itberg\.tn$/.test(location.hostname);
+  // Un simple pixel image : aucun script tiers n'est chargé (la CSP n'autorise que nos propres scripts).
   if (prod && !dnt && !optedOut()) {
-    var s = document.createElement("script");
-    s.async = true; s.src = "https://gc.zgo.at/count.js"; s.setAttribute("data-goatcounter", GC);
-    document.head.appendChild(s);
+    var q = "?p=" + encodeURIComponent(location.pathname) +
+      "&t=" + encodeURIComponent(document.title) +
+      "&s=" + encodeURIComponent(screen.width) +
+      "&rnd=" + Math.random().toString(36).slice(2);
+    try {
+      var ref = document.referrer && new URL(document.referrer);
+      if (ref && ref.hostname !== location.hostname) q += "&r=" + encodeURIComponent(ref.origin + ref.pathname);
+    } catch (e) {}
+    var img = new Image(1, 1);
+    img.alt = "";
+    img.src = GC + q;
   }
   document.addEventListener("DOMContentLoaded", function () {
     var btn = document.getElementById("stats-toggle"), state = document.getElementById("stats-state");

@@ -18,6 +18,8 @@ Points clés :
 - [Conseil en IA](https://itberg.tn/conseil): diagnostic, feuille de route, déroulé d'une mission (activité portée par Lynda)
 - [Développement mobile](https://itberg.tn/android): Android, iOS, Firebase, méthode qualité et tests
 - [Sécurité](https://itberg.tn/securite): audits mobiles et sécurité de l'IA
+- [Sécurité de ce site](https://itberg.tn/securite-du-site): mesures de sécurité d'itberg.tn et liens pour les vérifier
+- [Signaler une faille](https://itberg.tn/signaler-une-faille): politique de divulgation responsable
 - [Nos applications](https://itberg.tn/applis): El9offa (comparateur de prix des courses en Tunisie) et EasyFind (recherche multilingue)
 - [Contact](https://itberg.tn/contact): contact@itberg.tn, Tunisie
 

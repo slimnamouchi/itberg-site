@@ -99,7 +99,9 @@ Fait : `.firebaserc` contient l'identifiant du projet Firebase, `itberg-site`. C
 6. **Supprimez le fichier `.json` de votre ordinateur** et videz la corbeille. Cette clé permet de publier le site : elle ne doit vivre que dans GitHub.
 
 **4. Protéger la branche `main` (conseillé)**
-Dans le dépôt, ouvrez **Settings → Branches → Add branch ruleset**. Ciblez `main` et cochez **Require a pull request before merging** et **Require status checks to pass**, avec le contrôle « Aperçu de la pull request ». Ainsi, rien ne part en ligne sans aperçu ni vérification.
+Dans le dépôt, ouvrez **Settings → Branches → Add branch ruleset**. Ciblez `main` et cochez **Require a pull request before merging** et **Require status checks to pass**, avec les contrôles **« Contrôle qualité »** et **« apercu »** (Aperçu de la pull request). Ainsi, rien ne part en ligne si la sécurité, les liens, l'accessibilité ou le score Lighthouse baissent.
+
+Ce que vérifient ces contrôles : `scripts/check_site.py` (liens, langues, aucun script ou style en ligne, en-têtes de `firebase.json` jamais affaiblis), `scripts/check_headers.py` (en-têtes réellement servis, en local puis sur l'aperçu en ligne) et Lighthouse (`lighthouserc.json` : accessibilité, bonnes pratiques et SEO à 100, performance d'au moins 80). Pour tester les en-têtes du site en production : `python3 scripts/check_headers.py https://itberg.tn`.
 
 Tant que le dépôt est public, activez aussi dans **Settings → Code security** : **Secret scanning** et **Push protection** (GitHub bloque un envoi qui contient une clé), et **Dependabot alerts**. Dans **Settings → Actions → General**, gardez « Workflow permissions » sur **Read repository contents** et choisissez « Require approval for all outside collaborators ».
 

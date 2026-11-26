@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sécurité de ce site : vérifiez-la vous-même · ITBerg</title>
+<meta name="description" content="Comment itberg.tn est protégé : CSP stricte, Trusted Types, aucun script tiers, aucun cookie. Et des liens pour le vérifier en direct.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/securite-du-site">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/securite-du-site">
+<link rel="alternate" hreflang="en" href="https://itberg.tn/en/site-security">
+<link rel="alternate" hreflang="ar" href="https://itberg.tn/ar/site-security">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/securite-du-site">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ar_TN">
+<meta property="og:title" content="Sécurité de ce site : vérifiez-la vous-même · ITBerg">
+<meta property="og:description" content="Comment itberg.tn est protégé : CSP stricte, Trusted Types, aucun script tiers, aucun cookie. Et des liens pour le vérifier en direct.">
+<meta property="og:url" content="https://itberg.tn/securite-du-site">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Sécurité de ce site","item":"https://itberg.tn/securite-du-site"}]}
+</script>
+</head>
+<body class="page-securite-site">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis">Applications</a></li><li><a href="/blog">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/securite-du-site" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en/site-security" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar/site-security" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <p class="eyebrow">Transparence</p>
+    <h1>Ce site est sécurisé : vérifiez-le vous-même</h1>
+    <p class="lead">Nous auditons la sécurité des applications de nos clients. Il est normal que notre propre site montre l’exemple, et que vous puissiez le contrôler sans nous croire sur parole.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="mesures">
+  <div class="wrap">
+    <h2 id="mesures">Ce que nous avons mis en place</h2>
+    <div class="cols-2">
+      <div class="block"><h3>HTTPS partout, et seulement HTTPS</h3><p>Toutes les pages sont chiffrées. Le navigateur a pour consigne (HSTS) de ne jamais revenir à une connexion non chiffrée pendant un an, sur le domaine et ses sous-domaines.</p></div>
+      <div class="block"><h3>Une politique de sécurité du contenu stricte</h3><p>La CSP part de « rien n’est autorisé » (<code>default-src 'none'</code>) et n’ouvre que le strict nécessaire : nos propres scripts, nos propres styles et nos images. Aucun code en ligne, aucun <code>unsafe-inline</code>, aucun <code>eval</code>.</p></div>
+      <div class="block"><h3>Trusted Types</h3><p>Le navigateur refuse toute écriture de HTML brut par un script (<code>require-trusted-types-for 'script'</code>). C’est la protection la plus efficace contre les failles XSS dites « DOM ». Nos scripts n’utilisent que des méthodes sûres.</p></div>
+      <div class="block"><h3>Aucun script tiers</h3><p>Pas de CDN, pas de police externe, pas de widget, pas de bouton de réseau social. Tout le code vient de notre serveur : il n’y a donc rien d’extérieur qui puisse être modifié à notre insu.</p></div>
+      <div class="block"><h3>Aucun cookie, aucun formulaire</h3><p>Le site ne dépose aucun cookie et ne vous demande aucune donnée. La mesure d’audience est anonyme (un simple pixel GoatCounter, sans cookie), et elle se coupe si votre navigateur envoie « Ne pas me pister » ou Global Privacy Control.</p></div>
+      <div class="block"><h3>Protection contre l’intégration et l’espionnage</h3><p>Le site ne peut pas être affiché dans le cadre d’un autre site (anti-clickjacking), il est isolé des autres onglets (COOP, CORP), et l’accès à la caméra, au micro ou à la position est désactivé par principe.</p></div>
+      <div class="block"><h3>Une publication contrôlée</h3><p>Chaque modification passe par une demande de fusion relue, puis par des contrôles automatiques : en-têtes de sécurité, liens, accessibilité et performance. Si un contrôle échoue, la modification ne part pas en ligne. Les outils de publication sont figés sur une version précise et n’ont que les droits nécessaires.</p></div>
+      <div class="block"><h3>Une porte ouverte aux chercheurs</h3><p>Nous publions un fichier <a href="/.well-known/security.txt">security.txt</a> (norme RFC 9116) et une <a href="/signaler-une-faille">politique de divulgation responsable</a>.</p></div>
+    </div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="verifier">
+  <div class="wrap prose">
+    <h2 id="verifier">Vérifiez en direct</h2>
+    <p>Nous ne recopions pas de note ici : une note recopiée peut être fausse ou périmée. Chaque lien lance un test indépendant sur itberg.tn, maintenant.</p>
+    <ul>
+      <li><a href="https://securityheaders.com/?q=https%3A%2F%2Fitberg.tn&amp;followRedirects=on" rel="noopener">securityheaders.com</a> teste les en-têtes de sécurité HTTP.</li>
+      <li><a href="https://developer.mozilla.org/en-US/observatory/analyze?host=itberg.tn" rel="noopener">Mozilla HTTP Observatory</a> teste la politique de sécurité du contenu, HSTS, les redirections et les cookies.</li>
+      <li><a href="https://www.ssllabs.com/ssltest/analyze.html?d=itberg.tn&amp;hideResults=on" rel="noopener">Qualys SSL Labs</a> teste le chiffrement HTTPS et le certificat.</li>
+      <li><a href="https://internet.nl/site/itberg.tn/" rel="noopener">internet.nl</a> teste les standards modernes : IPv6, DNSSEC, HTTPS.</li>
+      <li><a href="https://internet.nl/mail/itberg.tn/" rel="noopener">internet.nl (e-mail)</a> teste la protection de notre adresse e-mail contre l’usurpation : SPF, DKIM, DMARC.</li>
+      <li><a href="https://dnsviz.net/d/itberg.tn/dnssec/" rel="noopener">DNSViz</a> teste la chaîne de signature DNSSEC du domaine.</li>
+      <li><a href="https://themarkup.org/blacklight?url=itberg.tn" rel="noopener">Blacklight (The Markup)</a> teste la présence de traceurs, de cookies tiers et d’empreinte du navigateur.</li>
+    </ul>
+    <p>Vous pouvez aussi ouvrir les outils de développement de votre navigateur (touche F12), onglet « Réseau » : vous verrez que chaque fichier vient d’itberg.tn, et que la seule requête extérieure est le pixel anonyme de mesure d’audience.</p>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="limites">
+  <div class="wrap prose">
+    <h2 id="limites">Nos limites, honnêtement</h2>
+    <p>Aucune sécurité n’est absolue. Ce site est hébergé par Firebase Hosting (Google) : nous profitons de son infrastructure, mais nous ne la contrôlons pas. Si vous trouvez une faiblesse, nous voulons le savoir.</p>
+    <p class="actions"><a class="btn" href="/signaler-une-faille">Signaler une faille</a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li><li><a href="/securite-du-site">Sécurité de ce site</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>

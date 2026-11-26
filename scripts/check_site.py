@@ -58,6 +58,71 @@ for f in sorted(glob.glob(os.path.join(PUB, "**", "*.html"), recursive=True)):
             problems.append(f"{name} : données structurées invalides ({e})")
     if re.search(r'\sstyle="', s) or re.search(r"<script>(?!\s*$)", s):
         problems.append(f"{name} : style ou script en ligne (bloqué par la sécurité du site)")
+    if re.search(r"<style[\s>]", s) or re.search(r"\son[a-z]+\s*=", s) or "javascript:" in s:
+        problems.append(f"{name} : <style>, attribut onclick=... ou lien javascript: (bloqué par la sécurité du site)")
+    for tag in re.findall(r"<script\b[^>]*>", s):
+        if 'type="application/ld+json"' in tag:
+            continue
+        src = re.search(r'src="([^"]*)"', tag)
+        if not src:
+            problems.append(f"{name} : script en ligne (seuls les fichiers de /js sont autorisés)")
+        elif not src.group(1).startswith("/js/"):
+            problems.append(f"{name} : script externe {src.group(1)} (seuls les fichiers de /js sont autorisés)")
+    for tag in re.findall(r"<link\b[^>]*>", s):
+        if 'rel="stylesheet"' in tag and not re.search(r'href="/', tag):
+            problems.append(f"{name} : feuille de style externe ({tag})")
+    for tag in re.findall(r'<a\b[^>]*target="_blank"[^>]*>', s):
+        if "noopener" not in tag:
+            problems.append(f"{name} : lien target=_blank sans rel=noopener")
+
+# Scripts : aucune fonction qui exécute du texte ou écrit du HTML brut (Trusted Types les bloquerait de toute façon).
+for f in sorted(glob.glob(os.path.join(PUB, "**", "*.js"), recursive=True)):
+    js = open(f, encoding="utf-8").read()
+    for bad in ("innerHTML", "outerHTML", "insertAdjacentHTML", "document.write", "eval(", "new Function", "setTimeout(\"", "setInterval(\""):
+        if bad in js:
+            problems.append(f"{os.path.relpath(f, PUB)} : {bad} interdit (utilisez textContent / createElement)")
+
+# En-têtes de sécurité de firebase.json : la politique ne doit jamais s'affaiblir.
+cfg = json.load(open(os.path.join(PUB, "..", "firebase.json"), encoding="utf-8"))
+glob_headers = {}
+for rule in cfg["hosting"].get("headers", []):
+    if rule["source"] == "**":
+        glob_headers = {h["key"].lower(): h["value"] for h in rule["headers"]}
+    elif any(h["key"].lower() == "content-security-policy" for h in rule["headers"]):
+        problems.append(f"firebase.json : CSP redéfinie pour {rule['source']} ; documentez l'exception dans scripts/check_site.py")
+required = {
+    "strict-transport-security": r"max-age=(\d+)",
+    "x-content-type-options": r"^nosniff$",
+    "x-frame-options": r"^DENY$",
+    "referrer-policy": r"^(strict-origin-when-cross-origin|no-referrer|same-origin|strict-origin)$",
+    "permissions-policy": r"camera=\(\)",
+    "cross-origin-opener-policy": r"^same-origin$",
+    "cross-origin-resource-policy": r"^same-(origin|site)$",
+    "content-security-policy": r".",
+}
+for key, pat in required.items():
+    v = glob_headers.get(key)
+    if v is None or not re.search(pat, v):
+        problems.append(f"firebase.json : en-tête {key} absent ou trop faible")
+m = re.search(r"max-age=(\d+)", glob_headers.get("strict-transport-security", ""))
+if m and int(m.group(1)) < 31536000:
+    problems.append("firebase.json : HSTS doit durer au moins un an (max-age=31536000)")
+csp = {}
+for part in glob_headers.get("content-security-policy", "").split(";"):
+    words = part.split()
+    if words:
+        csp[words[0]] = words[1:]
+for directive, expected in {
+    "default-src": ["'none'"], "object-src": ["'none'"], "base-uri": ["'none'"],
+    "frame-ancestors": ["'none'"], "form-action": ["'none'"], "script-src": ["'self'"],
+    "require-trusted-types-for": ["'script'"], "trusted-types": ["'none'"],
+}.items():
+    if csp.get(directive) != expected:
+        problems.append(f"firebase.json : la CSP doit contenir « {directive} {' '.join(expected)} » (trouvé : {csp.get(directive)})")
+for directive, values in csp.items():
+    for v in values:
+        if v in ("'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'", "*", "data:", "blob:", "http:", "https:") or v.startswith("http://"):
+            problems.append(f"firebase.json : {v} interdit dans {directive}")
 
 # security.txt (RFC 9116) : la date « Expires » doit rester dans le futur.
 import datetime
