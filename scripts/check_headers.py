@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Vérifie qu'un site EN LIGNE renvoie bien les en-têtes de sécurité déclarés dans firebase.json.
 Lancement : python3 scripts/check_headers.py https://itberg.tn   (code de sortie 1 en cas d'écart)"""
-import json, os, sys, urllib.request
+import json, os, re, sys, urllib.request
 
 base = sys.argv[1].rstrip("/")
 cfg = json.load(open(os.path.join(os.path.dirname(__file__), "..", "firebase.json"), encoding="utf-8"))
@@ -19,7 +19,12 @@ for path in ("/", "/en", "/ar", "/securite-du-site", "/css/style.css", "/js/main
         resp = e
     got = {k.lower(): v for k, v in resp.headers.items()}
     for key, value in expected.items():
-        if got.get(key) != value:
+        if key == "strict-transport-security":
+            # Firebase impose sa propre valeur, plus stricte, sur *.web.app : on accepte toute valeur au moins aussi forte.
+            m = re.search(r"max-age=(\d+)", got.get(key, ""))
+            if not m or int(m.group(1)) < 31536000 or "includesubdomains" not in got.get(key, "").lower():
+                problems.append(f"{path} : {key} = {got.get(key)!r}, attendu au moins {value!r}")
+        elif got.get(key) != value:
             problems.append(f"{path} : {key} = {got.get(key)!r}, attendu {value!r}")
     if "set-cookie" in got:
         problems.append(f"{path} : un cookie est déposé ({got['set-cookie']})")
