@@ -59,6 +59,20 @@ for f in sorted(glob.glob(os.path.join(PUB, "**", "*.html"), recursive=True)):
     if re.search(r'\sstyle="', s) or re.search(r"<script>(?!\s*$)", s):
         problems.append(f"{name} : style ou script en ligne (bloqué par la sécurité du site)")
 
+# security.txt (RFC 9116) : la date « Expires » doit rester dans le futur.
+import datetime
+sec = os.path.join(PUB, ".well-known", "security.txt")
+if os.path.exists(sec):
+    m = re.search(r"^Expires:\s*(\S+)", open(sec, encoding="utf-8").read(), re.M)
+    if not m:
+        problems.append(".well-known/security.txt : ligne Expires manquante")
+    else:
+        exp = datetime.datetime.fromisoformat(m.group(1).replace("Z", "+00:00"))
+        if exp < datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=30):
+            problems.append(".well-known/security.txt : la date Expires est passée ou proche, repoussez-la d'un an")
+else:
+    problems.append(".well-known/security.txt manquant")
+
 todo = sum(open(f, encoding="utf-8").read().count("[À COMPLÉTER]") for f in glob.glob(os.path.join(PUB, "*.html")))
 if problems:
     print("Problèmes trouvés :")
