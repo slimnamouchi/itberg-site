@@ -31,6 +31,7 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/main.js"></script>
+<script src="/js/iceberg.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","url":"https://itberg.tn/","logo":{"@type":"ImageObject","url":"https://itberg.tn/img/logo-512.png","width":512,"height":512},"image":"https://itberg.tn/img/og.png","email":"contact@itberg.tn","description":"Société tunisienne : conseil et agents IA souverains et maîtrisés, applications Android et iOS, sécurité des applications mobiles et de l’IA.","slogan":"L’IA en surface. La maîtrise en profondeur.","address":{"@type":"PostalAddress","addressCountry":"TN"},"areaServed":"TN","founder":[{"@type":"Person","name":"Slim"},{"@type":"Person","name":"Lynda"}],"contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"contact@itberg.tn","availableLanguage":["fr","ar","en"]},"knowsAbout":["Intelligence artificielle","Agents IA","LangChain","LangGraph","RAG","IA souveraine","LLMOps","Développement Android","Kotlin","Compose Multiplatform","Développement iOS","Firebase","Sécurité des applications mobiles","OWASP MASVS","MobSF","Sécurité des LLM"],"sameAs":["https://www.linkedin.com/company/itberg/"]}
 </script>
@@ -92,25 +93,31 @@
   <path class="h-mass" d="M40 0H360l35 120-25 150-80 120-110 45-110-65L15 220z"/>
   <path class="h-rail" d="M184 232V0M216 232V0"/>
   <g class="h-edges">
-    <path d="M200 395 110 305M200 395 290 305M110 305 200 225M290 305 200 225M200 225V145M200 145V70M200 70V0"/>
+    <path class="ly ly1" d="M200 395 110 305M200 395 290 305"/>
+    <path class="ly ly2" d="M110 305 200 225M290 305 200 225"/>
+    <path class="ly ly3" d="M200 225V145"/>
+    <path class="ly ly4" d="M200 145V70"/>
+    <path class="ly ly5" d="M200 70V0"/>
   </g>
-  <path class="h-loop" d="M290 305C350 255 270 195 214 220"/>
+  <path class="h-loop ly ly2" d="M290 305C350 255 270 195 214 220"/>
   <g class="h-nodes">
-    <circle cx="200" cy="395" r="9"/><circle cx="110" cy="305" r="9"/><circle cx="290" cy="305" r="9"/><circle cx="200" cy="225" r="11"/>
+    <circle class="ly ly1" cx="200" cy="395" r="9"/><circle class="ly ly1" cx="110" cy="305" r="9"/><circle class="ly ly1" cx="290" cy="305" r="9"/><circle class="ly ly2" cx="200" cy="225" r="11"/>
   </g>
-  <g class="h-gate"><rect x="166" y="141" width="26" height="8" rx="3"/><rect x="208" y="141" width="26" height="8" rx="3"/></g>
+  <g class="h-gate ly ly3"><rect x="166" y="141" width="26" height="8" rx="3"/><rect x="208" y="141" width="26" height="8" rx="3"/></g>
   <circle class="h-halo" cx="200" cy="145" r="10" opacity="0"><animate attributeName="opacity" values="0;0;.9;0;0" keyTimes="0;0.44;0.49;0.56;1" dur="7s" repeatCount="indefinite"/><animate attributeName="r" values="10;10;22;10;10" keyTimes="0;0.44;0.49;0.56;1" dur="7s" repeatCount="indefinite"/></circle>
   <circle class="h-halo h-halo-human" cx="200" cy="70" r="13" opacity="0"><animate attributeName="opacity" values="0;0;.9;.9;0;0" keyTimes="0;0.58;0.62;0.8;0.84;1" dur="7s" repeatCount="indefinite"/><animate attributeName="r" values="13;13;24;20;13;13" keyTimes="0;0.58;0.64;0.8;0.84;1" dur="7s" repeatCount="indefinite"/></circle>
-  <g class="h-human"><circle cx="200" cy="70" r="13"/><circle class="h-head" cx="200" cy="66" r="4"/><path class="h-body" d="M192 78a8 7 0 0 1 16 0"/></g>
+  <g class="h-human ly ly4"><circle cx="200" cy="70" r="13"/><circle class="h-head" cx="200" cy="66" r="4"/><path class="h-body" d="M192 78a8 7 0 0 1 16 0"/></g>
   <circle class="h-pulse" r="6"><animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.852;0.852;1" keyTimes="0;0.6;0.82;1" path="M200 395 L110 305 L200 225 L200 145 L200 70 L200 -6"/></circle>
   <circle class="h-pulse h-pulse-b" r="5" opacity="0"><set attributeName="opacity" to="1" begin="3.5s"/><animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.852;0.852;1" keyTimes="0;0.6;0.82;1" begin="3.5s" path="M200 395 L290 305 L200 225 L200 145 L200 70 L200 -6"/></circle>
+  <circle class="h-dot" r="7" cx="0" cy="0"/>
   <g class="h-labels">
-    <text x="200" y="428" text-anchor="middle">Vos données</text>
-    <text x="110" y="336" text-anchor="middle">Modèle souverain</text>
-    <text x="290" y="336" text-anchor="middle">Vos outils</text>
-    <text x="222" y="230">Agents · LangGraph</text>
-    <text x="244" y="150">Garde-fous</text>
-    <text x="224" y="75">Validation humaine</text>
+    <text class="ly ly1" x="200" y="428" text-anchor="middle">Vos données</text>
+    <text class="ly ly1" x="110" y="336" text-anchor="middle">Modèle souverain</text>
+    <text class="ly ly1" x="290" y="336" text-anchor="middle">Vos outils</text>
+    <text class="ly ly2" x="222" y="230">Agents · LangGraph</text>
+    <text class="ly ly3" x="244" y="150">Garde-fous</text>
+    <text class="ly ly4" x="224" y="75">Validation humaine</text>
+    <text class="ly ly5 h-answer" x="224" y="18">La réponse</text>
   </g>
 </svg></div>
       </div>
@@ -163,6 +170,7 @@
         <h2 id="ia-titre" class="feature-title">On ne subit pas l’IA. On la pilote.</h2>
         <p class="section-lead">Nous aidons les entreprises à décider où l’IA a sa place, puis nous construisons les agents qui font le travail, dans un cadre que vous contrôlez. Cette activité est portée par Lynda, cofondatrice d’ITBerg.</p>
         <div class="actions"><a class="btn" href="/ia">IA souveraine et agents</a><a class="btn btn-ghost" href="/conseil">L’offre de conseil IA</a></div>
+        <p class="demo-teaser">À essayer : <a href="/demo-ia">notre recherche qui comprend le tunisien</a>, 100 % dans votre navigateur, et <a href="/piege-agent">le jeu « Piégez l’agent »</a>.</p>
       </div>
       <div class="ia-two">
         <div class="block"><h3>Conseil IA</h3><p>Diagnostic, feuille de route, choix des modèles et des outils, règles d’usage, formation des équipes.</p></div>

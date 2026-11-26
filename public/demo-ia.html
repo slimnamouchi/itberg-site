@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Démo : recherche IA qui comprend le tunisien, 100 % locale · ITBerg</title>
+<meta name="description" content="Essayez une recherche qui comprend le français, l’arabe et la derja en lettres latines. Elle tourne dans votre navigateur : aucune donnée n’est envoyée.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/demo-ia">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:title" content="Démo : recherche IA qui comprend le tunisien, 100 % locale · ITBerg">
+<meta property="og:description" content="Essayez une recherche qui comprend le français, l’arabe et la derja en lettres latines. Elle tourne dans votre navigateur : aucune donnée n’est envoyée.">
+<meta property="og:url" content="https://itberg.tn/demo-ia">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script src="/js/demo-ia.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Démo de recherche locale","item":"https://itberg.tn/demo-ia"}]}
+</script>
+</head>
+<body class="page-demo">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis">Applications</a></li><li><a href="/blog">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/demo-ia" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <p class="eyebrow">Démo · IA locale</p>
+    <h1>Une recherche qui comprend le tunisien, dans votre navigateur</h1>
+    <p class="lead">Tapez en français, en arabe ou en derja avec des chiffres (« nlawej 3la blombi »). Tout est calculé sur votre appareil : aucune requête ne part vers un serveur, aucun modèle n’est téléchargé, rien n’est enregistré.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="essayer">
+  <div class="wrap">
+    <h2 id="essayer" class="sr-only">Essayer la recherche</h2>
+    <div class="demo">
+      <div class="demo-main">
+        <form id="demo-form" class="demo-form" role="search">
+          <label for="demo-q">Que cherchez-vous ?</label>
+          <div class="demo-field"><input id="demo-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="nlawej 3la trisian f tounes" dir="auto"><button class="btn" type="submit">Chercher</button></div>
+        </form>
+        <p class="demo-ex-label" id="demo-ex">Exemples à essayer :</p>
+        <ul class="chips" aria-labelledby="demo-ex"><li><button type="button" class="chip" data-demo-q="nlawej 3la blombi f sfax">nlawej 3la blombi f sfax</button></li><li><button type="button" class="chip" data-demo-q="9adech el 7lib">9adech el 7lib</button></li><li><button type="button" class="chip" data-demo-q="سوم الزيت" lang="ar" dir="rtl">سوم الزيت</button></li><li><button type="button" class="chip" data-demo-q="n7eb tbib snin">n7eb tbib snin</button></li><li><button type="button" class="chip" data-demo-q="kahrabji tawa">kahrabji tawa</button></li><li><button type="button" class="chip" data-demo-q="climatiseur ma5douma">climatiseur ma5douma</button></li><li><button type="button" class="chip" data-demo-q="pharmacie de garde">pharmacie de garde</button></li><li><button type="button" class="chip" data-demo-q="نلوج على حجام في المنستير" lang="ar" dir="rtl">نلوج على حجام في المنستير</button></li><li><button type="button" class="chip" data-demo-q="plonbier">plonbier</button></li></ul>
+        <p id="demo-status" class="demo-status" role="status" aria-live="polite">La démo a besoin de JavaScript, exécuté uniquement sur votre appareil.</p>
+        <ol id="demo-results" class="demo-results" aria-label="Résultats"></ol>
+        <p class="hint">Catalogue fictif de 32 services et produits, préparé pour la démonstration.</p>
+      </div>
+      <aside class="demo-under" aria-labelledby="dessous">
+        <p class="sea-caption" id="dessous">Sous la surface</p>
+        <h3 class="demo-under-title">Comment la demande a été comprise</h3>
+        <ol id="demo-trace" class="demo-trace"></ol>
+        <dl class="demo-proof">
+          <div><dt>Requêtes réseau pendant vos recherches</dt><dd id="demo-net">0</dd></div>
+          <div><dt>Temps de calcul</dt><dd id="demo-ms">–</dd></div>
+          <div><dt>Données envoyées</dt><dd>aucune</dd></div>
+        </dl>
+        <p class="demo-proof-note">Vérifiez-le : coupez votre Wi-Fi, la recherche continue de marcher. Le compteur lit le journal réseau de votre propre navigateur.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="comment">
+  <div class="wrap">
+    <h2 id="comment">Ce qui se passe quand vous tapez</h2>
+    <p class="section-lead">Pas de magie, et pas de grand modèle de langage : quatre briques simples, mesurables et rapides, les mêmes que dans notre application <a href="/applis/easyfind">EasyFind</a>.</p>
+    <div class="cols-2">
+      <div class="block"><h3>1. Normaliser</h3><p>Minuscules, accents et voyelles brèves retirés, variantes de l’alif et de la tâ marbouta unifiées, lettres répétées réduites (« 7leeeeb »).</p></div>
+      <div class="block"><h3>2. Une forme pivot</h3><p>L’arabe et l’arabizi sont ramenés aux mêmes consonnes : « 7lib », « hlib » et « <span lang="ar" dir="rtl">حليب</span> » deviennent tous <code>hlb</code>. Les chiffres reprennent leur lettre : 3 pour <span lang="ar">ع</span>, 7 pour <span lang="ar">ح</span>, 9 pour <span lang="ar">ق</span>, 5 pour <span lang="ar">خ</span>.</p></div>
+      <div class="block"><h3>3. Un lexique à trois écritures</h3><p>Un petit dictionnaire relie la derja, l’arabe, le français et l’anglais : « blombi », « <span lang="ar" dir="rtl">سبّاك</span> », « plombier », « plumber ». C’est lui qui fait la différence.</p></div>
+      <div class="block"><h3>4. Tolérer les fautes</h3><p>Une distance d’édition accepte une lettre en trop, en moins ou inversée, d’autant plus que le mot est long.</p></div>
+    </div>
+    <p class="note">Et les modèles d’IA ? Ils aident sur les questions longues, mais coûtent plus cher et sont moins prévisibles. Nous les ajoutons en dernier, de préférence exécutés sur l’appareil, et seulement si la mesure sur un jeu de test montre un gain. <a href="/blog/recherche-arabe-tunisien-derja-arabizi">Lire notre article sur la recherche en arabe tunisien</a>.</p>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="suite">
+  <div class="wrap cols-2">
+    <div class="block"><h2 id="suite" class="h3-size">Une IA qui ne sort pas de chez vous</h2><p>Cette démo tient dans un seul petit fichier et tourne hors connexion. C’est le principe de l’IA souveraine : vos données et celles de vos clients restent là où vous l’avez décidé.</p><p><a class="more" href="/ia-souveraine">L’IA souveraine</a></p></div>
+    <div class="block"><h2 class="h3-size">Et si quelqu’un essaie de tromper l’IA ?</h2><p>Essayez de faire dire son secret à un agent, et voyez comment le harnais tient bon : filtres, contrôle de sortie et validation humaine.</p><p><a class="more" href="/piege-agent">Piéger l’agent</a></p></div>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <p class="eyebrow">Votre projet</p>
+      <h2 id="cta-titre">Vos clients écrivent en derja ? Votre recherche aussi devrait la comprendre.</h2>
+      <p>Moteur de recherche, assistant ou service client : écrivez-nous, Lynda ou Slim vous répond.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>
