@@ -5,7 +5,7 @@
 ```
 itberg-site/
 ├── .github/workflows/  publication automatique (aperçu sur pull request, production sur main)
-├── scripts/check_site.py vérifications lancées avant chaque publication
+├── scripts/            check_site.py (vérifications avant publication), indexnow.py (prévient Bing)
 ├── SEO.md               checklist référencement + statistiques (à suivre après la mise en ligne)
 ├── firebase.json        configuration de l'hébergement (adresses propres, sécurité, cache)
 ├── .firebaserc          identifiant de votre projet Firebase (à remplir)
@@ -65,6 +65,19 @@ Le code du site vit sur GitHub, dans le dépôt privé `itberg-site`. Chaque mod
 1. Allez sur https://github.com/new.
 2. Nom : `itberg-site`. Choisissez **Private** et ne cochez rien d'autre (pas de README).
 3. Cliquez sur **Create repository**. Le code peut ensuite être envoyé dans le dépôt (par Claude, ou avec les commandes de la section « Envoyer le code vous-même » ci-dessous).
+
+**1 bis. Brancher le runner du Mac (gratuit)**
+Les publications tournent sur un runner GitHub installé sur le Mac, pas sur les machines payantes de GitHub. Le Mac doit être allumé et connecté quand une publication part. Sinon, le travail attend jusqu'à 24 h et démarre dès le retour du Mac.
+
+Un compte GitHub personnel n'a pas de runner partagé entre dépôts : il faut un runner pour `itberg-site`, installé dans son propre dossier. Le runner de vos autres projets ne bouge pas.
+1. Sur github.com, dans le dépôt `itberg-site`, ouvrez **Settings → Actions → Runners → New self-hosted runner**, puis choisissez **macOS** et l'architecture du Mac (ARM64 pour une puce Apple M).
+2. Dans le Terminal, lancez les commandes affichées par GitHub, **dans un nouveau dossier** : par exemple `mkdir ~/actions-runner-itberg && cd ~/actions-runner-itberg` à la place de `mkdir actions-runner && cd actions-runner`. Gardez le nom et les étiquettes proposés par défaut (Entrée à chaque question).
+3. Au lieu de `./run.sh`, lancez `./svc.sh install` puis `./svc.sh start`. Le runner démarre alors tout seul avec le Mac.
+4. Le Mac doit avoir `python3` et `node` (la publication installe elle-même Node 20). Pour vérifier, lancez `python3 --version` dans le Terminal.
+
+Le runner apparaît en vert, « Idle », dans Settings → Actions → Runners.
+
+> Autre solution gratuite : rendre le dépôt **public**. Les minutes GitHub Actions sont alors gratuites et illimitées, mais tout le monde peut lire le code du site (il ne contient aucun secret). Dans ce cas, remettez `runs-on: ubuntu-latest` dans les deux fichiers de `.github/workflows/`.
 
 **2. Renseigner le projet Firebase**
 Dans `.firebaserc`, remplacez `REMPLACER-PAR-ID-DU-PROJET-FIREBASE` par l'identifiant de votre projet Firebase (visible dans la console Firebase → ⚙ Paramètres du projet).

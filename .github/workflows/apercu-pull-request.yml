@@ -13,9 +13,13 @@ jobs:
   apercu:
     # Les pull requests venant d'un fork n'ont pas accès au secret Firebase.
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
-    runs-on: ubuntu-latest
+    # Tourne sur le runner GitHub installé sur le Mac (gratuit). Voir NOTICE.md.
+    runs-on: [self-hosted, macOS]
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Vérifier le site
         run: python3 scripts/check_site.py
       - name: Publier l'aperçu sur Firebase
