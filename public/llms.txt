@@ -45,6 +45,8 @@ Points clés :
 ## Blog
 
 - [Blog ITBerg](https://itberg.tn/blog) ([flux RSS](https://itberg.tn/feed.xml))
+- [Kotlin Multiplatform et Firebase : une appli Android et iOS, un seul code métier](https://itberg.tn/blog/kotlin-multiplatform-firebase-android-ios)
+- [IA souveraine et agents guidés : garder la main sur ses données et ses décisions](https://itberg.tn/blog/ia-souveraine-agents-guides)
 - [Agent IA avec LangGraph : garder un humain aux commandes](https://itberg.tn/blog/agent-ia-langgraph-validation-humaine)
 - [Audit de sécurité d'une application mobile : ce que couvre l'OWASP MASVS](https://itberg.tn/blog/audit-securite-application-mobile-owasp-masvs)
 - [Recherche en arabe tunisien : comprendre la derja écrite en lettres latines](https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi)
