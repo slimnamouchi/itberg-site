@@ -1,0 +1,38 @@
+# À chaque fusion sur main : vérifie le site, le publie sur itberg.tn,
+# puis prévient Bing et les autres moteurs IndexNow que les pages ont changé.
+name: Publication en production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier le site
+        run: python3 scripts/check_site.py
+      - name: Publier sur Firebase Hosting (itberg.tn)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
+      - name: Prévenir les moteurs (IndexNow)
+        continue-on-error: true
+        run: |
+          KEY=$(tr -d '\n' < .indexnow-key)
+          URLS=$(grep -o '<loc>[^<]*</loc>' public/sitemap.xml | sed 's/<[^>]*>//g' | jq -R . | jq -s -c .)
+          BODY=$(jq -n -c --arg key "$KEY" --argjson urls "$URLS" \
+            '{host:"itberg.tn", key:$key, keyLocation:("https://itberg.tn/" + $key + ".txt"), urlList:$urls}')
+          curl -sS -o /dev/null -w "IndexNow : réponse %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$BODY"

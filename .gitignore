@@ -1,0 +1,11 @@
+# Firebase
+.firebase/
+firebase-debug.log*
+# Clés de compte de service : ne JAMAIS les mettre dans le dépôt
+*service-account*.json
+*-firebase-adminsdk-*.json
+# Divers
+itberg-site-final.zip
+node_modules/
+.DS_Store
+Thumbs.db

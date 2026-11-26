@@ -1,0 +1,28 @@
+# ITBerg
+
+> ITBerg est une société tunisienne fondée par Slim et Lynda. Elle conseille les entreprises en intelligence artificielle et développe des agents IA souverains et maîtrisés (LangChain, LangGraph, RAG), des applications mobiles Android et iOS, et réalise des audits de sécurité des applications mobiles et de l'IA. Slogan : « L'IA en surface. La maîtrise en profondeur. » Contact : contact@itberg.tn.
+
+Points clés :
+- IA souveraine : modèles hébergés chez le client quand les données l'exigent, pas d'enfermement chez un fournisseur.
+- IA maîtrisée (« le harnais ») : périmètre limité, graphe d'étapes LangGraph, garde-fous, évaluation avant production, traçabilité, validation humaine des actions sensibles.
+- Spécialité linguistique : français, arabe et arabe tunisien écrit en lettres latines.
+- Applications : Kotlin, Jetpack Compose, Compose Multiplatform, Firebase.
+- Sécurité : OWASP MASVS, MASTG, MobSF, test d'intrusion mobile, sécurité des LLM (injection de prompt, red teaming).
+- ITBerg n'est pas un organisme de certification et ne revendique aucun partenariat officiel avec les éditeurs cités.
+
+## Pages principales
+
+- [Accueil](https://itberg.tn/): présentation, approche « on guide l'IA », questions fréquentes
+- [Toutes nos solutions](https://itberg.tn/solutions): catalogue complet (IA, applications mobiles, sécurité, accompagnement)
+- [IA souveraine et agents](https://itberg.tn/ia): agents, RAG, IA embarquée, LLMOps, souveraineté, cas d'usage
+- [Conseil en IA](https://itberg.tn/conseil): diagnostic, feuille de route, déroulé d'une mission (activité portée par Lynda)
+- [Développement mobile](https://itberg.tn/android): Android, iOS, Firebase, méthode qualité et tests
+- [Sécurité](https://itberg.tn/securite): audits mobiles et sécurité de l'IA
+- [Nos applications](https://itberg.tn/applis): El9offa (comparateur de prix des courses en Tunisie) et EasyFind (recherche multilingue)
+- [Contact](https://itberg.tn/contact): contact@itberg.tn, Tunisie
+
+## Liens
+
+- [LinkedIn](https://www.linkedin.com/company/itberg/)
+- [El9offa](https://el9offa.tn)
+- [EasyFind](https://easyfind.tn)

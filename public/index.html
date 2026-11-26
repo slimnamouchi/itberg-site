@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ITBerg · IA souveraine, agents IA, applications mobiles en Tunisie</title>
+<meta name="description" content="ITBerg, société tunisienne : conseil IA, agents IA souverains et maîtrisés (LangChain, LangGraph, RAG), applications Android et iOS, sécurité mobile.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/">
+<!-- Plus tard : <link rel="alternate" hreflang="en" href="https://itberg.tn/en/..."> et hreflang="ar" -->
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:title" content="ITBerg · IA souveraine, agents IA, applications mobiles en Tunisie">
+<meta property="og:description" content="ITBerg, société tunisienne : conseil IA, agents IA souverains et maîtrisés (LangChain, LangGraph, RAG), applications Android et iOS, sécurité mobile.">
+<meta property="og:url" content="https://itberg.tn/">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","url":"https://itberg.tn/","logo":{"@type":"ImageObject","url":"https://itberg.tn/img/logo-512.png","width":512,"height":512},"image":"https://itberg.tn/img/og.png","email":"contact@itberg.tn","description":"Société tunisienne : conseil et agents IA souverains et maîtrisés, applications Android et iOS, sécurité des applications mobiles et de l’IA.","slogan":"L’IA en surface. La maîtrise en profondeur.","address":{"@type":"PostalAddress","addressCountry":"TN"},"areaServed":"TN","founder":[{"@type":"Person","name":"Slim"},{"@type":"Person","name":"Lynda"}],"contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"contact@itberg.tn","availableLanguage":["fr","ar","en"]},"knowsAbout":["Intelligence artificielle","Agents IA","LangChain","LangGraph","RAG","IA souveraine","LLMOps","Développement Android","Kotlin","Compose Multiplatform","Développement iOS","Firebase","Sécurité des applications mobiles","OWASP MASVS","MobSF","Sécurité des LLM"],"sameAs":["https://www.linkedin.com/company/itberg/"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://itberg.tn/#site","url":"https://itberg.tn/","name":"ITBerg","inLanguage":"fr","publisher":{"@id":"https://itberg.tn/#organisation"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu’est-ce qu’une IA souveraine ?","acceptedAnswer":{"@type":"Answer","text":"C’est une IA dont vous gardez le contrôle : les modèles tournent sur votre infrastructure ou chez l’hébergeur de votre choix, en Tunisie si nécessaire, et vos données ne servent pas à entraîner les modèles d’un tiers. Vous pouvez changer de modèle ou de fournisseur sans tout reconstruire."}},{"@type":"Question","name":"Mes données sont-elles envoyées à OpenAI, Google ou un autre fournisseur ?","acceptedAnswer":{"@type":"Answer","text":"Seulement si vous l’acceptez. Pour les données sensibles, nous privilégions des modèles ouverts hébergés chez vous. Quand un service en ligne est plus adapté, nous vous expliquons clairement ce qui sort, où, et avec quelles garanties."}},{"@type":"Question","name":"Qu’est-ce qu’un agent IA, et comment le gardez-vous sous contrôle ?","acceptedAnswer":{"@type":"Answer","text":"Un agent IA enchaîne plusieurs étapes d’un processus : chercher une information, la vérifier, préparer une réponse ou une action. Nous le construisons avec LangGraph, qui fixe le chemin à suivre, et nous ajoutons des garde-fous, des tests, la traçabilité de chaque étape et une validation humaine pour les actions sensibles."}},{"@type":"Question","name":"Développez-vous des applications pour Android et pour iOS ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous commençons généralement par Android en Kotlin et Jetpack Compose, puis nous portons l’application sur iOS avec Compose Multiplatform, qui permet de partager l’essentiel du code entre les deux plateformes."}},{"@type":"Question","name":"Pouvez-vous intégrer l’IA dans une application existante ?","acceptedAnswer":{"@type":"Answer","text":"Oui : recherche intelligente, assistant, lecture de documents ou de photos, IA embarquée directement sur le téléphone. Nous commençons par un audit de l’application existante pour choisir la bonne approche."}},{"@type":"Question","name":"Que contient un audit de sécurité d’application mobile ?","acceptedAnswer":{"@type":"Answer","text":"Une vérification selon le référentiel OWASP MASVS, des tests selon le guide MASTG, une analyse avec MobSF triée à la main, et si besoin un test d’intrusion. Vous recevez un rapport avec chaque faille classée par gravité, sa preuve et la correction recommandée, puis nous vérifions les corrections."}},{"@type":"Question","name":"L’IA comprend-elle l’arabe tunisien ?","acceptedAnswer":{"@type":"Answer","text":"C’est l’une de nos spécialités. Notre application EasyFind comprend le français, l’arabe et l’arabe tunisien écrit en lettres latines, avec ses chiffres à la place des lettres (3, 7, 9)."}},{"@type":"Question","name":"Combien coûte un projet, et combien de temps faut-il ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend du périmètre. Après un premier échange, vous recevez une proposition écrite avec le périmètre, le calendrier et le prix, avant tout engagement. Pour réduire le risque, nous proposons souvent de commencer par un prototype limité."}},{"@type":"Question","name":"Où êtes-vous basés ?","acceptedAnswer":{"@type":"Answer","text":"ITBerg est une société tunisienne. Pour tout projet, en Tunisie ou ailleurs, écrivez-nous à contact@itberg.tn."}}]}
+</script>
+</head>
+<body class="page-index">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis">Applications</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="hero" id="surface" aria-labelledby="hero-titre">
+  <div class="sky">
+    <div class="wrap sky-grid">
+      <div class="hero-text">
+        <p class="eyebrow">IA souveraine · Agents · Mobile · Sécurité</p>
+        <h1 id="hero-titre">L’IA en surface.<br><span class="glow">La maîtrise en profondeur.</span></h1>
+        <p class="lead">ITBerg conseille les entreprises et développe des agents d’intelligence artificielle souverains et maîtrisés. Vous voyez une réponse simple. Dessous, nous guidons l’IA : vos données restent chez vous, chaque étape est encadrée, un humain garde la main. Et vos solutions arrivent dans la poche de vos clients, en applications mobiles Android et iOS.</p>
+        <div class="actions">
+          <a class="btn btn-glow" href="mailto:contact@itberg.tn">Nous écrire</a>
+          <a class="btn btn-line" href="#sous-la-surface">Plonger</a>
+        </div>
+      </div>
+      <div class="tip-wrap"><svg class="tip-art" viewBox="0 0 260 150" aria-hidden="true" focusable="false">
+  <path class="tip-a" d="M20 150 118 8l12 142z"/>
+  <path class="tip-b" d="M118 8l30 44 27-20 70 118H130z"/>
+  <path class="tip-c" d="M148 52l-10 98h-8z"/>
+</svg><span class="tip-caption">La réponse que vous voyez</span></div>
+    </div>
+  </div>
+  <svg class="waterline" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="wave-fill" d="M0 14q50-12 100 0t100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0V28H0z"/><path class="wave-line" d="M0 14q50-12 100 0t100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0 100 0"/></svg>
+  <div class="sea" id="sous-la-surface">
+    <div class="wrap">
+      <div class="harness-grid">
+        <div class="harness-text">
+          <p class="sea-caption">Sous la surface · le harnais</p>
+          <h2 class="harness-title">Nous guidons l’IA. Elle ne décide pas seule.</h2>
+          <ol class="harness-steps">
+            <li><b>Vos données restent chez vous.</b> Modèles souverains, hébergés là où vous le décidez.</li>
+            <li><b>Des agents orchestrés.</b> Avec LangGraph, chaque étape est définie : l’agent ne sort pas du cadre.</li>
+            <li><b>Des garde-fous.</b> Règles métier, contrôles et tests avant chaque mise en production.</li>
+            <li><b>Un humain valide.</b> Les décisions qui comptent attendent son accord, et tout est tracé.</li>
+            <li><b>Dans la poche de vos clients.</b> La réponse arrive dans vos applications Android et iOS, que nous concevons aussi.</li>
+          </ol>
+        </div>
+        <div class="harness-art"><svg class="harness" viewBox="0 0 400 440" role="img" aria-labelledby="h-t h-d">
+  <title id="h-t">Le harnais d’ITBerg, sous la surface</title>
+  <desc id="h-d">Un graphe d’agents dans la partie immergée de l’iceberg. Une information part de vos données, passe par un modèle souverain ou vos outils, puis par des agents orchestrés, franchit des garde-fous, attend la validation d’un humain, et seulement ensuite remonte à la surface sous forme de réponse.</desc>
+  <path class="h-mass" d="M40 0H360l35 120-25 150-80 120-110 45-110-65L15 220z"/>
+  <path class="h-rail" d="M184 232V0M216 232V0"/>
+  <g class="h-edges">
+    <path d="M200 395 110 305M200 395 290 305M110 305 200 225M290 305 200 225M200 225V145M200 145V70M200 70V0"/>
+  </g>
+  <path class="h-loop" d="M290 305C350 255 270 195 214 220"/>
+  <g class="h-nodes">
+    <circle cx="200" cy="395" r="9"/><circle cx="110" cy="305" r="9"/><circle cx="290" cy="305" r="9"/><circle cx="200" cy="225" r="11"/>
+  </g>
+  <g class="h-gate"><rect x="166" y="141" width="26" height="8" rx="3"/><rect x="208" y="141" width="26" height="8" rx="3"/></g>
+  <circle class="h-halo" cx="200" cy="145" r="10" opacity="0"><animate attributeName="opacity" values="0;0;.9;0;0" keyTimes="0;0.44;0.49;0.56;1" dur="7s" repeatCount="indefinite"/><animate attributeName="r" values="10;10;22;10;10" keyTimes="0;0.44;0.49;0.56;1" dur="7s" repeatCount="indefinite"/></circle>
+  <circle class="h-halo h-halo-human" cx="200" cy="70" r="13" opacity="0"><animate attributeName="opacity" values="0;0;.9;.9;0;0" keyTimes="0;0.58;0.62;0.8;0.84;1" dur="7s" repeatCount="indefinite"/><animate attributeName="r" values="13;13;24;20;13;13" keyTimes="0;0.58;0.64;0.8;0.84;1" dur="7s" repeatCount="indefinite"/></circle>
+  <g class="h-human"><circle cx="200" cy="70" r="13"/><circle class="h-head" cx="200" cy="66" r="4"/><path class="h-body" d="M192 78a8 7 0 0 1 16 0"/></g>
+  <circle class="h-pulse" r="6"><animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.852;0.852;1" keyTimes="0;0.6;0.82;1" path="M200 395 L110 305 L200 225 L200 145 L200 70 L200 -6"/></circle>
+  <circle class="h-pulse h-pulse-b" r="5" opacity="0"><set attributeName="opacity" to="1" begin="3.5s"/><animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.852;0.852;1" keyTimes="0;0.6;0.82;1" begin="3.5s" path="M200 395 L290 305 L200 225 L200 145 L200 70 L200 -6"/></circle>
+  <g class="h-labels">
+    <text x="200" y="428" text-anchor="middle">Vos données</text>
+    <text x="110" y="336" text-anchor="middle">Modèle souverain</text>
+    <text x="290" y="336" text-anchor="middle">Vos outils</text>
+    <text x="222" y="230">Agents · LangGraph</text>
+    <text x="244" y="150">Garde-fous</text>
+    <text x="224" y="75">Validation humaine</text>
+  </g>
+</svg></div>
+      </div>
+      <div class="offers">
+        <a class="offer offer-featured" href="/ia">
+  <span class="flag">Expertise phare</span><span class="offer-kicker">01 · Guider l’IA</span>
+  <span class="offer-title">IA souveraine : conseil et agents</span>
+  <span class="offer-text">Conseil IA, puis développement d’agents et d’assistants maîtrisés, en français et en arabe tunisien.</span>
+  <ul class="offer-tags" aria-label="Domaines"><li>LangChain</li><li>LangGraph</li><li>RAG</li><li>Agents</li></ul>
+  <span class="offer-go">Découvrir</span>
+</a>
+        <a class="offer" href="/android">
+  <span class="offer-kicker">02 · Construire</span>
+  <span class="offer-title">Développement d’applications mobiles</span>
+  <span class="offer-text">Android d’abord, iOS ensuite avec le même code. Backend Firebase.</span>
+  <ul class="offer-tags" aria-label="Domaines"><li>Kotlin</li><li>Compose Multiplatform</li><li>Firebase</li></ul>
+  <span class="offer-go">Découvrir</span>
+</a>
+        <a class="offer" href="/securite">
+  <span class="offer-kicker">03 · Protéger</span>
+  <span class="offer-title">Sécurité des applications mobiles</span>
+  <span class="offer-text">Audits selon le référentiel OWASP MASVS, analyses MobSF et tests d’intrusion mobiles.</span>
+  <ul class="offer-tags" aria-label="Domaines"><li>MASVS</li><li>MASTG</li><li>MobSF</li></ul>
+  <span class="offer-go">Découvrir</span>
+</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="sonar" aria-label="Profondeur de la page">
+  <ol>
+    <li><a href="#surface">Surface</a></li>
+    <li><a href="#ia">IA</a></li>
+    <li><a href="#mobile">Mobile</a></li>
+    <li><a href="#securite">Sécurité</a></li>
+    <li><a href="#offre">Toute l’offre</a></li>
+    <li><a href="#applis">Applications</a></li>
+    <li><a href="#faq">Questions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+  <span class="sonar-mark" aria-hidden="true"></span>
+</nav>
+
+<section class="band band-1 feature" id="ia" aria-labelledby="ia-titre">
+  <div class="wrap">
+    <p class="eyebrow depth-label">−1 · Intelligence artificielle souveraine</p>
+    <div class="feature-grid">
+      <div>
+        <h2 id="ia-titre" class="feature-title">On ne subit pas l’IA. On la pilote.</h2>
+        <p class="section-lead">Nous aidons les entreprises à décider où l’IA a sa place, puis nous construisons les agents qui font le travail, dans un cadre que vous contrôlez. Cette activité est portée par Lynda, cofondatrice d’ITBerg.</p>
+        <div class="actions"><a class="btn" href="/ia">IA souveraine et agents</a><a class="btn btn-ghost" href="/conseil">L’offre de conseil IA</a></div>
+      </div>
+      <div class="ia-two">
+        <div class="block"><h3>Conseil IA</h3><p>Diagnostic, feuille de route, choix des modèles et des outils, règles d’usage, formation des équipes.</p></div>
+        <div class="block"><h3>IA agentique</h3><p>Agents et workflows avec LangChain et LangGraph, assistants sur vos documents (RAG), recherche en français, arabe et arabe tunisien.</p></div>
+        <div class="block"><h3>Souveraineté</h3><p>Modèles ouverts hébergés sur votre infrastructure quand vos données l’exigent. Pas d’enfermement chez un fournisseur.</p></div>
+        <div class="block"><h3>Maîtrise</h3><p>Garde-fous, évaluations, traçabilité de chaque étape et validation humaine des actions sensibles.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-2" id="mobile" aria-labelledby="mobile-titre">
+  <div class="wrap split">
+    <div class="split-head">
+      <p class="eyebrow depth-label">−2 · Développement mobile</p>
+      <h2 id="mobile-titre">Des applications qu’on a plaisir à ouvrir</h2>
+      <p class="section-lead">Nous concevons des applications Android natives, rapides même sur les téléphones d’entrée de gamme, puis nous les portons sur iOS en partageant l’essentiel du code. Et nous y intégrons l’IA quand elle est utile.</p>
+      <a class="more" href="/android">Notre méthode de développement</a>
+    </div>
+    <div class="dives">
+      <div class="dive"><h3>Android natif</h3><p>Kotlin et Jetpack Compose, le standard actuel de Google.</p>
+<details class="dive-under"><summary>Voir sous la surface</summary><ul class="ticks"><li>Interfaces accessibles et fluides</li><li>Fonctionnement hors connexion quand c’est utile</li><li>Publication et suivi sur Google Play</li></ul></details></div>
+      <div class="dive"><h3>Android et iOS</h3><p>Compose Multiplatform : un seul code métier pour les deux plateformes.</p>
+<details class="dive-under"><summary>Voir sous la surface</summary><ul class="ticks"><li>Moins de coûts de maintenance</li><li>iOS sans tout réécrire</li><li>Une seule équipe pour les deux</li></ul></details></div>
+      <div class="dive"><h3>Backend Firebase</h3><p>Comptes, données, notifications et fonctions serveur, sans serveur à gérer.</p>
+<details class="dive-under"><summary>Voir sous la surface</summary><ul class="ticks"><li>Authentication, Firestore, Cloud Functions</li><li>Règles d’accès écrites et testées</li><li>Coûts maîtrisés au démarrage</li></ul></details></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-3" id="securite" aria-labelledby="secu-titre">
+  <div class="wrap split">
+    <div class="split-head">
+      <p class="eyebrow depth-label">−3 · Sécurité des applications mobiles</p>
+      <h2 id="secu-titre">Ce qu’un attaquant verrait, nous le voyons avant lui</h2>
+      <p class="section-lead">Nous auditons les applications Android et iOS selon les référentiels publics de l’OWASP, avec des outils automatisés et des tests manuels. Et nous testons aussi vos assistants et agents IA : injection de prompt, fuite de données, red teaming. Vous recevez un rapport clair et des corrections concrètes.</p>
+      <a class="more" href="/securite">Notre offre sécurité</a>
+    </div>
+    <ul class="checks">
+      <li><span class="check-code">MASVS</span><span><strong>Audit de conformité</strong> au standard OWASP de vérification de la sécurité mobile : stockage, cryptographie, authentification, réseau, plateforme, code, résilience.</span></li>
+      <li><span class="check-code">MASTG</span><span><strong>Méthode de test</strong> du guide OWASP, pour des vérifications reproductibles et documentées.</span></li>
+      <li><span class="check-code">MobSF</span><span><strong>Analyse statique et dynamique</strong> de l’APK ou de l’IPA, puis tri manuel des résultats pour écarter les faux positifs.</span></li>
+      <li><span class="check-code">Pentest</span><span><strong>Test d’intrusion mobile</strong> : trafic réseau, API, stockage local, contournements, rétro-ingénierie.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band-4" id="offre" aria-labelledby="offre-titre">
+  <div class="wrap">
+    <p class="eyebrow depth-label">−4 · Toute l’offre</p>
+    <h2 id="offre-titre">Des applications Android et iOS, et toute l’IA autour</h2>
+    <p class="section-lead">Nos solutions prennent la forme d’applications mobiles, de services d’IA et d’accompagnement. Voici l’essentiel, en un coup d’œil.</p>
+    <div class="overview">
+      <div><h3>Intelligence artificielle</h3><ul><li>Stratégie et conseil IA</li><li>Agents et automatisation</li><li>Assistants sur vos documents (RAG)</li><li>IA embarquée sur mobile</li><li>Mise en production et évaluation</li><li>Gouvernance et conformité</li></ul></div>
+      <div><h3>Applications mobiles</h3><ul><li>Conception et UX</li><li>Android et iOS</li><li>Backend et API</li><li>Reprise d’applications existantes</li><li>Publication et maintenance</li></ul></div>
+      <div><h3>Sécurité</h3><ul><li>Audit mobile MASVS et MobSF</li><li>Test d’intrusion mobile</li><li>Sécurité de l’IA et des LLM</li><li>Red teaming d’IA</li><li>Sécurité des API</li></ul></div>
+      <div><h3>Accompagnement</h3><ul><li>Formation des équipes</li><li>Prototype rapide</li><li>Direction technique à temps partagé</li><li>Maintenance et évolution</li></ul></div>
+    </div>
+    <p><a class="btn" href="/solutions">Voir toutes nos solutions</a></p>
+  </div>
+</section>
+
+<section class="band band-1" id="applis" aria-labelledby="applis-titre">
+  <div class="wrap">
+    <p class="eyebrow depth-label">−5 · Nos applications</p>
+    <h2 id="applis-titre">Ce que nous construisons pour nous-mêmes</h2>
+    <p class="section-lead">Nos deux applications sont nos réalisations : elles montrent ce que nous savons faire, de l’IA jusqu’au téléphone.</p>
+    <div class="apps">
+      <article class="app" aria-labelledby="app-easyfind">
+        <div class="app-head"><span class="app-badge app-badge-alt" aria-hidden="true">EF</span><div><h3 id="app-easyfind">EasyFind</h3><p class="app-kind">Recherche intelligente</p></div></div>
+        <p>Une recherche qui comprend le français, l’arabe et l’arabe tunisien écrit en lettres latines : « nlawej 3la », « je cherche », « <span lang="ar" dir="rtl">نلوّج على</span> ».</p>
+        <p class="status">Site en ligne</p>
+        <a class="more" href="https://easyfind.tn" rel="noopener">easyfind.tn<span class="sr-only"> (site d’EasyFind)</span></a>
+      </article>
+      <article class="app" aria-labelledby="app-el9offa">
+        <div class="app-head"><span class="app-badge" aria-hidden="true">E9</span><div><h3 id="app-el9offa">El9offa</h3><p class="app-kind">Comparateur de prix des courses</p></div></div>
+        <p>Comparez les prix des courses dans cinq enseignes en Tunisie, préparez votre liste et trouvez le meilleur prix.</p>
+        <p class="status">Bientôt sur Google Play</p>
+        <a class="more" href="https://el9offa.tn" rel="noopener">el9offa.tn<span class="sr-only"> (site d’El9offa)</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band band-2" id="faq" aria-labelledby="faq-titre">
+  <div class="wrap faq-wrap">
+    <p class="eyebrow depth-label">Questions fréquentes</p>
+    <h2 id="faq-titre">Vos questions, nos réponses</h2>
+    <div class="faq"><details class="faq-item"><summary><h3>Qu’est-ce qu’une IA souveraine ?</h3></summary><p>C’est une IA dont vous gardez le contrôle : les modèles tournent sur votre infrastructure ou chez l’hébergeur de votre choix, en Tunisie si nécessaire, et vos données ne servent pas à entraîner les modèles d’un tiers. Vous pouvez changer de modèle ou de fournisseur sans tout reconstruire.</p></details><details class="faq-item"><summary><h3>Mes données sont-elles envoyées à OpenAI, Google ou un autre fournisseur ?</h3></summary><p>Seulement si vous l’acceptez. Pour les données sensibles, nous privilégions des modèles ouverts hébergés chez vous. Quand un service en ligne est plus adapté, nous vous expliquons clairement ce qui sort, où, et avec quelles garanties.</p></details><details class="faq-item"><summary><h3>Qu’est-ce qu’un agent IA, et comment le gardez-vous sous contrôle ?</h3></summary><p>Un agent IA enchaîne plusieurs étapes d’un processus : chercher une information, la vérifier, préparer une réponse ou une action. Nous le construisons avec LangGraph, qui fixe le chemin à suivre, et nous ajoutons des garde-fous, des tests, la traçabilité de chaque étape et une validation humaine pour les actions sensibles.</p></details><details class="faq-item"><summary><h3>Développez-vous des applications pour Android et pour iOS ?</h3></summary><p>Oui. Nous commençons généralement par Android en Kotlin et Jetpack Compose, puis nous portons l’application sur iOS avec Compose Multiplatform, qui permet de partager l’essentiel du code entre les deux plateformes.</p></details><details class="faq-item"><summary><h3>Pouvez-vous intégrer l’IA dans une application existante ?</h3></summary><p>Oui : recherche intelligente, assistant, lecture de documents ou de photos, IA embarquée directement sur le téléphone. Nous commençons par un audit de l’application existante pour choisir la bonne approche.</p></details><details class="faq-item"><summary><h3>Que contient un audit de sécurité d’application mobile ?</h3></summary><p>Une vérification selon le référentiel OWASP MASVS, des tests selon le guide MASTG, une analyse avec MobSF triée à la main, et si besoin un test d’intrusion. Vous recevez un rapport avec chaque faille classée par gravité, sa preuve et la correction recommandée, puis nous vérifions les corrections.</p></details><details class="faq-item"><summary><h3>L’IA comprend-elle l’arabe tunisien ?</h3></summary><p>C’est l’une de nos spécialités. Notre application EasyFind comprend le français, l’arabe et l’arabe tunisien écrit en lettres latines, avec ses chiffres à la place des lettres (3, 7, 9).</p></details><details class="faq-item"><summary><h3>Combien coûte un projet, et combien de temps faut-il ?</h3></summary><p>Cela dépend du périmètre. Après un premier échange, vous recevez une proposition écrite avec le périmètre, le calendrier et le prix, avant tout engagement. Pour réduire le risque, nous proposons souvent de commencer par un prototype limité.</p></details><details class="faq-item"><summary><h3>Où êtes-vous basés ?</h3></summary><p>ITBerg est une société tunisienne. Pour tout projet, en Tunisie ou ailleurs, écrivez-nous à contact@itberg.tn.</p></details></div>
+  </div>
+</section>
+
+<section class="band band-deep cta" id="contact" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <p class="eyebrow">Le fond · Contact</p>
+      <h2 id="cta-titre">Vous avez vu la pointe. Parlons du reste.</h2>
+      <p>Un projet IA à cadrer, un agent à construire, une application à créer ou à auditer : écrivez-nous, Lynda ou Slim vous répond.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>
