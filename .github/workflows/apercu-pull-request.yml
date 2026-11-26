@@ -36,8 +36,13 @@ jobs:
       - name: Vérifier le site
         run: python3 scripts/check_site.py
       - name: Publier l'aperçu sur Firebase
+        id: deploy
         uses: FirebaseExtended/action-hosting-deploy@500ac625ca2dd40cbd15f7659af953801858032a # v0.11.0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           expires: 7d
+      - name: Vérifier les en-têtes de sécurité de l'aperçu en ligne
+        env:
+          APERCU: ${{ steps.deploy.outputs.details_url }}
+        run: python3 scripts/check_headers.py "$APERCU"
