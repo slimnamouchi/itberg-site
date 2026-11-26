@@ -5,7 +5,7 @@
 ```
 itberg-site/
 ├── .github/workflows/  publication automatique (aperçu sur pull request, production sur main)
-├── scripts/check_site.py vérifications lancées avant chaque publication
+├── scripts/            check_site.py (vérifications avant publication), indexnow.py (prévient Bing)
 ├── SEO.md               checklist référencement + statistiques (à suivre après la mise en ligne)
 ├── firebase.json        configuration de l'hébergement (adresses propres, sécurité, cache)
 ├── .firebaserc          identifiant de votre projet Firebase (à remplir)
@@ -66,8 +66,16 @@ Le code du site vit sur GitHub, dans le dépôt privé `itberg-site`. Chaque mod
 2. Nom : `itberg-site`. Choisissez **Private** et ne cochez rien d'autre (pas de README).
 3. Cliquez sur **Create repository**. Le code peut ensuite être envoyé dans le dépôt (par Claude, ou avec les commandes de la section « Envoyer le code vous-même » ci-dessous).
 
+**1 bis. Choisir la machine qui publie (gratuit)**
+Par défaut, la publication tourne sur les machines de GitHub. Elles sont **gratuites et illimitées si le dépôt est public**. Le dépôt ne contient aucun secret : la clé Firebase vit seulement dans les secrets GitHub, qui restent privés même sur un dépôt public.
+- **Rendre le dépôt public** : Settings → General → tout en bas, « Danger Zone » → **Change visibility** → **Make public**, puis confirmez.
+- **Ou garder le dépôt privé avec un runner à vous** (gratuit lui aussi) :
+  - Si le runner est rattaché à une **organisation** GitHub, transférez le dépôt dans cette organisation (Settings → General → Danger Zone → Transfer).
+  - Si le runner est sur un compte personnel, il ne sert qu'à un seul dépôt. Il faut alors en installer un pour `itberg-site` : Settings → Actions → Runners → New self-hosted runner, à lancer dans un nouveau dossier sur la machine, puis `./svc.sh install` et `./svc.sh start`.
+  - Ensuite, créez la variable `RUNNER_LABELS` (Settings → Secrets and variables → Actions → onglet **Variables**) avec la valeur `["self-hosted","macOS"]`. La machine doit avoir `python3`, et être allumée quand une publication part.
+
 **2. Renseigner le projet Firebase**
-Dans `.firebaserc`, remplacez `REMPLACER-PAR-ID-DU-PROJET-FIREBASE` par l'identifiant de votre projet Firebase (visible dans la console Firebase → ⚙ Paramètres du projet).
+Fait : `.firebaserc` contient l'identifiant du projet Firebase, `itberg-site`. Changez-le seulement si vous changez de projet.
 
 **3. Créer la clé qui autorise GitHub à publier (compte de service)**
 1. Ouvrez https://console.cloud.google.com/iam-admin/serviceaccounts et choisissez **votre projet Firebase** en haut de la page.
