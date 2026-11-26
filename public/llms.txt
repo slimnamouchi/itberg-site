@@ -32,6 +32,7 @@ Points clés :
 
 - [Démo de recherche locale](https://itberg.tn/demo-ia): recherche qui comprend le français, l'arabe et la derja en lettres latines, exécutée entièrement dans le navigateur
 - [Piégez l'agent](https://itberg.tn/piege-agent): mini-jeu sur l'injection de prompt et les garde-fous d'un agent IA (agent simulé)
+- [Local search demo (English)](https://itberg.tn/en/ai-search-demo) · [Trap the agent (English)](https://itberg.tn/en/trap-the-agent) · [عرض البحث المحلّي](https://itberg.tn/ar/ai-search-demo) · [أوقِع الوكيل في الفخّ](https://itberg.tn/ar/trap-the-agent)
 
 ## Pages par sujet
 

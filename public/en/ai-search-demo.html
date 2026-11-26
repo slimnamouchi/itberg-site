@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demo: AI search that understands Tunisian, 100% local · ITBerg</title>
+<meta name="description" content="Try a search that understands French, Arabic and Tunisian derja in Latin letters. It runs in your browser: no data is sent anywhere.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/en/ai-search-demo">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/demo-ia">
+<link rel="alternate" hreflang="en" href="https://itberg.tn/en/ai-search-demo">
+<link rel="alternate" hreflang="ar" href="https://itberg.tn/ar/ai-search-demo">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/demo-ia">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_TN">
+<meta property="og:locale:alternate" content="ar_TN">
+<meta property="og:title" content="Demo: AI search that understands Tunisian, 100% local · ITBerg">
+<meta property="og:description" content="Try a search that understands French, Arabic and Tunisian derja in Latin letters. It runs in your browser: no data is sent anywhere.">
+<meta property="og:url" content="https://itberg.tn/en/ai-search-demo">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ITBerg logo: an iceberg shaped like a compass needle, with the tagline “AI on the surface. Mastery in depth.”">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script src="/js/demo-ia.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://itberg.tn/en"},{"@type":"ListItem","position":2,"name":"Local search demo","item":"https://itberg.tn/en/ai-search-demo"}]}
+</script>
+</head>
+<body class="page-demo">
+<a class="skip" href="#contenu">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/en" aria-label="ITBerg, home"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Close"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Main navigation"><ul><li><a href="/en/solutions">Solutions</a></li><li><a href="/en/ai">AI &amp; agents</a></li><li><a href="/en/mobile-development">Mobile</a></li><li><a href="/en/security">Security</a></li><li><a href="/en/apps">Apps</a></li><li><a class="nav-cta" href="/en/contact">Contact us</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Site language"><ul><li><a href="/demo-ia" hreflang="fr" lang="fr"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en/ai-search-demo" hreflang="en" lang="en" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar/ai-search-demo" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <p class="eyebrow">Demo · Local AI</p>
+    <h1>A search that understands Tunisian, right in your browser</h1>
+    <p class="lead">Type in English, French, Arabic or derja with digits (“nlawej 3la blombi”, I’m looking for a plumber). Everything is computed on your device: no request goes to a server, no model is downloaded, nothing is stored.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="essayer">
+  <div class="wrap">
+    <h2 id="essayer" class="sr-only">Try the search</h2>
+    <div class="demo">
+      <div class="demo-main">
+        <form id="demo-form" class="demo-form" role="search">
+          <label for="demo-q">What are you looking for?</label>
+          <div class="demo-field"><input id="demo-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="plumber in sfax" dir="auto"><button class="btn" type="submit">Search</button></div>
+        </form>
+        <p class="demo-ex-label" id="demo-ex">Examples to try:</p>
+        <ul class="chips" aria-labelledby="demo-ex"><li><button type="button" class="chip" data-demo-q="emergency plumber in tunis">emergency plumber in tunis</button></li><li><button type="button" class="chip" data-demo-q="nlawej 3la blombi f sfax">nlawej 3la blombi f sfax</button></li><li><button type="button" class="chip" data-demo-q="9adech el 7lib">9adech el 7lib</button></li><li><button type="button" class="chip" data-demo-q="سوم الزيت" lang="ar" dir="rtl">سوم الزيت</button></li><li><button type="button" class="chip" data-demo-q="n7eb tbib snin">n7eb tbib snin</button></li><li><button type="button" class="chip" data-demo-q="climatiseur ma5douma">climatiseur ma5douma</button></li><li><button type="button" class="chip" data-demo-q="night pharmacy">night pharmacy</button></li><li><button type="button" class="chip" data-demo-q="plumbr">plumbr</button></li></ul>
+        <p id="demo-status" class="demo-status" role="status" aria-live="polite">The demo needs JavaScript, which runs only on your device.</p>
+        <ol id="demo-results" class="demo-results" aria-label="Results"></ol>
+        <p class="hint">Made-up catalogue of 32 services and products, prepared for this demo.</p>
+      </div>
+      <aside class="demo-under" aria-labelledby="dessous">
+        <p class="sea-caption" id="dessous">Under the surface</p>
+        <h3 class="demo-under-title">How the request was understood</h3>
+        <ol id="demo-trace" class="demo-trace"></ol>
+        <dl class="demo-proof">
+          <div><dt>Network requests during your searches</dt><dd id="demo-net">0</dd></div>
+          <div><dt>Compute time</dt><dd id="demo-ms">–</dd></div>
+          <div><dt>Data sent</dt><dd>none</dd></div>
+        </dl>
+        <p class="demo-proof-note">Check it yourself: turn off your Wi-Fi and the search keeps working. The counter reads your own browser’s network log.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="comment">
+  <div class="wrap">
+    <h2 id="comment">What happens when you type</h2>
+    <p class="section-lead">No magic, and no large language model: four simple building blocks, fast and measurable, the same ones we use in our <a href="/applis/easyfind" hreflang="fr">EasyFind</a> app (case study in French).</p>
+    <div class="cols-2">
+      <div class="block"><h3>1. Normalise</h3><p>Lower case, accents and short vowels removed, variants of alif and tāʼ marbūṭa unified, repeated letters shortened (“7leeeeb”).</p></div>
+      <div class="block"><h3>2. A pivot form</h3><p>Arabic and Arabizi are reduced to the same consonants: “7lib”, “hlib” and “<span lang="ar" dir="rtl">حليب</span>” (milk) all become <code>hlb</code>. Digits get their letter back: 3 for <span lang="ar">ع</span>, 7 for <span lang="ar">ح</span>, 9 for <span lang="ar">ق</span>, 5 for <span lang="ar">خ</span>.</p></div>
+      <div class="block"><h3>3. A lexicon in three scripts</h3><p>A small dictionary links derja, Arabic, French and English: “blombi”, “<span lang="ar" dir="rtl">سبّاك</span>”, “plombier”, “plumber”. That is what makes the difference.</p></div>
+      <div class="block"><h3>4. Tolerate typos</h3><p>An edit distance accepts one letter too many, too few or swapped, more so as the word gets longer.</p></div>
+    </div>
+    <p class="note">What about AI models? They help with long questions, but they cost more and are less predictable. We add them last, preferably running on the device, and only when measurement on a test set shows a gain.</p>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="suite">
+  <div class="wrap cols-2">
+    <div class="block"><h2 id="suite" class="h3-size">AI that stays on your premises</h2><p>This demo fits in a single small file and works offline. That is the idea behind sovereign AI: your data and your customers’ data stay where you decided.</p><p><a class="more" href="/en/ai">Sovereign AI and agents</a></p></div>
+    <div class="block"><h2 class="h3-size">What if someone tries to fool the AI?</h2><p>Try to make an agent reveal its secret, and see how the harness holds: filters, output checks and human approval.</p><p><a class="more" href="/en/trap-the-agent">Trap the agent</a></p></div>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <p class="eyebrow">Your project</p>
+      <h2 id="cta-titre">Your customers write in derja? Your search should understand it too.</h2>
+      <p>Search engine, assistant or customer service: write to us, Lynda or Slim will reply.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/en" aria-label="ITBerg, home"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">AI on the surface. Mastery in depth.</p>
+      <p class="footer-small">Tunisian company · Sovereign AI and agents, mobile apps, mobile security.</p>
+    </div>
+    <nav aria-label="Site pages">
+      <h2 class="footer-title">Expertise</h2>
+      <ul class="footer-links"><li><a href="/en/solutions">All our solutions</a></li><li><a href="/en/ai">Sovereign AI and agents</a></li><li><a href="/en/ai-consulting">AI consulting</a></li><li><a href="/en/mobile-development">Mobile development</a></li><li><a href="/en/security">Mobile app security</a></li><li><a href="/en/apps">Our apps</a></li></ul>
+    </nav>
+    <nav aria-label="Resources">
+      <h2 class="footer-title">Resources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog (in French)</a></li><li><a href="/applis/el9offa">El9offa case study (in French)</a></li><li><a href="/applis/easyfind">EasyFind case study (in French)</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisia</li><li><a href="/mentions-legales">Legal notice and privacy (in French)</a></li><li><a href="/en/site-security">Security of this site</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>No cookies. Anonymous audience measurement, no advertising, no data resale.</p>
+  </div>
+</footer>
+</body>
+</html>

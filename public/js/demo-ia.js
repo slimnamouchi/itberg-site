@@ -6,46 +6,46 @@
      2. ramener français, arabe et arabizi à une « forme pivot » commune, faite des consonnes ;
      3. relier les mots des trois écritures par un petit lexique ;
      4. tolérer les fautes avec une distance d'édition.
-   Compatible avec une CSP stricte et Trusted Types : pas d'eval, pas d'innerHTML. */
+   Compatible avec une CSP stricte et Trusted Types : aucune évaluation de texte ni écriture de HTML brut. */
 (function () {
   "use strict";
 
   /* ---------- 1. Lexique : un concept, ses mots en français, arabe, derja en lettres latines, anglais ---------- */
   var LEX = {
-    plombier: { fr: "plombier", ar: "سبّاك", w: { fr: ["plombier", "plomberie", "fuite", "robinet", "tuyau", "chauffe-eau"], tn: ["blombi", "plombi", "blombier", "sabbek", "rbini", "sakhan"], ar: ["سباك", "بلومبي", "روبيني", "سخان", "تسريب"], en: ["plumber", "plumbing", "leak"] } },
-    electricien: { fr: "électricien", ar: "كهربائي", w: { fr: ["électricien", "électricité", "courant", "prise", "disjoncteur"], tn: ["trisian", "trisien", "tricien", "kahrabji", "ka7raba", "kahraba", "dhaw", "dhou"], ar: ["تريسيان", "كهربائي", "كهربجي", "كهرباء", "ضو"], en: ["electrician", "electricity", "power"] } },
-    clim: { fr: "climatisation", ar: "مكيّف", w: { fr: ["climatiseur", "climatisation", "clim"], tn: ["climatizor", "climatizeur", "klimatizor", "mkayef", "mokayef"], ar: ["مكيف", "كليماتيزور", "تكييف"], en: ["air", "conditioner", "ac"] } },
-    reparation: { fr: "réparation", ar: "تصليح", w: { fr: ["réparation", "réparer", "dépannage", "panne", "cassé"], tn: ["tasli7", "taslih", "nsalla7", "nsallah", "sale7", "mkasser", "ma5douma", "makhdouma", "tayeh"], ar: ["تصليح", "نصلح", "مكسر", "طايح", "ماخدومة"], en: ["repair", "fix", "broken"] } },
-    mecanicien: { fr: "mécanicien", ar: "ميكانيكي", w: { fr: ["mécanicien", "mécanique", "garage", "vidange"], tn: ["mikanisyan", "mekanik", "mecanisien", "garaj"], ar: ["ميكانيسيان", "ميكانيك", "ميكانيكي", "قاراج"], en: ["mechanic", "garage"] } },
-    voiture: { fr: "voiture", ar: "كرهبة", w: { fr: ["voiture", "auto", "automobile"], tn: ["karhba", "kar7ba", "karehba", "sayara"], ar: ["كرهبة", "سيارة", "كرهبتي"], en: ["car"] } },
-    pneus: { fr: "pneus", ar: "عجلات", w: { fr: ["pneu", "pneus", "roue", "équilibrage"], tn: ["3ajla", "ajla", "pnou", "rwida"], ar: ["عجلة", "عجلات", "رويضة"], en: ["tyre", "tire", "wheel"] } },
-    pharmacie: { fr: "pharmacie", ar: "صيدلية", w: { fr: ["pharmacie", "pharmacien", "médicament", "médicaments"], tn: ["farmasia", "farmasiya", "saydaliya", "saydalia", "dwe", "dwa"], ar: ["صيدلية", "فرماسيان", "فرمسية", "دواء", "دوا"], en: ["pharmacy", "drugstore", "medicine"] } },
-    medecin: { fr: "médecin", ar: "طبيب", w: { fr: ["médecin", "docteur", "généraliste", "consultation"], tn: ["tbib", "tbiba", "doktor", "toubib"], ar: ["طبيب", "دكتور", "طبيبة"], en: ["doctor", "physician"] } },
-    dentiste: { fr: "dentiste", ar: "طبيب أسنان", w: { fr: ["dentiste", "dent", "dents", "dentaire"], tn: ["snin", "snan", "asnan", "dhers", "dhors"], ar: ["أسنان", "سنين", "ضرس", "سنان"], en: ["dentist", "tooth", "teeth"] } },
-    coiffeur: { fr: "coiffeur", ar: "حجّام", w: { fr: ["coiffeur", "coiffeuse", "coiffure", "cheveux", "barbier"], tn: ["7ajjem", "hajjem", "7allek", "hallek", "cha3r", "chaar"], ar: ["حجام", "حلاق", "شعر", "كوافير"], en: ["hairdresser", "barber", "haircut"] } },
-    menage: { fr: "ménage", ar: "تنظيف", w: { fr: ["ménage", "nettoyage", "nettoyer", "propreté"], tn: ["ndhafa", "nadhafa", "tandhif", "nadhef"], ar: ["نظافة", "تنظيف", "تنضيف"], en: ["cleaning", "cleaner", "housekeeping"] } },
-    taxi: { fr: "taxi", ar: "تاكسي", w: { fr: ["taxi", "louage", "transport", "chauffeur"], tn: ["taksi", "louaj", "lwaj"], ar: ["تاكسي", "تكسي", "لواج"], en: ["cab", "ride"] } },
-    cours: { fr: "cours particuliers", ar: "دروس خصوصية", w: { fr: ["cours", "soutien", "professeur", "prof", "maths", "mathématiques"], tn: ["9raya", "qraya", "graya", "etude", "riadhiat", "riyadhiyat"], ar: ["دروس", "قراية", "رياضيات", "أستاذ"], en: ["tutoring", "tutor", "lessons", "math"] } },
-    telephone: { fr: "téléphone", ar: "تليفون", w: { fr: ["téléphone", "portable", "smartphone", "écran", "batterie"], tn: ["telifoun", "tlifoun", "portabl", "chacha"], ar: ["تليفون", "هاتف", "بورتابل", "شاشة"], en: ["phone", "smartphone", "screen", "battery"] } },
-    internet: { fr: "internet", ar: "أنترنات", w: { fr: ["internet", "fibre", "wifi", "connexion", "adsl"], tn: ["antarnet", "anternet", "konexion", "wifi"], ar: ["انترنات", "انترنت", "ويفي", "كونكسيون"], en: ["internet", "fiber", "broadband"] } },
-    lait: { fr: "lait", ar: "حليب", w: { fr: ["lait"], tn: ["7lib", "hlib", "7leeb", "halib"], ar: ["حليب"], en: ["milk"] } },
-    huile: { fr: "huile d'olive", ar: "زيت زيتون", w: { fr: ["huile", "olive", "olives"], tn: ["zit", "zitoun", "zitouna", "zaytoun"], ar: ["زيت", "زيتون"], en: ["oil", "olive"] } },
-    pain: { fr: "pain", ar: "خبز", w: { fr: ["pain", "baguette", "boulangerie"], tn: ["5obz", "khobz", "tabouna", "baguette"], ar: ["خبز", "طابونة", "باقات"], en: ["bread", "bakery"] } },
-    oeufs: { fr: "œufs", ar: "عظم", w: { fr: ["œufs", "oeufs", "oeuf", "œuf"], tn: ["3dham", "adham", "3adham", "baydh"], ar: ["عظم", "بيض"], en: ["eggs", "egg"] } },
-    poulet: { fr: "poulet", ar: "دجاج", w: { fr: ["poulet", "volaille"], tn: ["djej", "djaj", "dja9", "jej"], ar: ["دجاج", "جاج", "دجاجة"], en: ["chicken"] } },
-    tomate: { fr: "tomates", ar: "طماطم", w: { fr: ["tomate", "tomates"], tn: ["tmatem", "tmatim", "tomatich"], ar: ["طماطم", "طماطة"], en: ["tomato", "tomatoes"] } },
-    harissa: { fr: "harissa", ar: "هريسة", w: { fr: ["harissa"], tn: ["hrissa", "7arissa"], ar: ["هريسة"], en: ["harissa"] } },
-    couscous: { fr: "couscous", ar: "كسكسي", w: { fr: ["couscous", "semoule"], tn: ["kosksi", "kousksi", "kouskssi", "smid"], ar: ["كسكسي", "كسكس", "سميد"], en: ["couscous", "semolina"] } },
-    dattes: { fr: "dattes", ar: "تمر", w: { fr: ["dattes", "datte", "deglet"], tn: ["tmar", "tmer", "deglet"], ar: ["تمر", "دقلة"], en: ["dates"] } },
-    cafe: { fr: "café", ar: "قهوة", w: { fr: ["café", "expresso", "capucin"], tn: ["9ahwa", "kahwa", "gahwa", "9hawa", "kapsin"], ar: ["قهوة", "كابوسان", "اكسبراس"], en: ["coffee"] } },
-    the: { fr: "thé", ar: "تاي", w: { fr: ["thé", "menthe"], tn: ["tey", "tay", "chay", "na3na3", "naanaa"], ar: ["تاي", "شاي", "نعناع"], en: ["tea", "mint"] } },
-    sucre: { fr: "sucre", ar: "سكّر", w: { fr: ["sucre"], tn: ["sokker", "sukkar", "soukker", "sokkar"], ar: ["سكر"], en: ["sugar"] } }
+    plombier: { fr: "plombier", en: "plumber", ar: "سبّاك", w: { fr: ["plombier", "plomberie", "fuite", "robinet", "tuyau", "chauffe-eau"], tn: ["blombi", "plombi", "blombier", "sabbek", "rbini", "sakhan"], ar: ["سباك", "بلومبي", "روبيني", "سخان", "تسريب"], en: ["plumber", "plumbing", "leak"] } },
+    electricien: { fr: "électricien", en: "electrician", ar: "كهربائي", w: { fr: ["électricien", "électricité", "courant", "prise", "disjoncteur"], tn: ["trisian", "trisien", "tricien", "kahrabji", "ka7raba", "kahraba", "dhaw", "dhou"], ar: ["تريسيان", "كهربائي", "كهربجي", "كهرباء", "ضو"], en: ["electrician", "electricity", "power"] } },
+    clim: { fr: "climatisation", en: "air conditioning", ar: "مكيّف", w: { fr: ["climatiseur", "climatisation", "clim"], tn: ["climatizor", "climatizeur", "klimatizor", "mkayef", "mokayef"], ar: ["مكيف", "كليماتيزور", "تكييف"], en: ["air", "conditioner", "ac"] } },
+    reparation: { fr: "réparation", en: "repair", ar: "تصليح", w: { fr: ["réparation", "réparer", "dépannage", "panne", "cassé"], tn: ["tasli7", "taslih", "nsalla7", "nsallah", "sale7", "mkasser", "ma5douma", "makhdouma", "tayeh"], ar: ["تصليح", "نصلح", "مكسر", "طايح", "ماخدومة"], en: ["repair", "fix", "broken"] } },
+    mecanicien: { fr: "mécanicien", en: "mechanic", ar: "ميكانيكي", w: { fr: ["mécanicien", "mécanique", "garage", "vidange"], tn: ["mikanisyan", "mekanik", "mecanisien", "garaj"], ar: ["ميكانيسيان", "ميكانيك", "ميكانيكي", "قاراج"], en: ["mechanic", "garage"] } },
+    voiture: { fr: "voiture", en: "car", ar: "كرهبة", w: { fr: ["voiture", "auto", "automobile"], tn: ["karhba", "kar7ba", "karehba", "sayara"], ar: ["كرهبة", "سيارة", "كرهبتي"], en: ["car"] } },
+    pneus: { fr: "pneus", en: "tyres", ar: "عجلات", w: { fr: ["pneu", "pneus", "roue", "équilibrage"], tn: ["3ajla", "ajla", "pnou", "rwida"], ar: ["عجلة", "عجلات", "رويضة"], en: ["tyre", "tire", "wheel"] } },
+    pharmacie: { fr: "pharmacie", en: "pharmacy", ar: "صيدلية", w: { fr: ["pharmacie", "pharmacien", "médicament", "médicaments"], tn: ["farmasia", "farmasiya", "saydaliya", "saydalia", "dwe", "dwa"], ar: ["صيدلية", "فرماسيان", "فرمسية", "دواء", "دوا"], en: ["pharmacy", "drugstore", "medicine"] } },
+    medecin: { fr: "médecin", en: "doctor", ar: "طبيب", w: { fr: ["médecin", "docteur", "généraliste", "consultation"], tn: ["tbib", "tbiba", "doktor", "toubib"], ar: ["طبيب", "دكتور", "طبيبة"], en: ["doctor", "physician"] } },
+    dentiste: { fr: "dentiste", en: "dentist", ar: "طبيب أسنان", w: { fr: ["dentiste", "dent", "dents", "dentaire"], tn: ["snin", "snan", "asnan", "dhers", "dhors"], ar: ["أسنان", "سنين", "ضرس", "سنان"], en: ["dentist", "tooth", "teeth"] } },
+    coiffeur: { fr: "coiffeur", en: "hairdresser", ar: "حجّام", w: { fr: ["coiffeur", "coiffeuse", "coiffure", "cheveux", "barbier"], tn: ["7ajjem", "hajjem", "7allek", "hallek", "cha3r", "chaar"], ar: ["حجام", "حلاق", "شعر", "كوافير"], en: ["hairdresser", "barber", "haircut"] } },
+    menage: { fr: "ménage", en: "cleaning", ar: "تنظيف", w: { fr: ["ménage", "nettoyage", "nettoyer", "propreté"], tn: ["ndhafa", "nadhafa", "tandhif", "nadhef"], ar: ["نظافة", "تنظيف", "تنضيف"], en: ["cleaning", "cleaner", "housekeeping"] } },
+    taxi: { fr: "taxi", en: "taxi", ar: "تاكسي", w: { fr: ["taxi", "louage", "transport", "chauffeur"], tn: ["taksi", "louaj", "lwaj"], ar: ["تاكسي", "تكسي", "لواج"], en: ["cab", "ride"] } },
+    cours: { fr: "cours particuliers", en: "private tutoring", ar: "دروس خصوصية", w: { fr: ["cours", "soutien", "professeur", "prof", "maths", "mathématiques"], tn: ["9raya", "qraya", "graya", "etude", "riadhiat", "riyadhiyat"], ar: ["دروس", "قراية", "رياضيات", "أستاذ"], en: ["tutoring", "tutor", "lessons", "math"] } },
+    telephone: { fr: "téléphone", en: "phone", ar: "تليفون", w: { fr: ["téléphone", "portable", "smartphone", "écran", "batterie"], tn: ["telifoun", "tlifoun", "portabl", "chacha"], ar: ["تليفون", "هاتف", "بورتابل", "شاشة"], en: ["phone", "smartphone", "screen", "battery"] } },
+    internet: { fr: "internet", en: "internet", ar: "أنترنات", w: { fr: ["internet", "fibre", "wifi", "connexion", "adsl"], tn: ["antarnet", "anternet", "konexion", "wifi"], ar: ["انترنات", "انترنت", "ويفي", "كونكسيون"], en: ["internet", "fiber", "broadband"] } },
+    lait: { fr: "lait", en: "milk", ar: "حليب", w: { fr: ["lait"], tn: ["7lib", "hlib", "7leeb", "halib"], ar: ["حليب"], en: ["milk"] } },
+    huile: { fr: "huile d'olive", en: "olive oil", ar: "زيت زيتون", w: { fr: ["huile", "olive", "olives"], tn: ["zit", "zitoun", "zitouna", "zaytoun"], ar: ["زيت", "زيتون"], en: ["oil", "olive"] } },
+    pain: { fr: "pain", en: "bread", ar: "خبز", w: { fr: ["pain", "baguette", "boulangerie"], tn: ["5obz", "khobz", "tabouna", "baguette"], ar: ["خبز", "طابونة", "باقات"], en: ["bread", "bakery"] } },
+    oeufs: { fr: "œufs", en: "eggs", ar: "عظم", w: { fr: ["œufs", "oeufs", "oeuf", "œuf"], tn: ["3dham", "adham", "3adham", "baydh"], ar: ["عظم", "بيض"], en: ["eggs", "egg"] } },
+    poulet: { fr: "poulet", en: "chicken", ar: "دجاج", w: { fr: ["poulet", "volaille"], tn: ["djej", "djaj", "dja9", "jej"], ar: ["دجاج", "جاج", "دجاجة"], en: ["chicken"] } },
+    tomate: { fr: "tomates", en: "tomatoes", ar: "طماطم", w: { fr: ["tomate", "tomates"], tn: ["tmatem", "tmatim", "tomatich"], ar: ["طماطم", "طماطة"], en: ["tomato", "tomatoes"] } },
+    harissa: { fr: "harissa", en: "harissa", ar: "هريسة", w: { fr: ["harissa"], tn: ["hrissa", "7arissa"], ar: ["هريسة"], en: ["harissa"] } },
+    couscous: { fr: "couscous", en: "couscous", ar: "كسكسي", w: { fr: ["couscous", "semoule"], tn: ["kosksi", "kousksi", "kouskssi", "smid"], ar: ["كسكسي", "كسكس", "سميد"], en: ["couscous", "semolina"] } },
+    dattes: { fr: "dattes", en: "dates", ar: "تمر", w: { fr: ["dattes", "datte", "deglet"], tn: ["tmar", "tmer", "deglet"], ar: ["تمر", "دقلة"], en: ["dates"] } },
+    cafe: { fr: "café", en: "coffee", ar: "قهوة", w: { fr: ["café", "expresso", "capucin"], tn: ["9ahwa", "kahwa", "gahwa", "9hawa", "kapsin"], ar: ["قهوة", "كابوسان", "اكسبراس"], en: ["coffee"] } },
+    the: { fr: "thé", en: "tea", ar: "تاي", w: { fr: ["thé", "menthe"], tn: ["tey", "tay", "chay", "na3na3", "naanaa"], ar: ["تاي", "شاي", "نعناع"], en: ["tea", "mint"] } },
+    sucre: { fr: "sucre", en: "sugar", ar: "سكّر", w: { fr: ["sucre"], tn: ["sokker", "sukkar", "soukker", "sokkar"], ar: ["سكر"], en: ["sugar"] } }
   };
 
   /* Intentions et lieux : ils orientent le classement sans être des produits. */
   var INTENTS = {
-    garde: { fr: "urgence ou service de garde", w: ["urgent", "urgence", "garde", "nuit", "24h", "tawa", "daroura", "lil", "lila", "عاجل", "توا", "ضرورة", "الليل", "ليل", "night", "emergency", "now"] },
-    prix: { fr: "connaître le prix", w: ["prix", "combien", "tarif", "9adech", "kadech", "gadech", "9addech", "soum", "si3r", "قداش", "سوم", "سعر", "price", "cost"] }
+    garde: { fr: "urgence ou service de garde", en: "emergency or out-of-hours service", ar: "استعجالي أو خدمة ليلية", w: ["urgent", "urgence", "garde", "nuit", "24h", "tawa", "daroura", "lil", "lila", "عاجل", "توا", "ضرورة", "الليل", "ليل", "night", "emergency", "now"] },
+    prix: { fr: "connaître le prix", en: "find out the price", ar: "معرفة السعر", w: ["prix", "combien", "tarif", "9adech", "kadech", "gadech", "9addech", "soum", "si3r", "قداش", "سوم", "سعر", "price", "cost"] }
   };
   var CITIES = {
     Tunis: ["tunis", "tounes", "tunes", "تونس", "العاصمة", "l3assma", "3asma"],
@@ -201,15 +201,86 @@
     { t: "Thé vert à la menthe", ar: "تاي بالنعناع", c: ["the"], d: "Épicerie · thé et infusions." },
     { t: "Sucre, 1 kg", ar: "سكّر", c: ["sucre"], d: "Épicerie." }
   ];
+  /* Le même catalogue en anglais (titre, description) et en arabe (description), dans le même ordre. */
+  var DOCS_EN = [
+    ["Home plumber", "Leaks, taps, water heaters. Same-day call-out."],
+    ["Plumber, 24/7 call-out", "Plumbing emergencies, nights and weekends."],
+    ["Certified electrician", "Installation, bringing wiring up to standard, fuse boards."],
+    ["Building electrician", "Wiring, sockets, lighting."],
+    ["Electrician, emergency call-out", "Power cut, tripping breaker: fast response."],
+    ["Air conditioner installation and repair", "Fitting, gas top-up, servicing before summer."],
+    ["Air conditioning servicing", "Filter cleaning and yearly check."],
+    ["General mechanics garage", "Oil change, brakes, diagnostics."],
+    ["Tyres and wheel balancing", "New tyres, puncture repair, alignment."],
+    ["Out-of-hours pharmacy", "Open at night and on Sundays."],
+    ["Town centre pharmacy", "Medicines, health products, advice."],
+    ["General practitioner", "Consultations by appointment and home visits."],
+    ["Dental practice", "Treatment, scaling, dental emergencies."],
+    ["Dentist", "Treatment and dentures."],
+    ["Hair salon", "Haircut, beard, wedding hairstyles."],
+    ["House cleaning", "Regular cleaning or deep clean."],
+    ["Taxi and shared taxi (louage)", "City rides and intercity trips."],
+    ["Private maths lessons", "Middle school, high school, baccalaureate prep."],
+    ["Phone repair", "Screen, battery, charging port."],
+    ["Fibre and home Internet", "Fibre and Wi-Fi installation."],
+    ["Semi-skimmed milk, 1 L", "Grocery · dairy."],
+    ["Extra virgin olive oil, 1 L", "Grocery · first cold pressing."],
+    ["Tabouna bread", "Bakery · baked over a wood fire."],
+    ["Eggs, tray of 30", "Grocery · fresh eggs."],
+    ["Whole chicken", "Butcher · poultry."],
+    ["Fresh tomatoes, 1 kg", "Fruit and vegetables."],
+    ["Traditional harissa", "Grocery · sun-dried chilli."],
+    ["Fine couscous, 1 kg", "Grocery · durum wheat semolina."],
+    ["Deglet nour dates, 1 kg", "Dried fruit · this year’s harvest."],
+    ["Ground coffee, 250 g", "Grocery · locally roasted."],
+    ["Green tea with mint", "Grocery · teas and infusions."],
+    ["Sugar, 1 kg", "Grocery."]
+  ];
+  var DOCS_AR = [
+    "تسرّبات، حنفيات، سخّانات ماء. تدخّل في نفس اليوم.",
+    "حالات السباكة المستعجلة، ليلًا وفي نهاية الأسبوع.",
+    "تركيب، مطابقة للمعايير، لوحات كهربائية.",
+    "تمديد الأسلاك، المآخذ، الإنارة.",
+    "انقطاع التيار، قاطع يفصل: تدخّل سريع.",
+    "تركيب، شحن الغاز، صيانة قبل الصيف.",
+    "تنظيف المصافي وفحص سنوي.",
+    "تغيير الزيت، الفرامل، التشخيص.",
+    "عجلات جديدة، إصلاح الثقب، ضبط الاتّجاه.",
+    "مفتوحة ليلًا ويوم الأحد.",
+    "أدوية، منتجات صحّية، نصائح.",
+    "استشارات بموعد وزيارات منزلية.",
+    "علاج، إزالة الجير، حالات الأسنان المستعجلة.",
+    "علاج وتركيبات الأسنان.",
+    "قصّ الشعر، اللحية، تسريحات الأعراس.",
+    "تنظيف دوري أو تنظيف شامل.",
+    "تنقّلات داخل المدينة وبين المدن.",
+    "إعدادي، ثانوي، تحضير الباكالوريا.",
+    "الشاشة، البطارية، منفذ الشحن.",
+    "تركيب الألياف البصرية والويفي.",
+    "بقالة · مشتقّات الحليب.",
+    "بقالة · عصرة أولى على البارد.",
+    "مخبزة · مطهو على الحطب.",
+    "بقالة · بيض طازج.",
+    "جزارة · دواجن.",
+    "خضر وغلال.",
+    "بقالة · فلفل مجفّف تحت الشمس.",
+    "بقالة · سميد القمح الصلب.",
+    "فواكه جافّة · صابة هذا العام.",
+    "بقالة · تحميص محلّي.",
+    "بقالة · شاي وأعشاب.",
+    "بقالة."
+  ];
+  DOCS.forEach(function (doc, i) { doc.en = DOCS_EN[i][0]; doc.den = DOCS_EN[i][1]; doc.dar = DOCS_AR[i]; });
+  var CITY_AR = { Tunis: "تونس", Sfax: "صفاقس", Sousse: "سوسة", Ariana: "أريانة", Bizerte: "بنزرت", Monastir: "المنستير", Nabeul: "نابل" };
+
   // Mots des titres, pour retrouver aussi ce qui n'est pas dans le lexique.
   DOCS.forEach(function (doc) {
-    doc.keys = tokenize(doc.t + " " + doc.ar).filter(function (w) { return !STOPSET[w]; }).map(pivot).filter(function (k) { return k.length >= 3; });
+    doc.keys = tokenize(doc.t + " " + doc.ar + " " + doc.en).filter(function (w) { return !STOPSET[w]; }).map(pivot).filter(function (k) { return k.length >= 3; });
   });
 
   /* ---------- 6. La recherche ---------- */
-  var LANG_LABEL = { fr: "français", ar: "arabe", tn: "derja en lettres latines", en: "anglais" };
   function scriptOf(token) {
-    if (AR_RE.test(token)) return "arabe";
+    if (AR_RE.test(token)) return "ar";
     if (/[235789]/.test(token) && /\p{L}/u.test(token)) return "arabizi";
     return "latin";
   }
@@ -240,16 +311,16 @@
     if (hasQuery) {
       DOCS.forEach(function (doc) {
         var score = 0, why = [];
-        doc.c.forEach(function (c) { if (concepts[c]) { score += 3 * concepts[c]; why.push(LEX[c].fr); } });
+        doc.c.forEach(function (c) { if (concepts[c]) { score += 3 * concepts[c]; why.push({ c: c }); } });
         unknown.forEach(function (k) {
           if (k.length < 3) return;
           for (var i = 0; i < doc.keys.length; i++) {
-            if (dist(k, doc.keys[i], tolerance(k.length)) <= tolerance(k.length)) { score += 1.5; why.push("mot du titre"); break; }
+            if (dist(k, doc.keys[i], tolerance(k.length)) <= tolerance(k.length)) { score += 1.5; why.push({ k: "title" }); break; }
           }
         });
         if (!score) return;
-        if (city && doc.city) { if (doc.city === city) { score += 2; why.push(city); } else score -= 1; }
-        if (intents.garde && doc.g) { score += 1.5; why.push("service de garde"); }
+        if (city && doc.city) { if (doc.city === city) { score += 2; why.push({ city: city }); } else score -= 1; }
+        if (intents.garde && doc.g) { score += 1.5; why.push({ k: "garde" }); }
         results.push({ doc: doc, score: score, why: why });
       });
       results.sort(function (a, b) { return b.score - a.score; });
@@ -268,20 +339,70 @@
   }
   function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
 
+  /* Textes de l'interface, selon la langue de la page. */
+  var UI = {
+    fr: {
+      lang: { fr: "français", ar: "arabe", tn: "derja en lettres latines", en: "anglais" },
+      script: { ar: "arabe", arabizi: "arabizi", latin: "latin", derja: "derja" },
+      pivot: "pivot : ", stop: "mot de liaison ou d’intention, mis de côté", unknown: "absent du lexique : comparé directement aux titres",
+      city: "lieu reconnu : ", intent: "intention : ", exact: function (l) { return "mot du lexique (" + l + ")"; },
+      same: function (w, l) { return "même forme pivot que « " + w + " » (" + l + ")"; }, start: function (w) { return "début de « " + w + " »"; },
+      near: function (w, d) { return "proche de « " + w + " », " + d + (d > 1 ? " lettres" : " lettre") + " d’écart"; },
+      type: "Tapez une recherche, ou choisissez un exemple.", traceEmpty: "Le détail de l’analyse s’affiche ici, mot par mot.",
+      found: "Trouvé grâce à : ", title: "mot du titre", garde: "service de garde",
+      count: function (n, shown) { return n + (n > 1 ? " résultats" : " résultat") + (n > shown ? ", les " + shown + " meilleurs affichés." : "."); },
+      none: "Aucun résultat. Dans un vrai projet, les recherches sans résultat servent à enrichir le lexique."
+    },
+    en: {
+      lang: { fr: "French", ar: "Arabic", tn: "derja in Latin letters", en: "English" },
+      script: { ar: "Arabic", arabizi: "Arabizi", latin: "Latin", derja: "derja" },
+      pivot: "pivot: ", stop: "filler or intent word, set aside", unknown: "not in the lexicon: compared directly with titles",
+      city: "place recognised: ", intent: "intent: ", exact: function (l) { return "lexicon word (" + l + ")"; },
+      same: function (w, l) { return "same pivot form as “" + w + "” (" + l + ")"; }, start: function (w) { return "beginning of “" + w + "”"; },
+      near: function (w, d) { return "close to “" + w + "”, " + d + (d > 1 ? " letters" : " letter") + " apart"; },
+      type: "Type a search, or pick an example.", traceEmpty: "The step-by-step analysis shows up here, word by word.",
+      found: "Matched on: ", title: "title word", garde: "out-of-hours service",
+      count: function (n, shown) { return n + (n > 1 ? " results" : " result") + (n > shown ? ", top " + shown + " shown." : "."); },
+      none: "No results. In a real project, searches with no results are used to grow the lexicon."
+    },
+    ar: {
+      lang: { fr: "الفرنسية", ar: "العربية", tn: "الدارجة بالحروف اللاتينية", en: "الإنجليزية" },
+      script: { ar: "عربية", arabizi: "عربيزي", latin: "لاتينية", derja: "دارجة" },
+      pivot: "المحور: ", stop: "كلمة ربط أو نيّة، وُضعت جانبًا", unknown: "غير موجودة في المعجم: قورنت مباشرة بالعناوين",
+      city: "مكان معروف: ", intent: "النيّة: ", exact: function (l) { return "كلمة من المعجم (" + l + ")"; },
+      same: function (w, l) { return "نفس الشكل المحوري لـ«" + w + "» (" + l + ")"; }, start: function (w) { return "بداية «" + w + "»"; },
+      near: function (w, d) { return "قريبة من «" + w + "»، بفارق " + d + (d > 1 ? " حروف" : " حرف"); },
+      type: "اكتب بحثًا، أو اختر مثالًا.", traceEmpty: "يظهر هنا تحليل الطلب، كلمة بكلمة.",
+      found: "وُجد بفضل: ", title: "كلمة من العنوان", garde: "خدمة ليلية",
+      count: function (n, shown) { return n + " نتيجة" + (n > shown ? "، تُعرض أفضل " + shown + "." : "."); },
+      none: "لا توجد نتائج. في مشروع حقيقي، تُستعمل عمليات البحث دون نتيجة لإثراء المعجم."
+    }
+  };
+  var LANG = (document.documentElement.lang || "fr").slice(0, 2);
+  if (!UI[LANG]) LANG = "fr";
+  var U = UI[LANG];
+  function label(c) { return LEX[c][LANG] || LEX[c].fr; }
+  function cityName(c) { return LANG === "ar" ? CITY_AR[c] || c : c; }
+
   function describe(step) {
     switch (step.kind) {
-      case "stop": return "mot de liaison ou d’intention, mis de côté";
-      case "unknown": return "absent du lexique : comparé directement aux titres";
-      case "city": return "lieu reconnu : " + step.id;
-      case "intent": return "intention : " + INTENTS[step.id].fr;
+      case "stop": return U.stop;
+      case "unknown": return U.unknown;
+      case "city": return U.city + cityName(step.id);
+      case "intent": return U.intent + (INTENTS[step.id][LANG] || INTENTS[step.id].fr);
       default:
-        var c = LEX[step.id], how;
-        if (step.d === 0 && step.how === "exact") how = "mot du lexique (" + LANG_LABEL[step.lang] + ")";
-        else if (step.d === 0) how = "même forme pivot que « " + step.word + " » (" + LANG_LABEL[step.lang] + ")";
-        else if (step.how === "début") how = "début de « " + step.word + " »";
-        else how = "proche de « " + step.word + " », " + step.d + (step.d > 1 ? " lettres" : " lettre") + " d’écart";
-        return how + " → " + c.fr + " · " + c.ar;
+        var c = LEX[step.id], how, l = U.lang[step.lang];
+        if (step.d === 0 && step.how === "exact") how = U.exact(l);
+        else if (step.d === 0) how = U.same(step.word, l);
+        else if (step.how === "début") how = U.start(step.word);
+        else how = U.near(step.word, step.d);
+        return how + " → " + (LANG === "ar" ? c.ar + " · " + c.fr : label(step.id) + " · " + c.ar);
     }
+  }
+  function whyText(w) {
+    if (w.c) return label(w.c);
+    if (w.city) return cityName(w.city);
+    return U[w.k];
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -306,8 +427,8 @@
       var q = input.value.trim();
       clear(list); clear(trace);
       if (!q) {
-        status.textContent = "Tapez une recherche, ou choisissez un exemple.";
-        trace.appendChild(el("li", "trace-empty", "Le détail de l’analyse s’affiche ici, mot par mot."));
+        status.textContent = U.type;
+        trace.appendChild(el("li", "trace-empty", U.traceEmpty));
         return;
       }
       var r = search(q);
@@ -315,8 +436,8 @@
         var li = el("li", "trace-" + s.kind);
         var head = el("span", "trace-word");
         head.appendChild(el("b", null, s.token));
-        head.appendChild(el("span", "trace-script", s.script));
-        if (s.kind !== "stop" && s.key) head.appendChild(el("code", "trace-key", "pivot : " + s.key));
+        head.appendChild(el("span", "trace-script", U.script[s.script] || s.script));
+        if (s.kind !== "stop" && s.key) head.appendChild(el("code", "trace-key", U.pivot + s.key));
         li.appendChild(head);
         li.appendChild(el("span", "trace-what", describe(s)));
         trace.appendChild(li);
@@ -325,18 +446,21 @@
         r.results.forEach(function (res) {
           var li = el("li", "demo-hit");
           var top = el("div", "demo-hit-top");
-          top.appendChild(el("span", "demo-hit-title", res.doc.t));
-          var ar = el("span", "demo-hit-ar", res.doc.ar); ar.lang = "ar"; ar.dir = "rtl";
-          top.appendChild(ar);
+          var d = res.doc, main = LANG === "en" ? d.en : LANG === "ar" ? d.ar : d.t;
+          top.appendChild(el("span", "demo-hit-title", main));
+          var alt = el("span", "demo-hit-ar", LANG === "ar" ? d.t : d.ar);
+          if (LANG === "ar") { alt.lang = "fr"; alt.dir = "ltr"; } else { alt.lang = "ar"; alt.dir = "rtl"; }
+          top.appendChild(alt);
           li.appendChild(top);
-          li.appendChild(el("p", "demo-hit-desc", res.doc.d + (res.doc.city ? " · " + res.doc.city : "")));
-          var seen = {}, why = res.why.filter(function (w) { if (seen[w]) return false; seen[w] = true; return true; });
-          li.appendChild(el("p", "demo-hit-why", "Trouvé grâce à : " + why.join(", ")));
+          var desc = LANG === "en" ? d.den : LANG === "ar" ? d.dar : d.d;
+          li.appendChild(el("p", "demo-hit-desc", desc + (d.city ? " · " + cityName(d.city) : "")));
+          var seen = {}, why = res.why.map(whyText).filter(function (w) { if (seen[w]) return false; seen[w] = true; return true; });
+          li.appendChild(el("p", "demo-hit-why", U.found + why.join(LANG === "ar" ? "، " : ", ")));
           list.appendChild(li);
         });
-        status.textContent = r.total + (r.total > 1 ? " résultats" : " résultat") + (r.total > r.results.length ? ", les " + r.results.length + " meilleurs affichés." : ".");
+        status.textContent = U.count(r.total, r.results.length);
       } else {
-        status.textContent = "Aucun résultat. Dans un vrai projet, les recherches sans résultat servent à enrichir le lexique.";
+        status.textContent = U.none;
       }
       if (msOut) msOut.textContent = r.ms < 1 ? "< 1 ms" : Math.round(r.ms) + " ms";
       renderNet();
