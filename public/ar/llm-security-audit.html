@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تدقيق أمن الذكاء الاصطناعي: حقن الأوامر ونماذج اللغة والوكلاء · ITBerg</title>
+<meta name="description" content="تدقيق أمن روبوتات المحادثة والمساعدين ووكلاء الذكاء الاصطناعي وفق OWASP Top 10 لنماذج اللغة: حقن الأوامر وتسريب البيانات.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/ar/llm-security-audit">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/audit-securite-ia-llm">
+<link rel="alternate" hreflang="en" href="https://itberg.tn/en/llm-security-audit">
+<link rel="alternate" hreflang="ar" href="https://itberg.tn/ar/llm-security-audit">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/audit-securite-ia-llm">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="ar_TN">
+<meta property="og:locale:alternate" content="fr_TN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="تدقيق أمن الذكاء الاصطناعي: حقن الأوامر ونماذج اللغة والوكلاء · ITBerg">
+<meta property="og:description" content="تدقيق أمن روبوتات المحادثة والمساعدين ووكلاء الذكاء الاصطناعي وفق OWASP Top 10 لنماذج اللغة: حقن الأوامر وتسريب البيانات.">
+<meta property="og:url" content="https://itberg.tn/ar/llm-security-audit">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="شعار ITBerg: جبل جليدي على شكل إبرة بوصلة، مع الشعار «الذكاء الاصطناعي على السطح، والتحكّم في العمق».">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"تدقيق أمن الذكاء الاصطناعي ونماذج اللغة","description":"اختبارات هجوم على روبوتات المحادثة والمساعدين ووكلاء الذكاء الاصطناعي وفق OWASP Top 10 لتطبيقات نماذج اللغة.","serviceType":"تدقيق أمني","url":"https://itberg.tn/ar/llm-security-audit","provider":{"@id":"https://itberg.tn/#organisation"},"areaServed":{"@type":"Country","name":"تونس"},"inLanguage":"ar"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ما هو حقن الأوامر (prompt injection)؟","acceptedAnswer":{"@type":"Answer","text":"هو نصّ مفخَّخ، في رسالة أو وثيقة أو صفحة ويب يقرؤها الذكاء الاصطناعي، يحاول تحريف تعليماته: دفعه إلى كشف معلومات أو تجاهل قواعده أو تنفيذ إجراء. وهو الخطر الأوّل في قائمة OWASP Top 10 لتطبيقات نماذج اللغة."}},{"@type":"Question","name":"ماذا تختبرون بالضبط؟","acceptedAnswer":{"@type":"Answer","text":"مساعدك أو روبوت المحادثة أو الوكيل كما هو منشور: تعليماته، والوثائق التي يقرؤها، والأدوات التي يمكنه استدعاؤها، وما يعيده إلى المستخدم. نتّبع قائمة OWASP Top 10 لتطبيقات نماذج اللغة ونضيف اختبارات خاصّة بنشاطك."}},{"@type":"Question","name":"هل تضمنون ألّا ينجح أيّ هجوم؟","acceptedAnswer":{"@type":"Answer","text":"لا، ولا أحد يستطيع ذلك بصدق: نموذج اللغة ليس موثوقًا بنسبة 100٪ أبدًا. يقلّل التدقيق من الخطر، ويتحقّق خاصّةً من أنّ عواقب أيّ تحريف تبقى محدودة: أدنى الصلاحيات، والمصادقة البشرية، والتسجيل."}},{"@type":"Question","name":"هل نحتاج إلى منحكم الوصول إلى النموذج؟","acceptedAnswer":{"@type":"Answer","text":"لا. نختبر من الخارج، كمستخدم أو كمهاجم، ويُفضَّل على بيئة اختبار. ويتيح الاطّلاع على تعليمات النظام والبنية تدقيقًا أشمل. ولا نعمل إلّا بإذن كتابي منك."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://itberg.tn/ar"},{"@type":"ListItem","position":2,"name":"تدقيق أمن الذكاء الاصطناعي ونماذج اللغة","item":"https://itberg.tn/ar/llm-security-audit"}]}
+</script>
+</head>
+<body class="page-landing">
+<a class="skip" href="#contenu">الانتقال إلى المحتوى</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ar" aria-label="ITBerg، الصفحة الرئيسية"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="القائمة" data-label-close="إغلاق"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">القائمة</span></button>
+    <nav class="site-nav" id="menu" aria-label="التنقل الرئيسي"><ul><li><a href="/ar/solutions">الحلول</a></li><li><a href="/ar/ai">الذكاء الاصطناعي والوكلاء</a></li><li><a href="/ar/mobile-development">تطبيقات الهاتف</a></li><li><a href="/ar/security" aria-current="page">الأمن</a></li><li><a href="/ar/apps">تطبيقاتنا</a></li><li><a class="nav-cta" href="/ar/contact">اتصل بنا</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="لغة الموقع"><ul><li><a href="/audit-securite-ia-llm" hreflang="fr" lang="fr"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en/llm-security-audit" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar/llm-security-audit" hreflang="ar" lang="ar" aria-current="true"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="مسار التنقل"><ol><li><a href="/ar">الرئيسية</a></li><li aria-current="page">تدقيق أمن الذكاء الاصطناعي ونماذج اللغة</li></ol></nav><p class="eyebrow">الأمن · الذكاء الاصطناعي ونماذج اللغة</p>
+    <h1>تدقيق أمن الذكاء الاصطناعي ونماذج اللغة</h1>
+    <p class="lead">هل يتعامل روبوت المحادثة أو المساعد أو وكيل الذكاء الاصطناعي لديك مع العملاء أو مع بيانات حسّاسة؟ نبحث عن طرق تحريفه قبل أن يفعل ذلك غيرنا، ونساعدك على حصر الأضرار الممكنة.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="risks">
+  <div class="wrap">
+    <h2 id="risks">المخاطر التي نختبرها</h2>
+<ul class="checks checks-grid"><li><span class="check-code">INJECTION</span><span><strong>حقن الأوامر:</strong> مباشرةً في المحادثة، أو بطريقة غير مباشرة عبر وثيقة أو بريد إلكتروني أو صفحة ويب.</span></li><li><span class="check-code">LEAK</span><span><strong>تسريب المعلومات:</strong> بيانات شخصية، ووثائق داخلية، وتعليمات النظام.</span></li><li><span class="check-code">AGENCY</span><span><strong>صلاحيات مفرطة:</strong> وكيل يرسل أو يعدّل أو يحذف أكثر ممّا ينبغي.</span></li><li><span class="check-code">OUTPUT</span><span><strong>مخرجات غير مضبوطة:</strong> ردّ الذكاء الاصطناعي يُعاد استعماله كما هو في صفحة أو استعلام أو أمر.</span></li><li><span class="check-code">RAG</span><span><strong>قاعدة الوثائق:</strong> وثائق مسمومة، أو حقوق وصول لا تُحترم أثناء البحث.</span></li><li><span class="check-code">COST</span><span><strong>استهلاك بلا حدود:</strong> طلبات متكرّرة أو ضخمة تُضخّم الفاتورة.</span></li></ul>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="method">
+  <div class="wrap">
+    <h2 id="method">منهجيتنا</h2>
+    <ol class="steps">
+      <li><h3>رسم الخريطة</h3><p>ما يقرؤه الذكاء الاصطناعي، وما يمكنه فعله، ولمن يجيب، وما الذي قد يكون خطيرًا.</p></li>
+      <li><h3>اختبارات الهجوم</h3><p>سيناريوهات يدوية مكيَّفة مع نشاطك، تكمّلها حملات آلية بأدوات مفتوحة المصدر.</p></li>
+      <li><h3>التقرير والإصلاحات</h3><p>كلّ ثغرة مع دليلها وأثرها وطريقة إصلاحها: التصفية، والصلاحيات، والمصادقة البشرية، وفصل المحتويات.</p></li>
+      <li><h3>اختبارات عدم التراجع</h3><p>تتحوّل الهجمات المكتشفة إلى اختبارات آلية تُعاد عند كلّ تغيير في النموذج أو التعليمات.</p></li>
+    </ol>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="try">
+  <div class="wrap">
+    <h2 id="try">جرّب بنفسك</h2>
+    <p class="section-lead">تُظهر لعبتنا الصغيرة «أوقِع الوكيل في الفخّ»، على ثلاثة مستويات، كيف يعمل حقن الأوامر وكيف توقفه الضوابط. الوكيل محاكًى ولا تُرسَل أيّ بيانات.</p>
+    <p><a class="btn" href="/ar/trap-the-agent">العب «أوقِع الوكيل في الفخّ»</a></p>
+    <p class="note">انظر أيضًا: <a href="/ar/security">كلّ عروضنا في الأمن</a>, <a href="/ar/ai">الذكاء الاصطناعي السيادي والوكلاء</a>, <a href="/ar/report-a-vulnerability">الإبلاغ عن ثغرة</a>.</p>
+  </div>
+</section>
+<section class="band band-1" id="faq" aria-labelledby="faq-titre">
+  <div class="wrap faq-wrap">
+    <h2 id="faq-titre">أسئلة شائعة</h2>
+    <div class="faq"><details class="faq-item"><summary><h3>ما هو حقن الأوامر (prompt injection)؟</h3></summary><p>هو نصّ مفخَّخ، في رسالة أو وثيقة أو صفحة ويب يقرؤها الذكاء الاصطناعي، يحاول تحريف تعليماته: دفعه إلى كشف معلومات أو تجاهل قواعده أو تنفيذ إجراء. وهو الخطر الأوّل في قائمة OWASP Top 10 لتطبيقات نماذج اللغة.</p></details><details class="faq-item"><summary><h3>ماذا تختبرون بالضبط؟</h3></summary><p>مساعدك أو روبوت المحادثة أو الوكيل كما هو منشور: تعليماته، والوثائق التي يقرؤها، والأدوات التي يمكنه استدعاؤها، وما يعيده إلى المستخدم. نتّبع قائمة OWASP Top 10 لتطبيقات نماذج اللغة ونضيف اختبارات خاصّة بنشاطك.</p></details><details class="faq-item"><summary><h3>هل تضمنون ألّا ينجح أيّ هجوم؟</h3></summary><p>لا، ولا أحد يستطيع ذلك بصدق: نموذج اللغة ليس موثوقًا بنسبة 100٪ أبدًا. يقلّل التدقيق من الخطر، ويتحقّق خاصّةً من أنّ عواقب أيّ تحريف تبقى محدودة: أدنى الصلاحيات، والمصادقة البشرية، والتسجيل.</p></details><details class="faq-item"><summary><h3>هل نحتاج إلى منحكم الوصول إلى النموذج؟</h3></summary><p>لا. نختبر من الخارج، كمستخدم أو كمهاجم، ويُفضَّل على بيئة اختبار. ويتيح الاطّلاع على تعليمات النظام والبنية تدقيقًا أشمل. ولا نعمل إلّا بإذن كتابي منك.</p></details></div>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">اختبر ذكاءك الاصطناعي</h2>
+      <p>صِف لنا مساعدك أو وكيلك وما يمكنه فعله: نقترح عليك نطاق الاختبار.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/ar" aria-label="ITBerg، الصفحة الرئيسية"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">الذكاء الاصطناعي على السطح، والتحكّم في العمق.</p>
+      <p class="footer-small">شركة تونسية · ذكاء اصطناعي سيادي ووكلاء، تطبيقات الهاتف، أمن تطبيقات الهاتف.</p>
+    </div>
+    <nav aria-label="صفحات الموقع">
+      <h2 class="footer-title">خبراتنا</h2>
+      <ul class="footer-links"><li><a href="/ar/solutions">كل حلولنا</a></li><li><a href="/ar/ai">الذكاء الاصطناعي السيادي والوكلاء</a></li><li><a href="/ar/ai-consulting">استشارات الذكاء الاصطناعي</a></li><li><a href="/ar/mobile-development">تطوير تطبيقات الهاتف</a></li><li><a href="/ar/security">أمن تطبيقات الهاتف</a></li><li><a href="/ar/apps">تطبيقاتنا</a></li></ul>
+    </nav>
+    <nav aria-label="موارد">
+      <h2 class="footer-title">موارد</h2>
+      <ul class="footer-links"><li><a href="/blog">المدوّنة (بالفرنسية)</a></li><li><a href="/applis/el9offa">دراسة حالة El9offa (بالفرنسية)</a></li><li><a href="/applis/easyfind">دراسة حالة EasyFind (بالفرنسية)</a></li><li><a href="/ar/kotlin-multiplatform-development">تطوير Kotlin Multiplatform</a></li><li><a href="/ar/llm-security-audit">تدقيق أمن الذكاء الاصطناعي</a></li><li><a href="/ar/tunisian-arabic-chatbot">روبوت محادثة بالدارجة التونسية</a></li><li><a href="/ar/ai-governance-eu-ai-act">حوكمة الذكاء الاصطناعي وقانون AI Act</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">اتصل بنا</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>تونس</li><li><a href="/mentions-legales">البيانات القانونية والخصوصية (بالفرنسية)</a></li><li><a href="/ar/site-security">أمان هذا الموقع</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>لا ملفات تعريف ارتباط. قياس مجهول للزيارات، دون إعلانات ودون بيع للبيانات.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Développement Kotlin Multiplatform : Android et iOS, un seul code · ITBerg</title>
+<meta name="description" content="Applications Android et iOS en Kotlin Multiplatform et Compose Multiplatform : un code métier partagé, des performances natives. Société tunisienne.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/developpement-kotlin-multiplatform">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/developpement-kotlin-multiplatform">
+<link rel="alternate" hreflang="en" href="https://itberg.tn/en/kotlin-multiplatform-development">
+<link rel="alternate" hreflang="ar" href="https://itberg.tn/ar/kotlin-multiplatform-development">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/developpement-kotlin-multiplatform">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="fr_TN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ar_TN">
+<meta property="og:title" content="Développement Kotlin Multiplatform : Android et iOS, un seul code · ITBerg">
+<meta property="og:description" content="Applications Android et iOS en Kotlin Multiplatform et Compose Multiplatform : un code métier partagé, des performances natives. Société tunisienne.">
+<meta property="og:url" content="https://itberg.tn/developpement-kotlin-multiplatform">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo ITBerg : un iceberg taillé en aiguille de boussole, et le slogan « L’IA en surface. La maîtrise en profondeur. »">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Développement Kotlin Multiplatform","description":"Conception et développement d’applications Android et iOS en Kotlin Multiplatform et Compose Multiplatform, et migration d’applications Android existantes.","serviceType":"Développement d’applications mobiles","url":"https://itberg.tn/developpement-kotlin-multiplatform","provider":{"@id":"https://itberg.tn/#organisation"},"areaServed":{"@type":"Country","name":"Tunisie"},"inLanguage":"fr"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu’est-ce que Kotlin Multiplatform ?","acceptedAnswer":{"@type":"Answer","text":"Kotlin Multiplatform (KMP) est une technologie de JetBrains, stable depuis fin 2023, qui permet d’écrire une seule fois le code métier d’une application (règles, données, réseau) et de l’utiliser sur Android, iOS, le web ou un serveur. Compose Multiplatform ajoute la possibilité de partager aussi l’interface."}},{"@type":"Question","name":"Quelle différence avec Flutter ou React Native ?","acceptedAnswer":{"@type":"Answer","text":"Avec Kotlin Multiplatform, le code partagé est compilé en code natif pour chaque plateforme, et vous choisissez ce que vous partagez : seulement la logique, ou aussi les écrans. On peut garder une interface iOS native là où elle compte. Pour une équipe qui connaît déjà Android et Kotlin, la courbe d’apprentissage est faible."}},{"@type":"Question","name":"Peut-on migrer une application Android existante ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c’est un de ses atouts : la migration se fait module par module. On commence par extraire le domaine métier en Kotlin pur, puis les données et le réseau, et l’application Android continue de fonctionner à chaque étape."}},{"@type":"Question","name":"Quelle part du code est partagée ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend du projet. Le domaine métier, les données et le réseau se partagent presque entièrement. Pour l’interface, Compose Multiplatform permet d’en partager l’essentiel ; certains écrans ou fonctions propres au système (paiement, capteurs, notifications) restent écrits pour chaque plateforme."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Développement Kotlin Multiplatform","item":"https://itberg.tn/developpement-kotlin-multiplatform"}]}
+</script>
+</head>
+<body class="page-landing">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Fermer"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Navigation principale"><ul><li><a href="/solutions">Solutions</a></li><li><a href="/ia">IA &amp; agents</a></li><li><a href="/android" aria-current="page">Mobile</a></li><li><a href="/securite">Sécurité</a></li><li><a href="/applis">Applications</a></li><li><a href="/blog">Blog</a></li><li><a class="nav-cta" href="/contact">Nous contacter</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Langue du site"><ul><li><a href="/developpement-kotlin-multiplatform" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en/kotlin-multiplatform-development" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar/kotlin-multiplatform-development" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Développement Kotlin Multiplatform</li></ol></nav><p class="eyebrow">Mobile · Kotlin Multiplatform</p>
+    <h1>Développement d’applications en Kotlin Multiplatform</h1>
+    <p class="lead">Une application Android et iOS sans payer deux fois le même travail : nous écrivons le code métier une seule fois en Kotlin, et nous partageons l’interface quand c’est utile. Nouveau projet ou migration d’une application Android existante.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="pourquoi">
+  <div class="wrap">
+    <h2 id="pourquoi">Pourquoi Kotlin Multiplatform</h2>
+    <div class="cols-3">
+      <div class="block"><h3>Un seul code métier</h3><p>Les règles, le calcul, la synchronisation et l’accès aux données sont écrits et testés une fois, pour Android et iOS.</p></div>
+      <div class="block"><h3>Des performances natives</h3><p>Le code est compilé pour chaque plateforme. Pas de couche d’interprétation entre votre application et le téléphone.</p></div>
+      <div class="block"><h3>Une adoption progressive</h3><p>On peut partager un seul module au départ, puis davantage. Rien n’oblige à tout réécrire.</p></div>
+    </div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="archi">
+  <div class="wrap">
+    <h2 id="archi">Notre façon de structurer un projet KMP</h2>
+    <ol class="steps">
+      <li><h3>Domaine en Kotlin pur</h3><p>Le cœur métier ne dépend ni d’Android, ni d’iOS, ni de Firebase : il se teste vite et se réutilise partout.</p></li>
+      <li><h3>Données hors connexion d’abord</h3><p>Base locale partagée, synchronisation en arrière-plan, écrans utilisables même sans réseau.</p></li>
+      <li><h3>Interface Compose Multiplatform</h3><p>Écrans partagés là où c’est rentable, natifs là où l’expérience l’exige.</p></li>
+      <li><h3>Intégration continue</h3><p>Chaque modification compilée et testée pour Android et iOS, avant d’arriver dans l’application.</p></li>
+    </ol>
+    <ul class="tags tags-spaced" aria-label="Technologies"><li>Kotlin</li><li>Kotlin Multiplatform</li><li>Compose Multiplatform</li><li>Ktor</li><li>Room</li><li>SQLite</li><li>Firebase</li><li>Coroutines</li></ul>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="preuve">
+  <div class="wrap">
+    <h2 id="preuve">Nos propres applications sont en Kotlin Multiplatform</h2>
+    <p class="section-lead">Nous ne citons pas de clients que nous n’avons pas. Nos deux applications sont construites avec cette technologie.</p>
+    <div class="apps">
+      <article class="app"><h3>El9offa</h3><p>Comparateur de prix des courses : Android d’abord, iOS ensuite avec l’essentiel du code partagé, hors connexion d’abord.</p><a class="more" href="/applis/el9offa">Lire l’étude de cas</a></article>
+      <article class="app"><h3>EasyFind</h3><p>Recherche en français, arabe et derja : une application Android et une version web qui partagent le code métier.</p><a class="more" href="/applis/easyfind">Lire l’étude de cas</a></article>
+    </div>
+    <p class="note">Voir aussi : <a href="/blog/kotlin-multiplatform-firebase-android-ios">Kotlin Multiplatform et Firebase, en détail</a>, <a href="/android">notre méthode de développement mobile</a>, <a href="/developpement-application-mobile-tunisie">développement mobile en Tunisie</a>, <a href="/audit-securite-application-mobile">audit de sécurité mobile</a>.</p>
+  </div>
+</section>
+<section class="band band-1" id="faq" aria-labelledby="faq-titre">
+  <div class="wrap faq-wrap">
+    <h2 id="faq-titre">Questions fréquentes</h2>
+    <div class="faq"><details class="faq-item"><summary><h3>Qu’est-ce que Kotlin Multiplatform ?</h3></summary><p>Kotlin Multiplatform (KMP) est une technologie de JetBrains, stable depuis fin 2023, qui permet d’écrire une seule fois le code métier d’une application (règles, données, réseau) et de l’utiliser sur Android, iOS, le web ou un serveur. Compose Multiplatform ajoute la possibilité de partager aussi l’interface.</p></details><details class="faq-item"><summary><h3>Quelle différence avec Flutter ou React Native ?</h3></summary><p>Avec Kotlin Multiplatform, le code partagé est compilé en code natif pour chaque plateforme, et vous choisissez ce que vous partagez : seulement la logique, ou aussi les écrans. On peut garder une interface iOS native là où elle compte. Pour une équipe qui connaît déjà Android et Kotlin, la courbe d’apprentissage est faible.</p></details><details class="faq-item"><summary><h3>Peut-on migrer une application Android existante ?</h3></summary><p>Oui, et c’est un de ses atouts : la migration se fait module par module. On commence par extraire le domaine métier en Kotlin pur, puis les données et le réseau, et l’application Android continue de fonctionner à chaque étape.</p></details><details class="faq-item"><summary><h3>Quelle part du code est partagée ?</h3></summary><p>Cela dépend du projet. Le domaine métier, les données et le réseau se partagent presque entièrement. Pour l’interface, Compose Multiplatform permet d’en partager l’essentiel ; certains écrans ou fonctions propres au système (paiement, capteurs, notifications) restent écrits pour chaque plateforme.</p></details></div>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Un projet Android et iOS ?</h2>
+      <p>Décrivez votre application, ou envoyez-nous le lien de celle à faire évoluer : nous vous disons ce qui peut être partagé.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="ITBerg, accueil"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">L’IA en surface. La maîtrise en profondeur.</p>
+      <p class="footer-small">Société tunisienne · IA souveraine et agents, applications mobiles, sécurité mobile.</p>
+    </div>
+    <nav aria-label="Pages du site">
+      <h2 class="footer-title">Expertises</h2>
+      <ul class="footer-links"><li><a href="/solutions">Toutes nos solutions</a></li><li><a href="/ia">IA souveraine et agents</a></li><li><a href="/conseil">Conseil en IA</a></li><li><a href="/android">Développement mobile</a></li><li><a href="/securite">Sécurité des applications mobiles</a></li><li><a href="/applis">Nos applications</a></li></ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <h2 class="footer-title">Ressources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li><li><a href="/developpement-kotlin-multiplatform">Développement Kotlin Multiplatform</a></li><li><a href="/audit-securite-ia-llm">Audit de sécurité de l’IA</a></li><li><a href="/chatbot-arabe-tunisien">Chatbot en arabe tunisien</a></li><li><a href="/gouvernance-ia-ai-act">Gouvernance de l’IA et AI Act</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisie</li><li><a href="/mentions-legales">Mentions légales et confidentialité</a></li><li><a href="/securite-du-site">Sécurité de ce site</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>Aucun cookie. Mesure d’audience anonyme, sans publicité ni revente de données.</p>
+  </div>
+</footer>
+</body>
+</html>
