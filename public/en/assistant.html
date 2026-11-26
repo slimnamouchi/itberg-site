@@ -31,7 +31,6 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/main.js"></script>
-<script type="module" src="/js/assistant-ia.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://itberg.tn/en"},{"@type":"ListItem","position":2,"name":"Assistant","item":"https://itberg.tn/en/assistant"}]}
 </script>
@@ -73,7 +72,7 @@
         </ol>
         <dl class="demo-proof">
           <div><dt>Questions sent to a server</dt><dd>0</dd></div>
-          <div><dt>Language model</dt><dd>optional, local</dd></div>
+          <div><dt>Language model</dt><dd>none</dd></div>
           <div><dt>Cookies and history</dt><dd>none</dd></div>
         </dl>
       </aside>
@@ -87,20 +86,9 @@
     <div class="cols-2">
       <div class="block"><h3>1. Read, on your device</h3><p>Your browser splits the question into keywords: accents removed, filler words set aside, French, English, Arabic and some Tunisian derja recognised.</p></div>
       <div class="block"><h3>2. Check the guardrails</h3><p>Before any search: attempts to change the rules, off-topic requests, requests to attack someone, personal data in the message. Each case has its answer, written in advance.</p></div>
-      <div class="block"><h3>3. Search the site’s pages</h3><p>At each release, a script splits the public pages into passages and builds an index. The assistant reads it once, then ranks passages by relevance (BM25), with a small lexicon linking “price”, “cost” and “9adech”.</p></div>
+      <div class="block"><h3>3. Search the site’s pages</h3><p>The assistant compares your question with the site’s public pages and keeps the closest passages, recognising words for the same idea, such as “price”, “cost” and “9adech”.</p></div>
       <div class="block"><h3>4. Quote, or hand over</h3><p>It shows the closest passage and its link. If the score is too low, it doesn’t answer and points you to the team. The details of each answer are under “Under the surface”.</p></div>
     </div>
-  </div>
-</section>
-<section class="band band-2" aria-labelledby="ia-locale">
-  <div class="wrap">
-    <h2 id="ia-locale">Optional: an answer written by a local AI</h2>
-    <p class="section-lead">Under an answer, the “Write an answer with the local AI” button has the retrieved passages rephrased by a small language model, Qwen2.5 (1.5 billion parameters), running on your graphics card through WebGPU.</p>
-    <div class="cols-2">
-      <div class="block"><h3>What is downloaded</h3><p>The model, about 1 GB, from Hugging Face, once and only if you accept. It then stays in your browser’s cache, which you can clear at any time. Your question never leaves your device.</p></div>
-      <div class="block"><h3>What keeps it in check</h3><p>It only sees your question and the passages already found, numbered, which it must cite. Its instructions are fixed, its answer is short, and it is hidden if it contains a price. The source stays visible and prevails.</p></div>
-    </div>
-    <p class="note">You need a recent browser with WebGPU (Chrome or Edge on a computer, for example). Otherwise nothing is downloaded and the answer from the site remains the only one. To make it work, these three pages also allow WebAssembly and Hugging Face in their security policy; the rest of the site keeps the strictest policy.</p>
   </div>
 </section>
 <section class="band band-3" aria-labelledby="limites">

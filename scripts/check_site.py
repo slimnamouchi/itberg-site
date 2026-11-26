@@ -85,10 +85,10 @@ for f in sorted(glob.glob(os.path.join(PUB, "**", "*.js"), recursive=True)):
 # En-têtes de sécurité de firebase.json : la politique ne doit jamais s'affaiblir.
 cfg = json.load(open(os.path.join(PUB, "..", "firebase.json"), encoding="utf-8"))
 glob_headers = {}
-# Exception documentée : les 3 pages Assistant font tourner un modèle d'IA dans le navigateur (WebLLM).
+# Exception documentée : les 3 pages Démo IA font tourner un modèle d'IA dans le navigateur (WebLLM).
 # Elles ont exactement la CSP du site, plus WebAssembly ('wasm-unsafe-eval') et le téléchargement
 # du modèle depuis Hugging Face. Rien d'autre n'est accepté.
-ASSISTANT_SOURCE = "**/assistant*"
+ASSISTANT_SOURCE = "**/@(demo-ia|ai-search-demo)*"
 ASSISTANT_EXTRA = {"script-src": ["'wasm-unsafe-eval'"], "connect-src": ["https://huggingface.co", "https://*.huggingface.co", "https://*.hf.co"]}
 assistant_rule = None
 for rule in cfg["hosting"].get("headers", []):
@@ -141,11 +141,11 @@ if assistant_rule:
             a_csp[words[0]] = words[1:]
     want = {k: v + ASSISTANT_EXTRA.get(k, []) for k, v in csp.items()}
     if a_csp != want:
-        problems.append("firebase.json : la CSP des pages Assistant doit être celle du site plus seulement 'wasm-unsafe-eval' et Hugging Face")
+        problems.append("firebase.json : la CSP des pages Démo IA doit être celle du site plus seulement 'wasm-unsafe-eval' et Hugging Face")
     if len(assistant_rule["headers"]) != 1:
-        problems.append("firebase.json : la règle des pages Assistant ne doit redéfinir que la CSP")
+        problems.append("firebase.json : la règle des pages Démo IA ne doit redéfinir que la CSP")
     if cfg["hosting"]["headers"].index(assistant_rule) < [r["source"] for r in cfg["hosting"]["headers"]].index("**"):
-        problems.append("firebase.json : la règle des pages Assistant doit venir après la règle « ** »")
+        problems.append("firebase.json : la règle des pages Démo IA doit venir après la règle « ** »")
 
 # security.txt (RFC 9116) : la date « Expires » doit rester dans le futur.
 import datetime

@@ -10,13 +10,13 @@ for rule in cfg["hosting"]["headers"]:
     if rule["source"] == "**":
         expected = {h["key"].lower(): h["value"] for h in rule["headers"]}
 
-# Seule exception : les pages Assistant (IA locale), CSP déclarée juste après la règle « ** ».
-ASSISTANT = ("/assistant", "/en/assistant", "/ar/assistant")
-assistant_csp = next((h["value"] for rule in cfg["hosting"]["headers"] if "assistant" in rule["source"]
+# Seule exception : les pages Démo IA (IA générative locale), CSP déclarée juste après la règle « ** ».
+ASSISTANT = ("/demo-ia", "/en/ai-search-demo", "/ar/ai-search-demo")
+assistant_csp = next((h["value"] for rule in cfg["hosting"]["headers"] if rule["source"] != "**"
                       for h in rule["headers"] if h["key"].lower() == "content-security-policy"), None)
 
 problems = []
-for path in ("/", "/en", "/ar", "/securite-du-site", "/css/style.css", "/js/main.js", "/.well-known/security.txt", "/page-qui-n-existe-pas") + ASSISTANT:
+for path in ("/", "/en", "/ar", "/securite-du-site", "/css/style.css", "/js/main.js", "/.well-known/security.txt", "/page-qui-n-existe-pas", "/assistant") + ASSISTANT:
     expected_here = dict(expected)
     if path in ASSISTANT and assistant_csp:
         expected_here["content-security-policy"] = assistant_csp

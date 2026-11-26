@@ -56,7 +56,7 @@
         ]
       },
       {
-        "source": "**/assistant*",
+        "source": "**/@(demo-ia|ai-search-demo)*",
         "headers": [
           {
             "key": "Content-Security-Policy",
