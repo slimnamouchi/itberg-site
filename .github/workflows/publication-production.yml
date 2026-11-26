@@ -16,8 +16,11 @@ concurrency:
 
 jobs:
   publier:
-    # Tourne sur le runner GitHub installé sur le Mac (gratuit). Voir NOTICE.md.
-    runs-on: [self-hosted, macOS]
+    # Machine qui fait tourner la publication. Par défaut : les machines de GitHub
+    # (gratuites et illimitées si le dépôt est public). Pour utiliser un runner à vous,
+    # créez la variable RUNNER_LABELS (Settings → Secrets and variables → Actions → Variables),
+    # par exemple ["self-hosted","macOS"]. Voir NOTICE.md.
+    runs-on: ${{ fromJSON(vars.RUNNER_LABELS || '"ubuntu-latest"') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

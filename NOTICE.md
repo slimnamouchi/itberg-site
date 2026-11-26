@@ -66,18 +66,13 @@ Le code du site vit sur GitHub, dans le dépôt privé `itberg-site`. Chaque mod
 2. Nom : `itberg-site`. Choisissez **Private** et ne cochez rien d'autre (pas de README).
 3. Cliquez sur **Create repository**. Le code peut ensuite être envoyé dans le dépôt (par Claude, ou avec les commandes de la section « Envoyer le code vous-même » ci-dessous).
 
-**1 bis. Brancher le runner du Mac (gratuit)**
-Les publications tournent sur un runner GitHub installé sur le Mac, pas sur les machines payantes de GitHub. Le Mac doit être allumé et connecté quand une publication part. Sinon, le travail attend jusqu'à 24 h et démarre dès le retour du Mac.
-
-Un compte GitHub personnel n'a pas de runner partagé entre dépôts : il faut un runner pour `itberg-site`, installé dans son propre dossier. Le runner de vos autres projets ne bouge pas.
-1. Sur github.com, dans le dépôt `itberg-site`, ouvrez **Settings → Actions → Runners → New self-hosted runner**, puis choisissez **macOS** et l'architecture du Mac (ARM64 pour une puce Apple M).
-2. Dans le Terminal, lancez les commandes affichées par GitHub, **dans un nouveau dossier** : par exemple `mkdir ~/actions-runner-itberg && cd ~/actions-runner-itberg` à la place de `mkdir actions-runner && cd actions-runner`. Gardez le nom et les étiquettes proposés par défaut (Entrée à chaque question).
-3. Au lieu de `./run.sh`, lancez `./svc.sh install` puis `./svc.sh start`. Le runner démarre alors tout seul avec le Mac.
-4. Le Mac doit avoir `python3` et `node` (la publication installe elle-même Node 20). Pour vérifier, lancez `python3 --version` dans le Terminal.
-
-Le runner apparaît en vert, « Idle », dans Settings → Actions → Runners.
-
-> Autre solution gratuite : rendre le dépôt **public**. Les minutes GitHub Actions sont alors gratuites et illimitées, mais tout le monde peut lire le code du site (il ne contient aucun secret). Dans ce cas, remettez `runs-on: ubuntu-latest` dans les deux fichiers de `.github/workflows/`.
+**1 bis. Choisir la machine qui publie (gratuit)**
+Par défaut, la publication tourne sur les machines de GitHub. Elles sont **gratuites et illimitées si le dépôt est public**. Le dépôt ne contient aucun secret : la clé Firebase vit seulement dans les secrets GitHub, qui restent privés même sur un dépôt public.
+- **Rendre le dépôt public** : Settings → General → tout en bas, « Danger Zone » → **Change visibility** → **Make public**, puis confirmez.
+- **Ou garder le dépôt privé avec un runner à vous** (gratuit lui aussi) :
+  - Si le runner est rattaché à une **organisation** GitHub, transférez le dépôt dans cette organisation (Settings → General → Danger Zone → Transfer).
+  - Si le runner est sur un compte personnel, il ne sert qu'à un seul dépôt. Il faut alors en installer un pour `itberg-site` : Settings → Actions → Runners → New self-hosted runner, à lancer dans un nouveau dossier sur la machine, puis `./svc.sh install` et `./svc.sh start`.
+  - Ensuite, créez la variable `RUNNER_LABELS` (Settings → Secrets and variables → Actions → onglet **Variables**) avec la valeur `["self-hosted","macOS"]`. La machine doit avoir `python3`, et être allumée quand une publication part.
 
 **2. Renseigner le projet Firebase**
 Fait : `.firebaserc` contient l'identifiant du projet Firebase, `itberg-site`. Changez-le seulement si vous changez de projet.
