@@ -14,7 +14,9 @@
         "http://127.0.0.1:8080/securite-du-site",
         "http://127.0.0.1:8080/ar/report-a-vulnerability",
         "http://127.0.0.1:8080/en/ai-search-demo",
-        "http://127.0.0.1:8080/ar/trap-the-agent"
+        "http://127.0.0.1:8080/ar/trap-the-agent",
+        "http://127.0.0.1:8080/assistant",
+        "http://127.0.0.1:8080/ar/assistant"
       ],
       "settings": {
         "chromeFlags": "--headless=new --no-sandbox"
