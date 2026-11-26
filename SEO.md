@@ -30,7 +30,7 @@ Vous verrez alors les visites par jour et par heure, les pages vues, les sites d
 > Pourquoi pas Google Analytics ? GA4 dépose des cookies. En Europe, il faut alors une bannière de consentement conforme (Consent Mode v2), et beaucoup de visiteurs refusent, ce qui fausse les chiffres. Pour un site vitrine, GoatCounter donne l'essentiel sans bannière. Si vous voulez quand même GA4 plus tard, il faudra ajouter une bannière de consentement et modifier la CSP.
 
 ### 2. Mettre en ligne (voir NOTICE.md)
-Remplissez les `[À COMPLÉTER]`, puis lancez `firebase deploy --only hosting` et reliez itberg.tn et www.itberg.tn.
+Remplissez les `[À COMPLÉTER]`, puis fusionnez sur `main` : GitHub publie le site tout seul. Reliez ensuite itberg.tn et www.itberg.tn.
 
 ### 3. Google Search Console
 1. Allez sur https://search.google.com/search-console, puis cliquez sur **Ajouter une propriété** et choisissez le type **Domaine** : `itberg.tn`.

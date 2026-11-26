@@ -21,7 +21,7 @@ itberg-site/
 │   ├── mentions-legales.html
 │   ├── 404.html         page « introuvable »
 │   ├── css/style.css    toutes les couleurs et la mise en page
-│   ├── js/main.js       menu mobile + repère de profondeur (aucun traceur)
+│   ├── js/main.js       menu mobile, repère de profondeur, statistiques GoatCounter
 │   ├── img/             logo, image de partage (og.png), icône
 │   ├── favicon.svg, robots.txt, sitemap.xml
 └── propositions/        logos proposés, palette et slogans (non publiés)
