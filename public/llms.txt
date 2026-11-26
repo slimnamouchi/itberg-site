@@ -25,8 +25,8 @@ Points clés :
 
 ## Études de cas
 
-- [El9offa](https://itberg.tn/applis/el9offa): comparateur de prix des courses en Tunisie ; problème, solution, technique (Kotlin Multiplatform, hors connexion, prix datés et sourcés)
-- [EasyFind](https://itberg.tn/applis/easyfind): recherche en français, arabe et arabe tunisien ; technique et méthode de développement avec un agent IA
+- [El9offa](https://itberg.tn/applis/el9offa): comparateur de prix des courses en Tunisie ; problème, solution et approche (Android puis iOS, utilisable hors connexion, prix datés et sourcés)
+- [EasyFind](https://itberg.tn/applis/easyfind): recherche en français, arabe et arabe tunisien ; problème, solution, et offre SDK qui en découle
 
 ## Démonstrations interactives
 
@@ -45,6 +45,7 @@ Points clés :
 - [Développement Kotlin Multiplatform](https://itberg.tn/developpement-kotlin-multiplatform) · [Kotlin Multiplatform development](https://itberg.tn/en/kotlin-multiplatform-development) · [تطوير Kotlin Multiplatform](https://itberg.tn/ar/kotlin-multiplatform-development)
 - [Audit de sécurité de l’IA](https://itberg.tn/audit-securite-ia-llm) · [LLM security audit](https://itberg.tn/en/llm-security-audit) · [تدقيق أمن الذكاء الاصطناعي](https://itberg.tn/ar/llm-security-audit)
 - [Chatbot en arabe tunisien](https://itberg.tn/chatbot-arabe-tunisien) · [Tunisian Arabic chatbot](https://itberg.tn/en/tunisian-arabic-chatbot) · [روبوت محادثة بالدارجة التونسية](https://itberg.tn/ar/tunisian-arabic-chatbot)
+- [SDK Arabizi](https://itberg.tn/sdk-arabizi) · [Arabizi SDK](https://itberg.tn/en/arabizi-sdk) · [حزمة «عربيزي»](https://itberg.tn/ar/arabizi-sdk): SDK de recherche et de compréhension de la derja en lettres latines, de l'arabe et du français, à intégrer dans des applications web, Android et iOS ; essai mesuré sur les exemples du client, prix sur proposition écrite
 - [Gouvernance de l’IA et AI Act](https://itberg.tn/gouvernance-ia-ai-act) · [AI governance and EU AI Act](https://itberg.tn/en/ai-governance-eu-ai-act) · [حوكمة الذكاء الاصطناعي وقانون AI Act](https://itberg.tn/ar/ai-governance-eu-ai-act)
 
 ## Blog

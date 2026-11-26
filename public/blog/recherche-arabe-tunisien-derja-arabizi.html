@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Recherche en arabe tunisien : comprendre la derja écrite en lettres latines · ITBerg</title>
-<meta name="description" content="« nheb na3ref el prix », « je cherche », « نحب نعرف » : comment construire une recherche qui comprend le français, l’arabe et l’arabe tunisien (arabizi).">
+<meta name="description" content="« nheb na3ref el prix », « je cherche », « نحب نعرف » : ce qu’une recherche doit savoir faire pour lire le français, l’arabe et l’arabe tunisien (arabizi).">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi">
 <link rel="alternate" hreflang="fr" href="https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="ITBerg">
 <meta property="og:locale" content="fr_TN">
 <meta property="og:title" content="Recherche en arabe tunisien : comprendre la derja écrite en lettres latines · ITBerg">
-<meta property="og:description" content="« nheb na3ref el prix », « je cherche », « نحب نعرف » : comment construire une recherche qui comprend le français, l’arabe et l’arabe tunisien (arabizi).">
+<meta property="og:description" content="« nheb na3ref el prix », « je cherche », « نحب نعرف » : ce qu’une recherche doit savoir faire pour lire le français, l’arabe et l’arabe tunisien (arabizi).">
 <meta property="og:url" content="https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi">
 <meta property="og:image" content="https://itberg.tn/img/og.png">
 <meta property="og:image:width" content="1200">
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/main.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Recherche en arabe tunisien : comprendre la derja écrite en lettres latines","description":"« nheb na3ref el prix », « je cherche », « نحب نعرف » : comment construire une recherche qui comprend le français, l’arabe et l’arabe tunisien (arabizi).","datePublished":"2026-11-26","dateModified":"2026-11-26","inLanguage":"fr","mainEntityOfPage":{"@type":"WebPage","@id":"https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi"},"url":"https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi","image":"https://itberg.tn/img/og.png","author":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","url":"https://itberg.tn/"},"publisher":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","logo":{"@type":"ImageObject","url":"https://itberg.tn/img/logo-512.png"}},"articleSection":"IA et langues","keywords":["arabe tunisien","derja","arabizi","recherche multilingue","NLP"],"isPartOf":{"@type":"Blog","@id":"https://itberg.tn/blog#blog"}}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Recherche en arabe tunisien : comprendre la derja écrite en lettres latines","description":"« nheb na3ref el prix », « je cherche », « نحب نعرف » : ce qu’une recherche doit savoir faire pour lire le français, l’arabe et l’arabe tunisien (arabizi).","datePublished":"2026-11-26","dateModified":"2026-11-26","inLanguage":"fr","mainEntityOfPage":{"@type":"WebPage","@id":"https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi"},"url":"https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi","image":"https://itberg.tn/img/og.png","author":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","url":"https://itberg.tn/"},"publisher":{"@type":"Organization","@id":"https://itberg.tn/#organisation","name":"ITBerg","logo":{"@type":"ImageObject","url":"https://itberg.tn/img/logo-512.png"}},"articleSection":"IA et langues","keywords":["arabe tunisien","derja","arabizi","recherche multilingue","NLP"],"isPartOf":{"@type":"Blog","@id":"https://itberg.tn/blog#blog"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://itberg.tn/blog"},{"@type":"ListItem","position":3,"name":"Recherche en arabe tunisien : comprendre la derja écrite en lettres latines","item":"https://itberg.tn/blog/recherche-arabe-tunisien-derja-arabizi"}]}
@@ -67,26 +67,18 @@
 <h2>Pourquoi une recherche classique échoue</h2>
 <p>Un moteur de recherche standard compare des mots. Il ne sait pas que « 7lib » et « <span lang="ar" dir="rtl">حليب</span> » sont le même mot, ni que « lait » en est la traduction. Il bute aussi sur les variantes : avec ou sans voyelles, avec ou sans hamza, « ة » ou « ه » en fin de mot. Résultat : l’utilisateur ne trouve rien et pense que le produit n’existe pas.</p>
 
-<h2>Les briques d’une recherche qui comprend le tunisien</h2>
-<h3>1. Normaliser</h3>
-<p>Avant toute comparaison, on ramène le texte à une forme commune : minuscules, suppression des accents et des signes diacritiques arabes, unification des variantes de l’alif (<span lang="ar">أ إ آ</span> vers <span lang="ar">ا</span>), de la tâ marbouta et du yâ final, réduction des lettres répétées (« 7leeeeb »).</p>
-<h3>2. Translittérer</h3>
-<p>On convertit l’arabizi vers l’alphabet arabe, ou les deux vers une forme pivot, avec des règles adaptées au tunisien. Plusieurs conversions sont possibles pour un même mot : on les garde toutes et on laisse le classement trancher.</p>
-<h3>3. Relier les mots par un dictionnaire de synonymes</h3>
-<p>Un lexique fait le lien entre la derja, l’arabe standard et le français : « 7lib », « <span lang="ar" dir="rtl">حليب</span> », « lait ». C’est un travail patient, mais c’est lui qui fait la différence. On l’enrichit avec les recherches qui n’ont rien donné.</p>
-<h3>4. Tolérer les fautes</h3>
-<p>Recherche approchée (distance d’édition, découpage en trigrammes) pour accepter une lettre en trop ou en moins. Le tout peut tourner directement sur le téléphone, dans un index plein texte SQLite, sans envoyer la requête à un serveur.</p>
-<h3>5. Ajouter l’IA là où elle apporte quelque chose</h3>
-<p>Les modèles de langage et les représentations vectorielles (embeddings) aident pour les requêtes longues ou formulées comme une question. Mais ils coûtent plus cher, sont plus lents et moins prévisibles. Nous les ajoutons en dernier, et seulement si la mesure montre un gain.</p>
+<h2>Ce qu’une bonne recherche doit savoir faire</h2>
+<ul class="ticks"><li><strong>Reconnaître la même demande dans les trois écritures</strong> : « 7lib », « <span lang="ar" dir="rtl">حليب</span> » et « lait » doivent mener au même résultat.</li><li><strong>Accepter les variantes et les fautes</strong> : sans orthographe officielle, chacun écrit à sa façon, et la recherche ne doit pas échouer pour une lettre.</li><li><strong>Connaître le vocabulaire tunisien</strong> : les mots de tous les jours, empruntés au français ou à l’italien, que les dictionnaires ignorent.</li><li><strong>Répondre vite</strong>, y compris sur un téléphone d’entrée de gamme et avec une connexion faible.</li><li><strong>N’ajouter un modèle d’IA que s’il apporte un gain mesuré</strong> : les grands modèles coûtent plus cher, sont plus lents et moins prévisibles.</li></ul>
+<p>Comment nous y arrivons, c’est notre savoir-faire : nous le mettons au service de nos clients plutôt que de le publier.</p>
 
 <h2>Mesurer avant de croire</h2>
 <p>Une recherche multilingue se juge sur des chiffres, pas sur une démonstration. La méthode que nous suivons :</p>
 <ul class="ticks"><li>constituer un jeu de requêtes réelles, dans les trois écritures, avec le résultat attendu ;</li><li>mettre de côté une partie <strong>gelée</strong> de ce jeu, qui ne sert jamais à régler le moteur ;</li><li>mesurer à chaque changement (nouvelles règles, nouveaux synonymes, nouveau modèle) et garder une trace de chaque mesure.</li></ul>
 <p>Sans jeu gelé, on finit par ajuster le moteur aux questions du test, et les scores montent sans que l’expérience réelle s’améliore.</p>
 
-<h2>Dans nos applications</h2>
-<p>C’est cette approche que nous appliquons dans <a href="/applis/easyfind">EasyFind</a>, notre recherche en français, arabe et arabe tunisien, et dans <a href="/applis/el9offa">El9offa</a>, où la recherche de produits et ses synonymes en derja fonctionnent sur le téléphone, même hors connexion.</p>
-<p>Vous avez un moteur de recherche, un assistant ou un service client qui doit comprendre vos clients tunisiens ? <a href="/ia">Voir notre offre IA</a> ou écrivez-nous.</p>
+<h2>Dans nos applications, et bientôt dans les vôtres</h2>
+<p>C’est ce que fait <a href="/applis/easyfind">EasyFind</a>, notre recherche en français, arabe et arabe tunisien. Vous pouvez l’essayer dans notre <a href="/demo-ia">démo de recherche</a>.</p>
+<p>Vous avez une application web ou mobile, un catalogue ou un service client qui doit comprendre vos clients tunisiens ? Nous proposons cette compréhension sous forme de <a href="/sdk-arabizi">SDK Arabizi</a> à intégrer dans vos applications, ou <a href="/ia">un accompagnement IA</a> sur mesure.</p>
   </div></div>
 </div>
 </article>
@@ -113,7 +105,7 @@
     </nav>
     <nav aria-label="Ressources">
       <h2 class="footer-title">Ressources</h2>
-      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li><li><a href="/developpement-kotlin-multiplatform">Développement Kotlin Multiplatform</a></li><li><a href="/audit-securite-ia-llm">Audit de sécurité de l’IA</a></li><li><a href="/chatbot-arabe-tunisien">Chatbot en arabe tunisien</a></li><li><a href="/gouvernance-ia-ai-act">Gouvernance de l’IA et AI Act</a></li></ul>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li><li><a href="/developpement-kotlin-multiplatform">Développement Kotlin Multiplatform</a></li><li><a href="/audit-securite-ia-llm">Audit de sécurité de l’IA</a></li><li><a href="/chatbot-arabe-tunisien">Chatbot en arabe tunisien</a></li><li><a href="/sdk-arabizi">SDK Arabizi</a></li><li><a href="/gouvernance-ia-ai-act">Gouvernance de l’IA et AI Act</a></li></ul>
     </nav>
     <div>
       <h2 class="footer-title">Contact</h2>
