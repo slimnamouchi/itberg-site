@@ -30,6 +30,7 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/main.js"></script>
+<script type="module" src="/js/assistant-ia.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://itberg.tn/"},{"@type":"ListItem","position":2,"name":"Assistant","item":"https://itberg.tn/assistant"}]}
 </script>
@@ -71,7 +72,7 @@
         </ol>
         <dl class="demo-proof">
           <div><dt>Questions envoyées à un serveur</dt><dd>0</dd></div>
-          <div><dt>Modèle de langage</dt><dd>aucun</dd></div>
+          <div><dt>Modèle de langage</dt><dd>facultatif, local</dd></div>
           <div><dt>Cookies et historique</dt><dd>aucun</dd></div>
         </dl>
       </aside>
@@ -88,6 +89,17 @@
       <div class="block"><h3>3. Chercher dans les pages du site</h3><p>À chaque publication, un script découpe les pages publiques en passages et produit un index. L’assistant le lit une fois, puis classe les passages par pertinence (BM25), avec un petit lexique qui relie « prix », « tarif » et « 9adech ».</p></div>
       <div class="block"><h3>4. Citer, ou passer la main</h3><p>Il affiche le passage le plus proche et son lien. Si le score est trop faible, il ne répond pas et vous oriente vers l’équipe. Le détail de chaque réponse est dans « Sous la surface ».</p></div>
     </div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="ia-locale">
+  <div class="wrap">
+    <h2 id="ia-locale">En option : une réponse rédigée par une IA locale</h2>
+    <p class="section-lead">Sous une réponse, le bouton « Rédiger une réponse avec l’IA locale » fait reformuler les passages trouvés par un petit modèle de langage, Qwen2.5 (1,5 milliard de paramètres), qui tourne sur votre carte graphique grâce à WebGPU.</p>
+    <div class="cols-2">
+      <div class="block"><h3>Ce qui est téléchargé</h3><p>Le modèle, environ 1 Go, depuis Hugging Face, une seule fois et seulement si vous l’acceptez. Il reste ensuite dans le cache de votre navigateur, que vous pouvez vider à tout moment. Votre question, elle, ne quitte pas votre appareil.</p></div>
+      <div class="block"><h3>Ce qui le tient</h3><p>Il ne voit que votre question et les passages déjà trouvés, numérotés, qu’il doit citer. Ses consignes sont fixes, sa réponse est courte, et elle est masquée si elle contient un prix. La source reste affichée et fait foi.</p></div>
+    </div>
+    <p class="note">Il faut un navigateur récent avec WebGPU (Chrome ou Edge sur ordinateur, par exemple). Sinon, rien n’est téléchargé et la réponse tirée du site reste la seule. Pour lui permettre de fonctionner, ces trois pages autorisent en plus WebAssembly et Hugging Face dans leur politique de sécurité ; le reste du site garde la politique la plus stricte.</p>
   </div>
 </section>
 <section class="band band-3" aria-labelledby="limites">
@@ -120,7 +132,7 @@
     </nav>
     <nav aria-label="Ressources">
       <h2 class="footer-title">Ressources</h2>
-      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li></ul>
+      <ul class="footer-links"><li><a href="/blog">Blog</a></li><li><a href="/applis/el9offa">Étude de cas El9offa</a></li><li><a href="/applis/easyfind">Étude de cas EasyFind</a></li><li><a href="/developpement-application-mobile-tunisie">Développement mobile en Tunisie</a></li><li><a href="/agent-ia-langgraph">Agents IA avec LangGraph</a></li><li><a href="/audit-securite-application-mobile">Audit de sécurité mobile</a></li><li><a href="/ia-souveraine">IA souveraine</a></li><li><a href="/assistant-ia-documents-rag">Assistant IA sur vos documents</a></li><li><a href="/developpement-kotlin-multiplatform">Développement Kotlin Multiplatform</a></li><li><a href="/audit-securite-ia-llm">Audit de sécurité de l’IA</a></li><li><a href="/chatbot-arabe-tunisien">Chatbot en arabe tunisien</a></li><li><a href="/gouvernance-ia-ai-act">Gouvernance de l’IA et AI Act</a></li></ul>
     </nav>
     <div>
       <h2 class="footer-title">Contact</h2>

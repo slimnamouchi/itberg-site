@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LLM security audit: prompt injection, chatbots, AI agents · ITBerg</title>
+<meta name="description" content="Security audits of chatbots, assistants and AI agents based on the OWASP Top 10 for LLMs: prompt injection, data leakage, excessive agency.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/en/llm-security-audit">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/audit-securite-ia-llm">
+<link rel="alternate" hreflang="en" href="https://itberg.tn/en/llm-security-audit">
+<link rel="alternate" hreflang="ar" href="https://itberg.tn/ar/llm-security-audit">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/audit-securite-ia-llm">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_TN">
+<meta property="og:locale:alternate" content="ar_TN">
+<meta property="og:title" content="LLM security audit: prompt injection, chatbots, AI agents · ITBerg">
+<meta property="og:description" content="Security audits of chatbots, assistants and AI agents based on the OWASP Top 10 for LLMs: prompt injection, data leakage, excessive agency.">
+<meta property="og:url" content="https://itberg.tn/en/llm-security-audit">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ITBerg logo: an iceberg shaped like a compass needle, with the tagline “AI on the surface. Mastery in depth.”">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"AI and LLM security audit","description":"Attack testing of chatbots, assistants and AI agents based on the OWASP Top 10 for LLM applications: prompt injection, data leakage, excessive agency.","serviceType":"Security audit","url":"https://itberg.tn/en/llm-security-audit","provider":{"@id":"https://itberg.tn/#organisation"},"areaServed":{"@type":"Country","name":"Tunisia"},"inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is prompt injection?","acceptedAnswer":{"@type":"Answer","text":"It is booby-trapped text, in a message, a document or a web page read by the AI, that tries to hijack its instructions: make it reveal information, ignore its rules or trigger an action. It is the first risk in the OWASP Top 10 for LLM applications."}},{"@type":"Question","name":"What exactly do you test?","acceptedAnswer":{"@type":"Answer","text":"Your assistant, chatbot or agent as deployed: its instructions, the documents it reads, the tools it can call and what it returns to the user. We follow the OWASP Top 10 for LLM applications and add tests specific to your business."}},{"@type":"Question","name":"Can you guarantee no attack will work?","acceptedAnswer":{"@type":"Answer","text":"No, and nobody honestly can: a language model is never 100% reliable. The audit reduces the risk and, above all, checks that the consequences of a hijack stay limited: least privilege, human approval, logging."}},{"@type":"Question","name":"Do you need access to the model?","acceptedAnswer":{"@type":"Answer","text":"No. We test from the outside, like a user or an attacker, preferably on a test environment. Access to the system instructions and architecture allows a more thorough audit. We only work with your written authorisation."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://itberg.tn/en"},{"@type":"ListItem","position":2,"name":"AI and LLM security audit","item":"https://itberg.tn/en/llm-security-audit"}]}
+</script>
+</head>
+<body class="page-landing">
+<a class="skip" href="#contenu">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/en" aria-label="ITBerg, home"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="Menu" data-label-close="Close"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="site-nav" id="menu" aria-label="Main navigation"><ul><li><a href="/en/solutions">Solutions</a></li><li><a href="/en/ai">AI &amp; agents</a></li><li><a href="/en/mobile-development">Mobile</a></li><li><a href="/en/security" aria-current="page">Security</a></li><li><a href="/en/apps">Apps</a></li><li><a class="nav-cta" href="/en/contact">Contact us</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="Site language"><ul><li><a href="/audit-securite-ia-llm" hreflang="fr" lang="fr"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en/llm-security-audit" hreflang="en" lang="en" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar/llm-security-audit" hreflang="ar" lang="ar"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/en">Home</a></li><li aria-current="page">AI and LLM security audit</li></ol></nav><p class="eyebrow">Security · AI and LLMs</p>
+    <h1>AI and LLM security audit</h1>
+    <p class="lead">Is your chatbot, assistant or AI agent in contact with customers or sensitive data? We look for ways to hijack it before someone else does, and help you limit the possible damage.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="risks">
+  <div class="wrap">
+    <h2 id="risks">The risks we test</h2>
+<ul class="checks checks-grid"><li><span class="check-code">INJECTION</span><span><strong>Prompt injection:</strong> direct in the conversation, or indirect through a document, an email or a web page.</span></li><li><span class="check-code">LEAK</span><span><strong>Information leakage:</strong> personal data, internal documents, system instructions.</span></li><li><span class="check-code">AGENCY</span><span><strong>Excessive agency:</strong> an agent that sends, changes or deletes more than it should.</span></li><li><span class="check-code">OUTPUT</span><span><strong>Improper output handling:</strong> AI output reused as is in a page, a query or a command.</span></li><li><span class="check-code">RAG</span><span><strong>Knowledge base:</strong> poisoned documents, access rights ignored during retrieval.</span></li><li><span class="check-code">COST</span><span><strong>Unbounded consumption:</strong> looping or oversized requests that blow up the bill.</span></li></ul>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="method">
+  <div class="wrap">
+    <h2 id="method">Our method</h2>
+    <ol class="steps">
+      <li><h3>Mapping</h3><p>What the AI reads, what it can do, who it answers, and what would be serious.</p></li>
+      <li><h3>Attack testing</h3><p>Manual scenarios tailored to your business, complemented by automated campaigns with open-source tools.</p></li>
+      <li><h3>Report and fixes</h3><p>Each flaw with its evidence, impact and fix: filtering, permissions, human approval, content separation.</p></li>
+      <li><h3>Regression tests</h3><p>The attacks found become automated tests, replayed whenever the model or instructions change.</p></li>
+    </ol>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="try">
+  <div class="wrap">
+    <h2 id="try">Try it yourself</h2>
+    <p class="section-lead">Our “Trap the agent” mini-game shows, in three levels, how prompt injection works and how guardrails stop it. The agent is simulated and no data is sent.</p>
+    <p><a class="btn" href="/en/trap-the-agent">Play “Trap the agent”</a></p>
+    <p class="note">See also: <a href="/en/security">our full security offer</a>, <a href="/en/ai">sovereign AI and agents</a>, <a href="/en/report-a-vulnerability">report a vulnerability</a>.</p>
+  </div>
+</section>
+<section class="band band-1" id="faq" aria-labelledby="faq-titre">
+  <div class="wrap faq-wrap">
+    <h2 id="faq-titre">Frequently asked questions</h2>
+    <div class="faq"><details class="faq-item"><summary><h3>What is prompt injection?</h3></summary><p>It is booby-trapped text, in a message, a document or a web page read by the AI, that tries to hijack its instructions: make it reveal information, ignore its rules or trigger an action. It is the first risk in the OWASP Top 10 for LLM applications.</p></details><details class="faq-item"><summary><h3>What exactly do you test?</h3></summary><p>Your assistant, chatbot or agent as deployed: its instructions, the documents it reads, the tools it can call and what it returns to the user. We follow the OWASP Top 10 for LLM applications and add tests specific to your business.</p></details><details class="faq-item"><summary><h3>Can you guarantee no attack will work?</h3></summary><p>No, and nobody honestly can: a language model is never 100% reliable. The audit reduces the risk and, above all, checks that the consequences of a hijack stay limited: least privilege, human approval, logging.</p></details><details class="faq-item"><summary><h3>Do you need access to the model?</h3></summary><p>No. We test from the outside, like a user or an attacker, preferably on a test environment. Access to the system instructions and architecture allows a more thorough audit. We only work with your written authorisation.</p></details></div>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">Have your AI tested</h2>
+      <p>Tell us about your assistant or agent and what it can do: we will propose a test scope.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/en" aria-label="ITBerg, home"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">AI on the surface. Mastery in depth.</p>
+      <p class="footer-small">Tunisian company · Sovereign AI and agents, mobile apps, mobile security.</p>
+    </div>
+    <nav aria-label="Site pages">
+      <h2 class="footer-title">Expertise</h2>
+      <ul class="footer-links"><li><a href="/en/solutions">All our solutions</a></li><li><a href="/en/ai">Sovereign AI and agents</a></li><li><a href="/en/ai-consulting">AI consulting</a></li><li><a href="/en/mobile-development">Mobile development</a></li><li><a href="/en/security">Mobile app security</a></li><li><a href="/en/apps">Our apps</a></li></ul>
+    </nav>
+    <nav aria-label="Resources">
+      <h2 class="footer-title">Resources</h2>
+      <ul class="footer-links"><li><a href="/blog">Blog (in French)</a></li><li><a href="/applis/el9offa">El9offa case study (in French)</a></li><li><a href="/applis/easyfind">EasyFind case study (in French)</a></li><li><a href="/en/kotlin-multiplatform-development">Kotlin Multiplatform development</a></li><li><a href="/en/llm-security-audit">LLM security audit</a></li><li><a href="/en/tunisian-arabic-chatbot">Tunisian Arabic chatbot</a></li><li><a href="/en/ai-governance-eu-ai-act">AI governance and EU AI Act</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">Contact</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>Tunisia</li><li><a href="/mentions-legales">Legal notice and privacy (in French)</a></li><li><a href="/en/site-security">Security of this site</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>No cookies. Anonymous audience measurement, no advertising, no data resale.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -153,6 +153,7 @@ Le bouton « Une question ? » en bas de chaque page ouvre l'assistant ITBerg (p
 - Ses garde-fous et ses textes (FR/EN/AR) sont dans `js/main.js`, bloc « Assistant ITBerg » : refus du hors-sujet, des tentatives de changer ses règles et des demandes d'attaque, alerte si on lui écrit une donnée personnelle, « je ne sais pas » quand aucun passage n'est assez proche, et lien « Parler à un humain » toujours visible.
 - Pour qu'une question trouve la bonne réponse, le plus efficace est d'avoir sur le site une question de FAQ formulée comme vos clients la posent.
 - Pour masquer le bouton sur une page, ajoutez la classe `no-assistant` à son `<body>`.
+- **IA locale (facultative)**, sur les 3 pages Assistant seulement : sous une réponse, un bouton fait reformuler les passages trouvés par un petit modèle (Qwen2.5 1,5B via WebLLM, `js/assistant-ia.js`). Le modèle (≈ 1 Go) est téléchargé depuis Hugging Face après accord du visiteur ; la bibliothèque (`js/vendor/`) et le module WebGPU (`assistant/modele/`) sont servis par itberg.tn. Ces pages ont une CSP à part dans `firebase.json` (CSP du site + `'wasm-unsafe-eval'` + Hugging Face), contrôlée par `check_site.py` et `check_headers.py`. Pour changer de version de WebLLM, remplacez les deux fichiers ensemble.
 
 ## Les trois langues
 

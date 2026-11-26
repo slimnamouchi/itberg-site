@@ -652,3 +652,14 @@ pre.code code { background: none; padding: 0; font-size: inherit; color: inherit
 .asst-foot a { color: var(--accent); font-weight: 650; }
 .asst-human { white-space: nowrap; }
 @media print { .asst, .asst-launch { display: none !important; } }
+/* IA locale (pages Assistant, js/assistant-ia.js) */
+.asst-ia { display: grid; gap: .45rem; padding-block-start: .5rem; border-block-start: 1px dashed var(--line); }
+.asst-ia-btn { justify-self: start; }
+.asst-ia-note, .asst-ia-label { font-size: .85rem; color: var(--muted); }
+.asst-ia-status { font-size: .85rem; color: var(--muted); font-style: italic; }
+.asst-ia-progress { width: 100%; height: .5rem; accent-color: var(--accent); }
+.asst-ia-text { padding: .5rem .8rem; border-inline-start: 3px solid var(--mark-star); background: var(--band-2); border-radius: 0 8px 8px 0; white-space: pre-wrap; }
+.asst-ia-stop { justify-self: start; }
+.asst-ia-srctitle { font-size: .85rem; font-weight: 650; }
+.asst-ia-sources { margin: 0; padding-inline-start: 1.4rem; font-size: .88rem; }
+.asst-ia-link { font-size: .88rem; }

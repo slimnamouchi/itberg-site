@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تطوير تطبيقات Kotlin Multiplatform: Android وiOS بشيفرة واحدة · ITBerg</title>
+<meta name="description" content="تطبيقات Android وiOS بـ Kotlin Multiplatform وCompose Multiplatform: شيفرة وظيفية مشتركة وأداء أصلي. شركة تونسية.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://itberg.tn/ar/kotlin-multiplatform-development">
+<link rel="alternate" hreflang="fr" href="https://itberg.tn/developpement-kotlin-multiplatform">
+<link rel="alternate" hreflang="en" href="https://itberg.tn/en/kotlin-multiplatform-development">
+<link rel="alternate" hreflang="ar" href="https://itberg.tn/ar/kotlin-multiplatform-development">
+<link rel="alternate" hreflang="x-default" href="https://itberg.tn/developpement-kotlin-multiplatform">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06182b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ITBerg">
+<meta property="og:locale" content="ar_TN">
+<meta property="og:locale:alternate" content="fr_TN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="تطوير تطبيقات Kotlin Multiplatform: Android وiOS بشيفرة واحدة · ITBerg">
+<meta property="og:description" content="تطبيقات Android وiOS بـ Kotlin Multiplatform وCompose Multiplatform: شيفرة وظيفية مشتركة وأداء أصلي. شركة تونسية.">
+<meta property="og:url" content="https://itberg.tn/ar/kotlin-multiplatform-development">
+<meta property="og:image" content="https://itberg.tn/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="شعار ITBerg: جبل جليدي على شكل إبرة بوصلة، مع الشعار «الذكاء الاصطناعي على السطح، والتحكّم في العمق».">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"تطوير Kotlin Multiplatform","description":"تصميم تطبيقات Android وiOS وتطويرها بـ Kotlin Multiplatform وCompose Multiplatform، ونقل تطبيقات Android الموجودة.","serviceType":"تطوير تطبيقات الهاتف","url":"https://itberg.tn/ar/kotlin-multiplatform-development","provider":{"@id":"https://itberg.tn/#organisation"},"areaServed":{"@type":"Country","name":"تونس"},"inLanguage":"ar"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ما هي Kotlin Multiplatform؟","acceptedAnswer":{"@type":"Answer","text":"Kotlin Multiplatform (KMP) تقنية من JetBrains، مستقرّة منذ أواخر 2023، تتيح كتابة الشيفرة الوظيفية للتطبيق مرّة واحدة (القواعد والبيانات والاتصال بالشبكة) واستعمالها على Android وiOS والويب والخادم. وتضيف Compose Multiplatform إمكانية مشاركة الواجهة أيضًا."}},{"@type":"Question","name":"ما الفرق بينها وبين Flutter أو React Native؟","acceptedAnswer":{"@type":"Answer","text":"مع Kotlin Multiplatform تُترجَم الشيفرة المشتركة إلى شيفرة أصلية لكلّ منصّة، وأنت من يختار ما يُشارَك: المنطق فقط أو الشاشات أيضًا. ويمكن الإبقاء على واجهة iOS أصلية حيث يلزم. وبالنسبة إلى فريق يعرف Android وKotlin، فإنّ التعلّم سريع."}},{"@type":"Question","name":"هل يمكن نقل تطبيق Android موجود؟","acceptedAnswer":{"@type":"Answer","text":"نعم، وهذه من أبرز مزاياها: يتمّ النقل وحدةً بعد وحدة. نبدأ باستخراج المنطق الوظيفي إلى Kotlin خالصة، ثمّ البيانات والشبكة، ويبقى تطبيق Android يعمل في كلّ مرحلة."}},{"@type":"Question","name":"ما نسبة الشيفرة المشتركة؟","acceptedAnswer":{"@type":"Answer","text":"يتوقّف ذلك على المشروع. المنطق الوظيفي والبيانات والشبكة تُشارَك كلّها تقريبًا. أمّا الواجهة فتتيح Compose Multiplatform مشاركة معظمها، وتبقى بعض الشاشات أو الوظائف الخاصّة بكلّ نظام (الدفع، المستشعرات، الإشعارات) مكتوبة لكلّ منصّة."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://itberg.tn/ar"},{"@type":"ListItem","position":2,"name":"تطوير Kotlin Multiplatform","item":"https://itberg.tn/ar/kotlin-multiplatform-development"}]}
+</script>
+</head>
+<body class="page-landing">
+<a class="skip" href="#contenu">الانتقال إلى المحتوى</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ar" aria-label="ITBerg، الصفحة الرئيسية"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-label-open="القائمة" data-label-close="إغلاق"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">القائمة</span></button>
+    <nav class="site-nav" id="menu" aria-label="التنقل الرئيسي"><ul><li><a href="/ar/solutions">الحلول</a></li><li><a href="/ar/ai">الذكاء الاصطناعي والوكلاء</a></li><li><a href="/ar/mobile-development" aria-current="page">تطبيقات الهاتف</a></li><li><a href="/ar/security">الأمن</a></li><li><a href="/ar/apps">تطبيقاتنا</a></li><li><a class="nav-cta" href="/ar/contact">اتصل بنا</a></li></ul></nav>
+    <nav class="lang-switch" aria-label="لغة الموقع"><ul><li><a href="/developpement-kotlin-multiplatform" hreflang="fr" lang="fr"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></li><li><a href="/en/kotlin-multiplatform-development" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li><li><a href="/ar/kotlin-multiplatform-development" hreflang="ar" lang="ar" aria-current="true"><span aria-hidden="true">ع</span><span class="sr-only">العربية</span></a></li></ul></nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="page-hero band band-0">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="مسار التنقل"><ol><li><a href="/ar">الرئيسية</a></li><li aria-current="page">تطوير Kotlin Multiplatform</li></ol></nav><p class="eyebrow">تطبيقات الهاتف · Kotlin Multiplatform</p>
+    <h1>تطوير التطبيقات بـ Kotlin Multiplatform</h1>
+    <p class="lead">تطبيق Android وiOS دون دفع ثمن العمل نفسه مرّتين: نكتب الشيفرة الوظيفية مرّة واحدة بـ Kotlin، ونشارك الواجهة حين يفيد ذلك. لمشروع جديد أو لنقل تطبيق Android موجود.</p>
+  </div>
+</section>
+<section class="band band-1" aria-labelledby="why">
+  <div class="wrap">
+    <h2 id="why">لماذا Kotlin Multiplatform</h2>
+    <div class="cols-3">
+      <div class="block"><h3>شيفرة وظيفية واحدة</h3><p>القواعد والحسابات والمزامنة والوصول إلى البيانات تُكتب وتُختبر مرّة واحدة، لـ Android وiOS.</p></div>
+      <div class="block"><h3>أداء أصلي</h3><p>تُترجَم الشيفرة لكلّ منصّة، دون طبقة وسيطة بين تطبيقك والهاتف.</p></div>
+      <div class="block"><h3>اعتماد تدريجي</h3><p>يمكن البدء بمشاركة وحدة واحدة ثمّ التوسّع، دون إعادة كتابة كلّ شيء.</p></div>
+    </div>
+  </div>
+</section>
+<section class="band band-2" aria-labelledby="archi">
+  <div class="wrap">
+    <h2 id="archi">كيف ننظّم مشروع KMP</h2>
+    <ol class="steps">
+      <li><h3>منطق وظيفي بـ Kotlin خالصة</h3><p>لا يعتمد قلب التطبيق على Android ولا على iOS ولا على Firebase، فيُختبر بسرعة ويُعاد استعماله في كلّ مكان.</p></li>
+      <li><h3>البيانات دون اتصال أوّلًا</h3><p>قاعدة بيانات محلّية مشتركة، ومزامنة في الخلفية، وشاشات تعمل حتّى دون شبكة.</p></li>
+      <li><h3>واجهة Compose Multiplatform</h3><p>شاشات مشتركة حيث يكون ذلك مجديًا، وأصلية حيث تتطلّب التجربة ذلك.</p></li>
+      <li><h3>تكامل مستمرّ</h3><p>كلّ تعديل يُبنى ويُختبر لـ Android وiOS قبل أن يصل إلى التطبيق.</p></li>
+    </ol>
+    <ul class="tags tags-spaced" aria-label="التقنيات"><li>Kotlin</li><li>Kotlin Multiplatform</li><li>Compose Multiplatform</li><li>Ktor</li><li>Room</li><li>SQLite</li><li>Firebase</li><li>Coroutines</li></ul>
+  </div>
+</section>
+<section class="band band-3" aria-labelledby="proof">
+  <div class="wrap">
+    <h2 id="proof">تطبيقاتنا مبنيّة بـ Kotlin Multiplatform</h2>
+    <p class="section-lead">لا نذكر عملاء ليسوا لدينا. تطبيقانا مبنيّان بهذه التقنية.</p>
+    <div class="apps">
+      <article class="app"><h3>El9offa</h3><p>مقارنة أسعار المشتريات في تونس: Android أوّلًا، ثمّ iOS بمشاركة معظم الشيفرة، مع العمل دون اتصال أوّلًا.</p><a class="more" href="/applis/el9offa">دراسة الحالة (بالفرنسية)</a></article>
+      <article class="app"><h3>EasyFind</h3><p>بحث بالفرنسية والعربية والدارجة: تطبيق Android ونسخة ويب يتشاركان الشيفرة الوظيفية.</p><a class="more" href="/applis/easyfind">دراسة الحالة (بالفرنسية)</a></article>
+    </div>
+    <p class="note">انظر أيضًا: <a href="/ar/mobile-development">منهجيتنا في تطوير تطبيقات الهاتف</a>, <a href="/ar/security">أمن تطبيقات الهاتف</a>, <a href="/ar/apps">تطبيقاتنا</a>.</p>
+  </div>
+</section>
+<section class="band band-1" id="faq" aria-labelledby="faq-titre">
+  <div class="wrap faq-wrap">
+    <h2 id="faq-titre">أسئلة شائعة</h2>
+    <div class="faq"><details class="faq-item"><summary><h3>ما هي Kotlin Multiplatform؟</h3></summary><p>Kotlin Multiplatform (KMP) تقنية من JetBrains، مستقرّة منذ أواخر 2023، تتيح كتابة الشيفرة الوظيفية للتطبيق مرّة واحدة (القواعد والبيانات والاتصال بالشبكة) واستعمالها على Android وiOS والويب والخادم. وتضيف Compose Multiplatform إمكانية مشاركة الواجهة أيضًا.</p></details><details class="faq-item"><summary><h3>ما الفرق بينها وبين Flutter أو React Native؟</h3></summary><p>مع Kotlin Multiplatform تُترجَم الشيفرة المشتركة إلى شيفرة أصلية لكلّ منصّة، وأنت من يختار ما يُشارَك: المنطق فقط أو الشاشات أيضًا. ويمكن الإبقاء على واجهة iOS أصلية حيث يلزم. وبالنسبة إلى فريق يعرف Android وKotlin، فإنّ التعلّم سريع.</p></details><details class="faq-item"><summary><h3>هل يمكن نقل تطبيق Android موجود؟</h3></summary><p>نعم، وهذه من أبرز مزاياها: يتمّ النقل وحدةً بعد وحدة. نبدأ باستخراج المنطق الوظيفي إلى Kotlin خالصة، ثمّ البيانات والشبكة، ويبقى تطبيق Android يعمل في كلّ مرحلة.</p></details><details class="faq-item"><summary><h3>ما نسبة الشيفرة المشتركة؟</h3></summary><p>يتوقّف ذلك على المشروع. المنطق الوظيفي والبيانات والشبكة تُشارَك كلّها تقريبًا. أمّا الواجهة فتتيح Compose Multiplatform مشاركة معظمها، وتبقى بعض الشاشات أو الوظائف الخاصّة بكلّ نظام (الدفع، المستشعرات، الإشعارات) مكتوبة لكلّ منصّة.</p></details></div>
+  </div>
+</section>
+<section class="band band-deep cta" aria-labelledby="cta-titre">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-titre">مشروع على Android وiOS؟</h2>
+      <p>صِف لنا تطبيقك، أو أرسل رابط التطبيق الذي تريد تطويره: نخبرك بما يمكن مشاركته.</p>
+    </div>
+    <a class="btn btn-glow" href="mailto:contact@itberg.tn">contact@itberg.tn</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/ar" aria-label="ITBerg، الصفحة الرئيسية"><svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="lg-ta" d="M24 7 18 22h6z"/><path class="lg-tb" d="M24 7l6 15h-6z"/><path class="lg-ba" d="M16 26h8v20z"/><path class="lg-bb" d="M32 26h-8v20z"/><path class="lg-line" d="M7 24h34"/><circle class="lg-star" cx="24" cy="2.6" r="1.9"/></svg><span class="brand-word">IT<b>Berg</b></span></a>
+      <p class="footer-slogan">الذكاء الاصطناعي على السطح، والتحكّم في العمق.</p>
+      <p class="footer-small">شركة تونسية · ذكاء اصطناعي سيادي ووكلاء، تطبيقات الهاتف، أمن تطبيقات الهاتف.</p>
+    </div>
+    <nav aria-label="صفحات الموقع">
+      <h2 class="footer-title">خبراتنا</h2>
+      <ul class="footer-links"><li><a href="/ar/solutions">كل حلولنا</a></li><li><a href="/ar/ai">الذكاء الاصطناعي السيادي والوكلاء</a></li><li><a href="/ar/ai-consulting">استشارات الذكاء الاصطناعي</a></li><li><a href="/ar/mobile-development">تطوير تطبيقات الهاتف</a></li><li><a href="/ar/security">أمن تطبيقات الهاتف</a></li><li><a href="/ar/apps">تطبيقاتنا</a></li></ul>
+    </nav>
+    <nav aria-label="موارد">
+      <h2 class="footer-title">موارد</h2>
+      <ul class="footer-links"><li><a href="/blog">المدوّنة (بالفرنسية)</a></li><li><a href="/applis/el9offa">دراسة حالة El9offa (بالفرنسية)</a></li><li><a href="/applis/easyfind">دراسة حالة EasyFind (بالفرنسية)</a></li><li><a href="/ar/kotlin-multiplatform-development">تطوير Kotlin Multiplatform</a></li><li><a href="/ar/llm-security-audit">تدقيق أمن الذكاء الاصطناعي</a></li><li><a href="/ar/tunisian-arabic-chatbot">روبوت محادثة بالدارجة التونسية</a></li><li><a href="/ar/ai-governance-eu-ai-act">حوكمة الذكاء الاصطناعي وقانون AI Act</a></li></ul>
+    </nav>
+    <div>
+      <h2 class="footer-title">اتصل بنا</h2>
+      <ul class="footer-links"><li><a href="mailto:contact@itberg.tn">contact@itberg.tn</a></li><li><a href="https://www.linkedin.com/company/itberg/" rel="noopener">LinkedIn</a></li><li>تونس</li><li><a href="/mentions-legales">البيانات القانونية والخصوصية (بالفرنسية)</a></li><li><a href="/ar/site-security">أمان هذا الموقع</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 ITBerg</p>
+    <p>لا ملفات تعريف ارتباط. قياس مجهول للزيارات، دون إعلانات ودون بيع للبيانات.</p>
+  </div>
+</footer>
+</body>
+</html>
